@@ -1,0 +1,61 @@
+/* nav_bar.php */
+.main_container .top_nav {
+    display: block;
+    margin-left: 0px;
+}
+.nav_menu {
+  background: #13446f;
+  /* height: 48px; */
+}
+.nav_title {
+  border: 0;
+  background: #13446f;
+  /* height: 46px; */
+}
+
+.nav>li {
+    border-left: 1px solid #ffffff;
+    height: 55px;
+}
+.nav>li>a {
+    color: #ffffff;
+    padding: 18px 15px 12px;
+
+}
+/* index.php */
+.nav-md .container.body .right_col {
+    padding: 10px 20px 0;
+    margin-left: 0px;
+    background-color: #ffffff;
+    min-height: 1063px;
+}
+.tile-stats {
+text-align: center;
+background-color: #dddddd;
+border-radius: 0px;
+border: 1px solid #cfc5c5;
+padding: 18px 10px;
+}
+.tile-stats .count {
+  font-size: 30px;
+  line-height:1;
+}
+.input-group{
+  border: 1px solid #ced4da;
+  padding:5px 10px;
+}
+
+/* .input-group1 {
+    margin-bottom: 10px;
+    border: 1px solid #ced4da;
+    padding: 5px 10px;
+    background: linear-gradient(to right, #d2d3d3, #ffffff);
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 100%;
+} */
+a.user-profile {
+    color: #ffffff !important;
+}
