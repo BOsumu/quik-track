@@ -8,7 +8,7 @@
         <div class="nav_menu">
         <div class="col-md-2">
           <div class="navbar nav_title">
-            <a href="index.php" class="site_title"><img src="assets/images/favicon.png" class="logo-icon" alt="logo icon">Quik Track</a>
+            <a href="index.php" class="site_title"><img src="assets/images/favicon-logo.png" class="logo-icon" alt="logo icon">&nbsp;Quik Track</a>
             <!-- <a href="index.php" class="site_title"><img src="assets/images/companylogo.png" class="logo-icon" alt="logo icon"> <span>Sales Desk</span></a> -->
           </div>
         </div>

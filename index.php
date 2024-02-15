@@ -1,7 +1,12 @@
-<?php
-include("include/header.php");
-include("include/nav_bar.php");
+<?php ob_start();
+
+ include 'include/header.php';
+ include 'include/nav_bar.php';
+include 'include/session.php';
+include 'include/dbConnection.php';
  ?>
+
+
 
         <!-- page content -->
           <div class="right_col" role="main">
