@@ -1,14 +1,10 @@
-<?php ob_start();
+<?php ob_start();?>
+<?php include 'include/dbConnection.php'; ?>
 
- include 'include/header.php';
- include 'include/nav_bar.php';
-include 'include/session.php';
-include 'include/dbConnection.php';
- ?>
- <?php
- $result=mysqli_query($conn, "select U_id from user  where U_id='$session_id'")or die('Error In Session');
- $row=mysqli_fetch_array($result);
- ?>
+ <?php include 'include/header.php';?>
+ <?php include 'include/nav_bar.php';?>
+
+
         <!-- page content -->
           <div class="right_col" role="main">
 
@@ -16,35 +12,36 @@ include 'include/dbConnection.php';
               <div class="col-md-5 col-sm-5">
                 <div class="animated flipInY col-lg-4 col-md-4 col-sm-6">
                   <div class="tile-stats">
-                    <?php $cmonth5 = date("m");
-                    $count_Permanent_sales = mysqli_fetch_array(mysqli_query($conn, "SELECT COUNT(*) FROM sales WHERE MONTH(sale_date) = $cmonth5")); ?>
-                    <h2>This Month Total Sales</h2>
-                    <div class="count"><?php echo $count_Permanent_sales[0];?></div>
+                    <?php
+                    $count_Total_Units = mysqli_fetch_array(mysqli_query($conn, "SELECT COUNT(*) FROM project_units")); ?>
+                    <h2>Total Project Units</h2>
+                    <div class="count"><?php echo $count_Total_Units[0];?></div>
                   </div>
                 </div>
                 <div class="animated flipInY col-lg-4 col-md-4 col-sm-6">
                   <div class="tile-stats">
                     <?php
-                    $cmonth4 = date("m");
-                    $result = mysqli_query($conn, "SELECT SUM(selling_price) FROM sales WHERE MONTH(sale_date) = $cmonth4");
-                           if ($result) {
-                           $count_Permanent_Revenue = mysqli_fetch_array($result);
+
+                    $Total_Sold_Units = mysqli_query($conn, "SELECT COUNT(*) FROM project_units WHERE unit_status ='1'");
+                           if ($Total_Sold_Units) {
+                           $Total_Sold_Unitss = mysqli_fetch_array($Total_Sold_Units);
                      ?>
-                    <h2>This Month Total Revenue</h2>
-                    <div class="count"><?php echo number_format($count_Permanent_Revenue[0], 2); ?></div>
+                    <h2>Total Sold Units</h2>
+                    <div class="count"><?php echo number_format($Total_Sold_Unitss[0]); ?></div>
                     <?php  } else { echo "Error executing the query: " . mysqli_error($conn); }?>
                   </div>
                 </div>
                 <div class="animated flipInY col-lg-4 col-md-4 col-sm-6">
                   <div class="tile-stats">
-
-                    <h2>This Month Total Collections</h2>
                     <?php
-                       $cmonth3 = date("m");
+                       $cmonth3 = date("d");
                        $result = mysqli_query($conn, "SELECT SUM(paid_amount) FROM payments WHERE MONTH(pay_date) = $cmonth3");
                        if ($result) {
                            $count_Permanent_Collections = mysqli_fetch_array($result);
                    ?>
+
+                    <h2>Today Collection</h2>
+
                     <div class="count"><?php echo number_format($count_Permanent_Collections[0], 2); ?></div>
                     <?php
                         } else {
@@ -105,7 +102,7 @@ include 'include/dbConnection.php';
 
                   <div class="x_panel">
                     <div class="x_title">
-                      <h2>Horizontal Bar</h2>
+                      <h2>Sales Overview - <?php echo date("Y"); ?></h2>
                       <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
