@@ -31,14 +31,16 @@
 }
 .tile-stats {
 text-align: center;
-background-color: #dddddd;
+background-color: #E8E8E8;
 border-radius: 0px;
 border: 1px solid #cfc5c5;
 padding: 18px 10px;
+color: #2B3740;
 }
 .tile-stats .count {
-  font-size: 30px;
+  font-size: 20px;
   line-height:1;
+  color: #2B3740;
 }
 .input-group{
   border: 1px solid #ced4da;
@@ -58,4 +60,10 @@ padding: 18px 10px;
 } */
 a.user-profile {
     color: #ffffff !important;
+}
+.tile-stats>h2{
+  font-size: 14px;
+  /* font-weight: 600; */
+  font-family: fantasy;
+  letter-spacing: 1px;
 }

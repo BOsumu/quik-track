@@ -5,9 +5,10 @@
 include 'include/session.php';
 include 'include/dbConnection.php';
  ?>
-
-
-
+ <?php
+ $result=mysqli_query($conn, "select U_id from user  where U_id='$session_id'")or die('Error In Session');
+ $row=mysqli_fetch_array($result);
+ ?>
         <!-- page content -->
           <div class="right_col" role="main">
 
@@ -15,23 +16,41 @@ include 'include/dbConnection.php';
               <div class="col-md-5 col-sm-5">
                 <div class="animated flipInY col-lg-4 col-md-4 col-sm-6">
                   <div class="tile-stats">
-
-                    <h2>Total Project Units</h2>
-                    <div class="count">1,105</div>
+                    <?php $cmonth5 = date("m");
+                    $count_Permanent_sales = mysqli_fetch_array(mysqli_query($conn, "SELECT COUNT(*) FROM sales WHERE MONTH(sale_date) = $cmonth5")); ?>
+                    <h2>This Month Total Sales</h2>
+                    <div class="count"><?php echo $count_Permanent_sales[0];?></div>
+                  </div>
+                </div>
+                <div class="animated flipInY col-lg-4 col-md-4 col-sm-6">
+                  <div class="tile-stats">
+                    <?php
+                    $cmonth4 = date("m");
+                    $result = mysqli_query($conn, "SELECT SUM(selling_price) FROM sales WHERE MONTH(sale_date) = $cmonth4");
+                           if ($result) {
+                           $count_Permanent_Revenue = mysqli_fetch_array($result);
+                     ?>
+                    <h2>This Month Total Revenue</h2>
+                    <div class="count"><?php echo number_format($count_Permanent_Revenue[0], 2); ?></div>
+                    <?php  } else { echo "Error executing the query: " . mysqli_error($conn); }?>
                   </div>
                 </div>
                 <div class="animated flipInY col-lg-4 col-md-4 col-sm-6">
                   <div class="tile-stats">
 
-                    <h2>Total Project Units</h2>
-                    <div class="count">1,105</div>
-                  </div>
-                </div>
-                <div class="animated flipInY col-lg-4 col-md-4 col-sm-6">
-                  <div class="tile-stats">
-
-                    <h2>Total Project Units</h2>
-                    <div class="count">1,105</div>
+                    <h2>This Month Total Collections</h2>
+                    <?php
+                       $cmonth3 = date("m");
+                       $result = mysqli_query($conn, "SELECT SUM(paid_amount) FROM payments WHERE MONTH(pay_date) = $cmonth3");
+                       if ($result) {
+                           $count_Permanent_Collections = mysqli_fetch_array($result);
+                   ?>
+                    <div class="count"><?php echo number_format($count_Permanent_Collections[0], 2); ?></div>
+                    <?php
+                        } else {
+                            echo "Error executing the query: " . mysqli_error($conn);
+                        }
+                    ?>
                   </div>
                 </div>
 
