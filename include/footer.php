@@ -57,6 +57,9 @@
     <script src="assets/vendors/echarts/dist/echarts.min.js"></script>
     <script src="assets/vendors/echarts/map/js/world.js"></script>
 
+    <!-- Developer css -->
+    <script href="assets/developer/js/developer.js" rel="stylesheet"></script>
+
 
   </body>
 </html>

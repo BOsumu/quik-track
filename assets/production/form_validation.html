@@ -303,6 +303,8 @@
                                     </ul>
                                     <div class="clearfix"></div>
                                 </div>
+                            
+
                                 <div class="x_content">
                                     <form class="" action="" method="post" novalidate>
                                         <p>For alternative validation library <code>parsleyJS</code> check out in the <a href="form.html">form page</a>
@@ -344,19 +346,19 @@
                                             <div class="col-md-6 col-sm-6">
                                                 <input class="form-control" class='time' type="time" name="time" required='required'></div>
                                         </div>
-                                        
+
                                         <div class="field item form-group">
 											<label class="col-form-label col-md-3 col-sm-3  label-align">Password<span class="required">*</span></label>
 											<div class="col-md-6 col-sm-6">
 												<input class="form-control" type="password" id="password1" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}" title="Minimum 8 Characters Including An Upper And Lower Case Letter, A Number And A Unique Character" required />
-												
+
 												<span style="position: absolute;right:15px;top:7px;" onclick="hideshow()" >
 													<i id="slash" class="fa fa-eye-slash"></i>
 													<i id="eye" class="fa fa-eye"></i>
 												</span>
 											</div>
 										</div>
-                                        
+
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Repeat password<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
@@ -404,14 +406,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="../vendors/validator/multifield.js"></script>
     <script src="../vendors/validator/validator.js"></script>
-    
+
     <!-- Javascript functions	-->
 	<script>
 		function hideshow(){
 			var password = document.getElementById("password1");
 			var slash = document.getElementById("slash");
 			var eye = document.getElementById("eye");
-			
+
 			if(password.type === 'password'){
 				password.type = "text";
 				slash.style.display = "block";

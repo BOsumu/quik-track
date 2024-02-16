@@ -85,3 +85,91 @@ body.nav-md {
 .btn-login:hover {
     color: #fff;
 }
+.heading>h1>img {
+    padding: 0px 10px;
+    color: #2B3740;
+    font-size: 42px;
+    letter-spacing: -1px;
+    line-height: 0.8;
+    font-weight: normal;
+}
+.heading>h1{
+  color: #2B3740;
+}
+
+.heading>h1>span{
+  color: #2B3740;
+  font-weight: 600;
+}
+.setting .backbtn a {
+
+    background: url(../../images/back.png) no-repeat #2b3740;
+    padding: 30px;
+    border: none;
+    border-radius: 0 !important;
+    float: left;
+    margin-bottom: 10px;
+}
+.setting .subtext {
+background: url(../../images/subtext_bg.jpg) repeat-y left;
+padding: 10px 20px;
+height: 60px;
+width: 300px;
+border: none;
+border-radius: 0 !important;
+float: left;
+margin-bottom: 10px;
+}
+.mail_heading h4 {
+    font-size: 18px;
+    border-bottom: none;
+    padding-bottom: 5px;
+    margin-top: 5px;
+}
+.setting {
+    border-top: 1px solid #005593;
+}
+.mail_list_column {
+    border-left: none;
+}
+.mail_view {
+    border-left: 1px solid #005593;
+}
+.sale-form .x_content{
+  padding:10px 20px 10px 20px;
+}
+
+.searchable-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.search-box {
+    width: 200px;
+    padding: 8px;
+    font-size: 16px;
+}
+
+
+
+.dropdown-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: none;
+    position: absolute;
+    z-index: 1;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-list li {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.dropdown-list li:hover {
+    background-color: #f1f1f1;
+}

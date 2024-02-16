@@ -14,7 +14,7 @@
         </div>
         <div class="col-md-8">
           <ul class="nav nav-pills" role="tablist">
-            <li role="presentation"><a href="#"><i class="fa fa-tachometer" aria-hidden="true">&nbsp;</i>Dashboard</a>
+            <li role="presentation"><a href="dashboard.php"><i class="fa fa-tachometer" aria-hidden="true">&nbsp;</i>Dashboard</a>
             </li>
             <li role="presentation" class="dropdown">
               <a id="drop4" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
@@ -22,7 +22,7 @@
                           <span class="caret"></span>
                       </a>
                       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          <a class="dropdown-item" href="#">Add New Sales</a>
+                          <a class="dropdown-item" href="new_sales.php">Add New Sales</a>
                           <a class="dropdown-item" href="#">Sales List</a>
                         </div>
             </li>
