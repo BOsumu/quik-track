@@ -70,256 +70,166 @@
 
                       <!-- CONTENT MAIL -->
                       <div class="col-sm-10 mail_view">
-                        <div class="inbox-body">
+                       <div class="inbox-body">
 
-                          <div class="mail_heading row">
-                            <div class="col-md-12">
-                              <div class="heading">
-                                  <h1><span>Customer</span><img src="assets/images/arrow.png" class="logo-icon" alt="logo icon">Summary</h1>
-                                  <h4>Record Book</h4>
-                              </div>
-                            </div>
-                          </div>
-
-                          <div class="setting">
-                             <div class="backbtn"><a href="dashboard.php"> </a></div>
-                              <div class="subtext"><h2>Add New Customer</h2></div>
-                             <div class="clear"></div>
-                         </div>
-                         <div class="sale-form">
-                                     <div class="col-md-12 ">
-                                         <div class="x_content">
-                                           <br />
-                                           <form class="form-horizontal form-label-left">
-
-                                             <div class="form-group row">
-                                               <label class="control-label col-md-3 col-sm-3 ">Select</label>
-                                               <div class="col-md-9 col-sm-9 ">
-                                                 <select class="form-control">
-                                                   <option>Choose option</option>
-                                                   <option>Option one</option>
-                                                   <option>Option two</option>
-                                                   <option>Option three</option>
-                                                   <option>Option four</option>
-                                                 </select>
-                                               </div>
-                                             </div>
-
-                                             <div class="searchable-dropdown">
-    <select id="dropdown" class="select-dropdown">
-        <option value="">Select an option</option>
-        <option value="option1">Option 1</option>
-        <option value="option2">Option 2</option>
-        <option value="option3">Option 3</option>
-        <!-- Add more options as needed -->
-    </select>
-</div>
-<div class="searchable-dropdown">
-    <input type="text" class="search-box" placeholder="Search...">
-    <ul class="dropdown-list">
-        <li>Select an option</li>
-        <li>Option 1</li>
-        <li>Option 2</li>
-        <li>Option 3</li>
-        <!-- Add more options as needed -->
-    </ul>
-</div>
-
-                                             <div class="form-group row ">
-                                               <label class="control-label col-md-3 col-sm-3 ">Default Input</label>
-                                               <div class="col-md-9 col-sm-9 ">
-                                                 <input type="text" class="form-control" placeholder="Default Input">
-                                               </div>
-                                             </div>
-                                             <div class="form-group row">
-                                               <label class="control-label col-md-3 col-sm-3 ">Disabled Input </label>
-                                               <div class="col-md-9 col-sm-9 ">
-                                                 <input type="text" class="form-control" disabled="disabled" placeholder="Disabled Input">
-                                               </div>
-                                             </div>
-                                             <div class="form-group row">
-                                               <label class="control-label col-md-3 col-sm-3 ">Read-Only Input</label>
-                                               <div class="col-md-9 col-sm-9 ">
-                                                 <input type="text" class="form-control" readonly="readonly" placeholder="Read-Only Input">
-                                               </div>
-                                             </div>
-                                             <div class="form-group row">
-                                               <label class="control-label col-md-3 col-sm-3 ">Date Of Birth <span class="required">*</span>
-                                               </label>
-                                               <div class="col-md-9 col-sm-9 ">
-                                                 <textarea class="form-control" rows="3" placeholder="Date Of Birth"></textarea>
-                                               </div>
-                                             </div>
-                                             <div class="form-group row">
-                                               <label class="control-label col-md-3 col-sm-3 ">Password</label>
-                                               <div class="col-md-9 col-sm-9 ">
-                                                 <input type="password" class="form-control" value="passwordonetwo">
-                                               </div>
-                                             </div>
-                                             <div class="form-group row">
-                                               <label class="control-label col-md-3 col-sm-3 ">AutoComplete</label>
-                                               <div class="col-md-9 col-sm-9 ">
-                                                 <input type="text" name="country" id="autocomplete-custom-append" class="form-control col-md-10" />
-                                               </div>
-                                             </div>
-                                             <div class="form-group row">
-                                               <label class="control-label col-md-3 col-sm-3 ">Select</label>
-                                               <div class="col-md-9 col-sm-9 ">
-                                                 <select class="form-control">
-                                                   <option>Choose option</option>
-                                                   <option>Option one</option>
-                                                   <option>Option two</option>
-                                                   <option>Option three</option>
-                                                   <option>Option four</option>
-                                                 </select>
-                                               </div>
-                                             </div>
-
-                                             <div class="form-group row">
-                                               <label class="control-label col-md-3 col-sm-3 ">Select Multiple</label>
-                                               <div class="col-md-9 col-sm-9 ">
-                                                 <select class="select2_multiple form-control" multiple="multiple">
-                                                   <option>Choose option</option>
-                                                   <option>Option one</option>
-                                                   <option>Option two</option>
-                                                   <option>Option three</option>
-                                                   <option>Option four</option>
-                                                   <option>Option five</option>
-                                                   <option>Option six</option>
-                                                 </select>
-                                               </div>
-                                             </div>
-
-                                             <div class="control-group row">
-                                               <label class="control-label col-md-3 col-sm-3 ">Input Tags</label>
-                                               <div class="col-md-9 col-sm-9 ">
-                                                 <input id="tags_1" type="text" class="tags form-control" value="social, adverts, sales" />
-                                                 <div id="suggestions-container" style="position: relative; float: left; width: 250px; margin: 10px;"></div>
-                                               </div>
-                                             </div>
-                                             <div class="form-group row">
-                                               <label class="col-md-3 col-sm-3  control-label">Checkboxes and radios
-                                                 <br>
-                                                 <small class="text-navy">Normal Bootstrap elements</small>
-                                               </label>
-
-                                               <div class="col-md-9 col-sm-9 ">
-                                                 <div class="checkbox">
-                                                   <label>
-                                                     <input type="checkbox" value=""> Option one. select more than one options
-                                                   </label>
-                                                 </div>
-                                                 <div class="checkbox">
-                                                   <label>
-                                                     <input type="checkbox" value=""> Option two. select more than one options
-                                                   </label>
-                                                 </div>
-                                                 <div class="radio">
-                                                   <label>
-                                                     <input type="radio" checked="" value="option1" id="optionsRadios1" name="optionsRadios"> Option one. only select one option
-                                                   </label>
-                                                 </div>
-                                                 <div class="radio">
-                                                   <label>
-                                                     <input type="radio" value="option2" id="optionsRadios2" name="optionsRadios"> Option two. only select one option
-                                                   </label>
-                                                 </div>
-                                               </div>
-                                             </div>
-
-                                             <div class="form-group row">
-                                               <label class="col-md-3 col-sm-3  control-label">Checkboxes and radios
-                                                 <br>
-                                                 <small class="text-navy">Normal Bootstrap elements</small>
-                                               </label>
-
-                                               <div class="col-md-9 col-sm-9 ">
-                                                 <div class="checkbox">
-                                                   <label>
-                                                     <input type="checkbox" class="flat" checked="checked"> Checked
-                                                   </label>
-                                                 </div>
-                                                 <div class="checkbox">
-                                                   <label>
-                                                     <input type="checkbox" class="flat"> Unchecked
-                                                   </label>
-                                                 </div>
-                                                 <div class="checkbox">
-                                                   <label>
-                                                     <input type="checkbox" class="flat" disabled="disabled"> Disabled
-                                                   </label>
-                                                 </div>
-                                                 <div class="checkbox">
-                                                   <label>
-                                                     <input type="checkbox" class="flat" disabled="disabled" checked="checked"> Disabled & checked
-                                                   </label>
-                                                 </div>
-                                                 <div class="radio">
-                                                   <label>
-                                                     <input type="radio" class="flat" checked name="iCheck"> Checked
-                                                   </label>
-                                                 </div>
-                                                 <div class="radio">
-                                                   <label>
-                                                     <input type="radio" class="flat" name="iCheck"> Unchecked
-                                                   </label>
-                                                 </div>
-                                                 <div class="radio">
-                                                   <label>
-                                                     <input type="radio" class="flat" name="iCheck" disabled="disabled"> Disabled
-                                                   </label>
-                                                 </div>
-                                                 <div class="radio">
-                                                   <label>
-                                                     <input type="radio" class="flat" name="iCheck3" disabled="disabled" checked> Disabled & Checked
-                                                   </label>
-                                                 </div>
-                                               </div>
-                                             </div>
-                                             <div class="form-group row">
-                                               <label class="control-label col-md-3 col-sm-3 ">Switch</label>
-                                               <div class="col-md-9 col-sm-9 ">
-                                                 <div class="">
-                                                   <label>
-                                                     <input type="checkbox" class="js-switch" checked /> Checked
-                                                   </label>
-                                                 </div>
-                                                 <div class="">
-                                                   <label>
-                                                     <input type="checkbox" class="js-switch" /> Unchecked
-                                                   </label>
-                                                 </div>
-                                                 <div class="">
-                                                   <label>
-                                                     <input type="checkbox" class="js-switch" disabled="disabled" /> Disabled
-                                                   </label>
-                                                 </div>
-                                                 <div class="">
-                                                   <label>
-                                                     <input type="checkbox" class="js-switch" disabled="disabled" checked="checked" /> Disabled Checked
-                                                   </label>
-                                                 </div>
-                                               </div>
-                                             </div>
-
-
-                                             <div class="ln_solid"></div>
-                                             <div class="form-group">
-                                               <div class="col-md-9 col-sm-9  offset-md-3">
-                                                 <button type="button" class="btn btn-primary">Cancel</button>
-                                                 <button type="reset" class="btn btn-primary">Reset</button>
-                                                 <button type="submit" class="btn btn-success">Submit</button>
-                                               </div>
-                                             </div>
-
-                                           </form>
-                                         </div>
-
-                                  </div>
+                         <div class="mail_heading row">
+                           <div class="col-md-12">
+                             <div class="heading">
+                                 <h1><span>Customer</span><img src="assets/images/arrow.png" class="logo-icon" alt="logo icon">Summary</h1>
+                                 <h4>Record Book</h4>
                              </div>
+                           </div>
+                         </div>
+
+                         <div class="setting">
+                            <div class="backbtn"><a href="dashboard.php"> </a></div>
+                             <div class="subtext"><h2>Add New Sales</h2></div>
+                            <div class="clear"></div>
                         </div>
 
-                      </div>
+                        <div class="row">
+
+                          <div class="col-md-12 col-sm-12 ">
+
+                              <div class="x_content">
+
+
+                                <!-- Smart Wizard -->
+                                <p>This is a basic form wizard example that inherits the colors from the selected scheme.</p>
+                                <div id="wizard" class="form_wizard wizard_horizontal">
+                                  <ul class="wizard_steps">
+                                    <li>
+                                      <a href="#step-1">
+                                        <span class="step_no">1</span>
+                                        <span class="step_descr">
+                                                          Step 1<br />
+                                                          <small>Step 1 description</small>
+                                                      </span>
+                                      </a>
+                                    </li>
+                                    <li>
+                                      <a href="#step-2">
+                                        <span class="step_no">2</span>
+                                        <span class="step_descr">
+                                                          Step 2<br />
+                                                          <small>Step 2 description</small>
+                                                      </span>
+                                      </a>
+                                    </li>
+                                    <li>
+                                      <a href="#step-3">
+                                        <span class="step_no">3</span>
+                                        <span class="step_descr">
+                                                          Step 3<br />
+                                                          <small>Step 3 description</small>
+                                                      </span>
+                                      </a>
+                                    </li>
+                                    <li>
+                                      <a href="#step-4">
+                                        <span class="step_no">4</span>
+                                        <span class="step_descr">
+                                                          Step 4<br />
+                                                          <small>Step 4 description</small>
+                                                      </span>
+                                      </a>
+                                    </li>
+                                  </ul>
+                                  <div id="step-1">
+                                    <form class="form-horizontal form-label-left">
+
+                                      <div class="form-group row">
+                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">First Name <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 ">
+                                          <input type="text" id="first-name" required="required" class="form-control  ">
+                                        </div>
+                                      </div>
+                                      <div class="form-group row">
+                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Last Name <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 ">
+                                          <input type="text" id="last-name" name="last-name" required="required" class="form-control ">
+                                        </div>
+                                      </div>
+                                      <div class="form-group row">
+                                        <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Middle Name / Initial</label>
+                                        <div class="col-md-6 col-sm-6 ">
+                                          <input id="middle-name" class="form-control col" type="text" name="middle-name">
+                                        </div>
+                                      </div>
+                                      <div class="form-group row">
+                                        <label class="col-form-label col-md-3 col-sm-3 label-align">Gender</label>
+                                        <div class="col-md-6 col-sm-6 ">
+                                          <div id="gender" class="btn-group" data-toggle="buttons">
+                                            <label class="btn btn-secondary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-secondary">
+                                              <input type="radio" name="gender" value="male" class="join-btn"> &nbsp; Male &nbsp;
+                                            </label>
+                                            <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-secondary">
+                                              <input type="radio" name="gender" value="female" class="join-btn"> Female
+                                            </label>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="form-group row">
+                                        <label class="col-form-label col-md-3 col-sm-3 label-align">Date Of Birth <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 ">
+                                          <input id="birthday" class="date-picker form-control" required="required" type="text">
+                                        </div>
+                                      </div>
+
+                                    </form>
+
+                                  </div>
+                                  <div id="step-2">
+                                    <h2 class="StepTitle">Step 2 Content</h2>
+                                    <p>
+                                      do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                                      fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                    </p>
+                                    <p>
+                                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                                      in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                    </p>
+                                  </div>
+                                  <div id="step-3">
+                                    <h2 class="StepTitle">Step 3 Content</h2>
+                                    <p>
+                                      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                                      eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                    </p>
+                                    <p>
+                                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                                      in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                    </p>
+                                  </div>
+                                  <div id="step-4">
+                                    <h2 class="StepTitle">Step 4 Content</h2>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                    </p>
+                                    <p>
+                                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                                      in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                    </p>
+                                    <p>
+                                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                                      in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                    </p>
+                                  </div>
+
+                                </div>
+                                <!-- End SmartWizard Content -->
+
+                              </div>
+                      
+                          </div>
+                        </div>
+
+
+                        </div>
+                    </div>
                       <!-- /CONTENT MAIL -->
                     </div>
                   </div>
