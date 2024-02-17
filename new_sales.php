@@ -95,31 +95,30 @@
 
 
                                 <!-- Smart Wizard -->
-                                <p>This is a basic form wizard example that inherits the colors from the selected scheme.</p>
+
                                 <div id="wizard" class="form_wizard wizard_horizontal">
                                   <ul class="wizard_steps">
                                     <li>
+
                                       <a href="#step-1">
                                         <span class="step_no">1</span>
-                                        <span class="step_descr">
-                                                          Step 1<br />
-                                                          <small>Step 1 description</small>
+                                        <span class="step_descr centered-text">
+                                                        <strong>Add New Sales</strong><br />
                                                       </span>
                                       </a>
                                     </li>
                                     <li>
                                       <a href="#step-2">
                                         <span class="step_no">2</span>
-                                        <span class="step_descr">
-                                                          Step 2<br />
-                                                          <small>Step 2 description</small>
+                                        <span class="step_descr centered-text">
+                                                          <strong>Create Payment Plan</strong><br />
                                                       </span>
                                       </a>
                                     </li>
                                     <li>
                                       <a href="#step-3">
                                         <span class="step_no">3</span>
-                                        <span class="step_descr">
+                                        <span class="step_descr centered-text">
                                                           Step 3<br />
                                                           <small>Step 3 description</small>
                                                       </span>
@@ -128,7 +127,7 @@
                                     <li>
                                       <a href="#step-4">
                                         <span class="step_no">4</span>
-                                        <span class="step_descr">
+                                        <span class="step_descr centered-text">
                                                           Step 4<br />
                                                           <small>Step 4 description</small>
                                                       </span>
@@ -138,60 +137,215 @@
                                   <div id="step-1">
                                     <form class="form-horizontal form-label-left">
 
-                                      <div class="form-group row">
-                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">First Name <span class="required">*</span>
-                                        </label>
-                                        <div class="col-md-6 col-sm-6 ">
-                                          <input type="text" id="first-name" required="required" class="form-control  ">
-                                        </div>
-                                      </div>
-                                      <div class="form-group row">
-                                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Last Name <span class="required">*</span>
-                                        </label>
-                                        <div class="col-md-6 col-sm-6 ">
-                                          <input type="text" id="last-name" name="last-name" required="required" class="form-control ">
-                                        </div>
-                                      </div>
-                                      <div class="form-group row">
-                                        <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Middle Name / Initial</label>
-                                        <div class="col-md-6 col-sm-6 ">
-                                          <input id="middle-name" class="form-control col" type="text" name="middle-name">
-                                        </div>
-                                      </div>
-                                      <div class="form-group row">
-                                        <label class="col-form-label col-md-3 col-sm-3 label-align">Gender</label>
-                                        <div class="col-md-6 col-sm-6 ">
-                                          <div id="gender" class="btn-group" data-toggle="buttons">
-                                            <label class="btn btn-secondary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-secondary">
-                                              <input type="radio" name="gender" value="male" class="join-btn"> &nbsp; Male &nbsp;
-                                            </label>
-                                            <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-secondary">
-                                              <input type="radio" name="gender" value="female" class="join-btn"> Female
-                                            </label>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <div class="form-group row">
-                                        <label class="col-form-label col-md-3 col-sm-3 label-align">Date Of Birth <span class="required">*</span>
-                                        </label>
-                                        <div class="col-md-6 col-sm-6 ">
-                                          <input id="birthday" class="date-picker form-control" required="required" type="text">
-                                        </div>
-                                      </div>
+
+                                                                                   <div class="form-group row">
+                                                                                     <label class="control-label col-md-2 col-sm-3 ">Select First Owner :</label>
+                                                                                     <div class="col-md-5 col-sm-9 ">
+                                                                                       <select class="form-control">
+                                                                                         <option>SELECT</option>
+                                                                                         <option>Option one</option>
+                                                                                         <option>Option two</option>
+                                                                                         <option>Option three</option>
+                                                                                         <option>Option four</option>
+                                                                                       </select>
+                                                                                     </div>
+                                                                                   </div>
+
+
+                                                                                      <div class="form-group row">
+                                                                                        <label class="control-label col-md-2 col-sm-3 ">Select Second Owner :</label>
+                                                                                        <div class="col-md-5 col-sm-9 ">
+                                                                                          <select class="form-control">
+                                                                                            <option>SELECT</option>
+                                                                                            <option>Option one</option>
+                                                                                            <option>Option two</option>
+                                                                                            <option>Option three</option>
+                                                                                            <option>Option four</option>
+                                                                                          </select>
+                                                                                        </div>
+                                                                                      </div>
+
+                                                                                      <div class="form-group row">
+                                                                                        <label class="control-label col-md-2 col-sm-3 ">Select Project :</label>
+                                                                                        <div class="col-md-5 col-sm-9 ">
+                                                                                          <select class="form-control">
+                                                                                            <option>SELECT</option>
+                                                                                            <option>Option one</option>
+                                                                                            <option>Option two</option>
+                                                                                            <option>Option three</option>
+                                                                                            <option>Option four</option>
+                                                                                          </select>
+                                                                                        </div>
+                                                                                      </div>
+
+                                                                                      <div class="form-group row">
+                                                                                        <label class="control-label col-md-2 col-sm-3 ">Select Project Unit :</label>
+                                                                                        <div class="col-md-5 col-sm-9 ">
+                                                                                          <select class="form-control">
+                                                                                            <option>SELECT</option>
+                                                                                            <option>Option one</option>
+                                                                                            <option>Option two</option>
+                                                                                            <option>Option three</option>
+                                                                                            <option>Option four</option>
+                                                                                          </select>
+                                                                                        </div>
+                                                                                      </div>
+
+
+
+
+                                                                                   <div class="form-group row ">
+                                                                                     <label class="control-label col-md-2 col-sm-3 ">Sale Date :</label>
+                                                                                     <div class="col-md-5 col-sm-9 ">
+                                                                                      	<input id="#" class="date-picker form-control" placeholder="dd-mm-yyyy" type="text" required="required" type="text" onfocus="this.type='date'" onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
+                                                                                     </div>
+                                                                                   </div>
+
+
+                                                                                   <div class="form-group row ">
+                                                                                    <label class="control-label col-md-2 col-sm-3 ">Unite Price(LKR) :</label>
+                                                                                     <div class="col-md-5 col-sm-9 ">
+                                                                                        <div class="input-group mb-3">
+                                                                                           <div class="input-group-prepend">
+                                                                                           <span class="input-group-text" id="basic-addon1">LKR</span>
+                                                                                           </div>
+                                                                                           <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                                                                         </div>
+                                                                                    </div>
+                                                                                  </div>
+
+                                                                                   <div class="form-group row">
+                                                                                     <label class="control-label col-md-2 col-sm-3 ">Discount(LKR) :</label>
+                                                                                     <div class="col-md-5 col-sm-9 ">
+                                                                                       <div class="input-group mb-3">
+                                                                                          <div class="input-group-prepend">
+                                                                                          <span class="input-group-text" id="basic-addon1">LKR</span>
+                                                                                          </div>
+                                                                                          <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                                                                        </div>
+                                                                                     </div>
+                                                                                   </div>
+
+                                                                                   <div class="form-group row">
+                                                                                     <label class="control-label col-md-2 col-sm-3 ">Discount(%) :</label>
+                                                                                     <div class="col-md-5 col-sm-9 ">
+                                                                                       <div class="input-group mb-3">
+                                                                                          <div class="input-group-prepend">
+                                                                                          <span class="input-group-text" id="basic-addon1">&nbsp;&nbsp;%&nbsp;&nbsp;</span>
+                                                                                          </div>
+                                                                                          <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                                                                        </div>
+                                                                                     </div>
+                                                                                   </div>
+                                                                                   <div class="form-group row">
+                                                                                     <label class="control-label col-md-2 col-sm-3 ">Selling Price(LKR) :</label>
+                                                                                     <div class="col-md-5 col-sm-9 ">
+                                                                                       <div class="input-group mb-3">
+                                                                                          <div class="input-group-prepend">
+                                                                                          <span class="input-group-text" id="basic-addon1">LKR</span>
+                                                                                          </div>
+                                                                                          <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                                                                        </div>
+                                                                                     </div>
+                                                                                   </div>
+                                                                                   <div class="form-group row">
+                                                                                     <label class="control-label col-md-2 col-sm-3 ">Sales Person :</label>
+                                                                                     <div class="col-md-5 col-sm-9 ">
+                                                                                       <select class="form-control">
+                                                                                         <option>SELECT</option>
+                                                                                         <option>Option one</option>
+                                                                                         <option>Option two</option>
+                                                                                         <option>Option three</option>
+                                                                                         <option>Option four</option>
+                                                                                       </select>
+                                                                                     </div>
+                                                                                   </div>
+
 
                                     </form>
 
                                   </div>
                                   <div id="step-2">
-                                    <h2 class="StepTitle">Step 2 Content</h2>
-                                    <p>
-                                      do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                                      fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                    </p>
-                                    <p>
-                                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                                      in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                    </p>
+                                    <h2 class="StepTitle">Create Payment Plane</h2>
+                                    <div class="row">
+                                    <div class="col-md-6 col-sm-6">
+                                      <div class="x_panel">
+
+                                          <h2><strong>Customer Details</strong></h2>
+
+
+                                        <div class="x_content">
+
+                                          <table class="table">
+
+                                            <tbody>
+                                              <tr>
+                                                <td>Mark</td>
+                                              </tr>
+
+                                              <tr>
+                                                <td>Mark</td>
+                                              </tr>
+                                              <tr>
+                                                <td>Mark</td>
+                                              </tr>
+                                              <tr>
+                                                <td>Mark</td>
+                                              </tr>
+                                              <tr>
+                                                <td>Mark</td>
+                                              </tr>
+
+
+                                            </tbody>
+                                          </table>
+
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div class="col-md-6 col-sm-6">
+                                      <div class="x_panel">
+
+                                          <h2><strong>Sales Details</strong></h2>
+
+
+                                        <div class="x_content">
+
+                                          <table class="table">
+
+                                            <tbody>
+                                              <tr>
+                                                <td>Mark</td>
+                                              </tr>
+                                              <tr>
+                                                <td>Mark</td>
+                                              </tr>
+                                              <tr>
+                                                <td>Mark</td>
+                                              </tr>
+                                              <tr>
+                                                <td>Mark</td>
+                                              </tr>
+                                              <tr>
+                                                <td>Mark</td>
+                                              </tr>
+
+
+                                            </tbody>
+                                          </table>
+
+
+
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <div class="row">
+
+                                </div>
+
                                   </div>
                                   <div id="step-3">
                                     <h2 class="StepTitle">Step 3 Content</h2>
@@ -223,7 +377,7 @@
                                 <!-- End SmartWizard Content -->
 
                               </div>
-                      
+
                           </div>
                         </div>
 
