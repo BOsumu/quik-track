@@ -29,6 +29,8 @@
     background-color: #ffffff;
     min-height: 1063px;
 }
+
+
 .tile-stats {
 text-align: center;
 background-color: #E8E8E8;
@@ -69,7 +71,7 @@ a.user-profile {
 }
 
 body.nav-md {
-    background: #005593;
+    background: #ffffff;
 }
 .login {
     background: #005593;
@@ -84,6 +86,16 @@ body.nav-md {
 }
 .btn-login:hover {
     color: #fff;
+}
+
+.btn-gray {
+    color: #fff;
+    background-color: #D8DCE0;
+    border-color: #D8DCE0;
+}
+.btn-gray:hover {
+    color: #fff;
+    background-color: #D8DCE0;
 }
 .heading>h1>img {
     padding: 0px 10px;
@@ -536,4 +548,48 @@ select {
 .wizard_horizontal ul.wizard_steps li {
     display: table-cell;
     text-align: left;
+}
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #025894;
+    font-weight: 600;
+
+}
+.tab-text li a {
+    color: #000000;
+}
+.wizard_horizontal ul.wizard_steps li a .step_no.step-active {
+    background: #2B3740;
+    color: #fff;
+}
+.right-align{
+  text-align: right;
+}
+.left-align{
+  text-align: left;
+}
+.left-align a{
+  color: #ffffff;
+}
+.form-group .plus-top{
+  margin-top: 26px;
+}
+
+/* Table */
+div.dataTables_wrapper div.dataTables_filter label {
+    font-weight: normal;
+    white-space: nowrap;
+    text-align: right;
+}
+.table-bordered {
+    border: none;
+}
+
+.btn-group, .btn-group-vertical {
+    background-color: #e1e1e1;
+        margin-bottom: 5px;
+
+}
+
+.btn-group, .btn-group-vertical:hover {
+    background-color: #cccccc;
 }

@@ -23,7 +23,7 @@
                       </a>
                       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                           <a class="dropdown-item" href="new_sales.php">Add New Sales</a>
-                          <a class="dropdown-item" href="#">Sales List</a>
+                          <a class="dropdown-item" href="sales.php">Sales List</a>
                         </div>
             </li>
 
