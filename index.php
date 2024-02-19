@@ -137,6 +137,16 @@
 
 <!-- registration_form -->
 
+<!-- footer content -->
+<footer>
+  <div class="pull-right">
+    <p class="mb-0">© 2023 - <script> document.write(new Date().getFullYear())</script> All right reserved. Quik Track for Blue Ocean Group Of Companies & Kelsey Developments PLC, made with ❤️ by <a href="javascript:;"  class="fw-medium">Blue Ocean IT</a></p>
+  </footer>
+  </div>
+  <div class="clearfix"></div>
+</footer>
+<!-- /footer content -->
+
       </div>
     </div>
 

@@ -3,11 +3,16 @@
 
 
         <!-- footer content -->
-        <footer style=" margin-left:0px;">
+        <!-- <footer style=" margin-left:0px;">
           <div class="pull-right">
-            QT<a href="#">fdsfsfsf</a>
+            <p class="mb-0">© 2023 - <script> document.write(new Date().getFullYear())</script> All right reserved. Quik Track for Blue Ocean Group Of Companies & Kelsey Developments PLC, made with ❤️ by <a href="javascript:;"  class="fw-medium">Blue Ocean IT</a></p>
+
           </div>
           <div class="clearfix"></div>
+        </footer> -->
+
+        <footer class="pull-right">
+            <p class="mb-0">© 2023 - <script> document.write(new Date().getFullYear())</script>2024 All right reserved. Quik Track for Blue Ocean Group Of Companies &amp; Kelsey Developments PLC, made with ❤️ by <a href="javascript:;" class="fw-medium">Blue Ocean IT</a></p>
         </footer>
         <!-- /footer content -->
       </div>

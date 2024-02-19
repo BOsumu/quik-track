@@ -91,7 +91,11 @@
                                 <div class="row">
                                     <div class="col-sm-12">
                                       <div class="card-box table-responsive">
-                                    
+                                        <p class="text-muted font-13 m-b-30">
+                                          <form action="add.php">
+                                             <button type="text" class="btn btn-add btn-sm">Add New Sales</button>
+                                          </form>
+                                        </p>
 
                               <table id="datatable-buttons" class="table table-striped table-bordered" style="width:100%">
                                 <thead>
@@ -182,11 +186,8 @@
 
         <!-- Datatables -->
         <!-- footer content -->
-        <footer>
-          <div class="pull-right">
-          QT <a ></a>
-          </div>
-          <div class="clearfix"></div>
+        <footer class="pull-right">
+            <p class="mb-0">© 2023 - <script> document.write(new Date().getFullYear())</script>2024 All right reserved. Quik Track for Blue Ocean Group Of Companies &amp; Kelsey Developments PLC, made with ❤️ by <a href="javascript:;" class="fw-medium">Blue Ocean IT</a></p>
         </footer>
         <!-- /footer content -->
       </div>

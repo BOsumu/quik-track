@@ -8,6 +8,11 @@
         <!-- page content -->
           <div class="right_col" role="main">
 
+            <div class="col-md-12 con_view">
+
+              <div class="clearfix"></div>
+              <div>
+
             <div class="row">
               <div class="col-md-5 col-sm-5">
                 <div class="animated flipInY col-lg-4 col-md-4 col-sm-6">
@@ -54,7 +59,7 @@
              </div>
              <div class="col-md-7 col-sm-7">
                <div class="row">
-                 <div class="input-group">
+                 <div class="input-group-front">
                    <p style="margin-bottom:0px;">The system records indicat  <strong style="color:#b91515;">  49 Unprocessed Sale Records </strong> as for the date 2024-24-12
                      <button class="btn btn-danger btn-sm">Read inside</button>
                    </p>
@@ -278,6 +283,9 @@
             </div>
           </div>
         </div>
+          </div>
+            </div>
+              </div>
         <!-- /page content -->
 
 
