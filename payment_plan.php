@@ -1,4 +1,4 @@
-<?php include 'include/header.php';?>
+  <?php include 'include/header.php';?>
 <?php include 'include/nav_bar.php';?>
         <!-- page content -->
         <div class="right_col" role="main">
@@ -74,7 +74,7 @@
                           </a>
                         </li>
                         <li>
-                          <a href="#step-3">
+                          <a href="view_sales.php">
                             <span class="step_no">3</span>
                             <span class="step_descr centered-text">
                                             <strong>View Sales</strong><br />
@@ -201,7 +201,7 @@
 
                                   <div class="col-md-4 col-sm-4  form-group has-feedback">
                                     <label for="fullname">Downpayment Due Date:</label>
-                                    <input type="text" id="fullname" class="form-control" name="fullname" required />
+                                    <input type="text" id="fullname" class="form-control" name="fullname" />
                                   </div>
                                   <div class="col-md-4 col-sm-4  form-group has-feedback">
                                     <label for="fullname">Number of Installments :</label>
@@ -213,7 +213,7 @@
                                     <input type="text" id="fullname" class="form-control" name="fullname" />
                                   </div>
 
-                                  <div class="col-md-12 col-sm-12  form-group has-feedback">
+                                  <div class="col-md-4 col-sm-4  form-group has-feedback">
                                      <div class="ln_solid"></div>
                                      <button type="submit" class="btn btn-login">Create Payment Plan</button>
                                      <button class="btn btn-gray" type="reset">Reset</button>
@@ -228,18 +228,18 @@
                                 <div class="row" id="rowToDuplicate">
                                   <div class="col-md-4 col-sm-4">
                                      <label for="input25" class="form-label">Milestone</label>
-                                     <input type="text" class="form-control" id="input51" placeholder="Milestone" required name="installment[]">
+                                     <input type="text" class="form-control" id="input51" placeholder="Milestone" name="installment[]">
                                  </div>
                                  <div class="col-md-3 col-sm-3">
                                      <label for="input25" class="form-label">Amount (LKR)</label>
-                                     <input type="text" class="form-control" name="amount[]" placeholder="Amount (LKR)" required>
+                                     <input type="text" class="form-control" name="amount[]" placeholder="Amount (LKR)">
 
                                  </div>
 
 
                                  <div class="col-md-3 col-sm-3">
                                      <label for="input25" class="form-label">Due Date</label>
-                                     <input type="date" class="form-control" id="input51" placeholder="Due Date" required name="due_date[]">
+                                     <input type="date" class="form-control" id="input51" placeholder="Due Date" name="due_date[]">
                                  </div>
 
                                  <div class="col-md-2 col-sm-2  form-group has-feedback">
@@ -250,9 +250,9 @@
                              <div id="rowContainer"></div>
                              <div class="row">
                               <input type="hidden" value="" name="selling_price">
-                              <input type="hidden" id="sale_id" name="sale_id" required value="">
-                              <input type="hidden" value="" name="sale_date" required/>
-                              <input type="hidden" value="" name="Created_by" required/>
+                              <input type="hidden" id="sale_id" name="sale_id"  value="">
+                              <input type="hidden" value="" name="sale_date" />
+                              <input type="hidden" value="" name="Created_by"/>
 
                               <div class="col-md-12">
 
@@ -260,7 +260,7 @@
                                  <div id="errorText" style="color: red;"></div> <b><div id="totalAmountMessage"></div></b>
                                  <br/>
                                 <div class="d-md-flex d-grid align-items-center gap-3">
-                                  <button type="submit" class="btn btn-login" name="Milestoneplansubmit" id="submitButton">Submit</button>
+                                  <button type="text" class="btn btn-login"><a href="view_sales.php" style="color:#ffffff;">Submit</a></button>
                                   <button class="btn btn-gray" type="reset">Reset</button>
                                 </div>
                               </div>
@@ -295,11 +295,8 @@
         <!-- /page content -->
 
         <!-- footer content -->
-        <footer style="margin-left: 0px;">
-          <div class="pull-right">
-          <a>  QT</a>
-          </div>
-          <div class="clearfix"></div>
+        <footer class="pull-right">
+            <p class="mb-0">© 2023 - <script> document.write(new Date().getFullYear())</script>2024 All right reserved. Quik Track for Blue Ocean Group Of Companies &amp; Kelsey Developments PLC, made with ❤️ by <a href="javascript:;" class="fw-medium">Blue Ocean IT</a></p>
         </footer>
         <!-- /footer content -->
       </div>

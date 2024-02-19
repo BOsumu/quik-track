@@ -67,7 +67,7 @@
                         </li>
                         <li>
                           <a href="payment_plan.php">
-                            <span class="step_no step-active">2</span>
+                            <span class="step_no">2</span>
                             <span class="step_descr centered-text">
                                               <strong>Create Payment Plan</strong><br />
                                           </span>
@@ -75,194 +75,52 @@
                         </li>
                         <li>
                           <a href="#step-3">
-                            <span class="step_no">3</span>
+                            <span class="step_no step-active">3</span>
                             <span class="step_descr centered-text">
                                             <strong>View Sales</strong><br />
                                           </span>
                           </a>
                         </li>
-              
+
                       </ul>
                       <div >
                         <h2 class="StepTitle">Create Payment Plane</h2>
                         <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                          <div class="x_panel">
 
-                              <h2><strong>Customer Details</strong></h2>
-
-
-                            <div class="x_content">
-
-                              <table class="table">
-
-                                <tbody>
-                                  <tr>
-                                    <td>Customer :</td>
-                                  </tr>
-
-                                  <tr>
-                                    <td>Contact :</td>
-                                  </tr>
-                                  <tr>
-                                    <td>NIC/Passport :</td>
-                                  </tr>
-                                  <tr>
-                                    <td>Address :</td>
-                                  </tr>
-                                  <tr>
-                                    <td>Email :</td>
-                                  </tr>
-
-
-                                </tbody>
-                              </table>
-
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="col-md-6 col-sm-6">
-                          <div class="x_panel">
-
-                              <h2><strong>Sales Details</strong></h2>
-
-
-                            <div class="x_content">
-
-                              <table class="table">
-
-                                <tbody>
-                                  <tr>
-                                    <td>Project :</td>
-                                  </tr>
-                                  <tr>
-                                    <td>Unit :</td>
-                                  </tr>
-                                  <tr>
-                                    <td>Unit Price :</td>
-                                  </tr>
-                                  <tr>
-                                    <td>Discount :</td>
-                                  </tr>
-                                  <tr>
-                                    <td>Selling Price :</td>
-                                  </tr>
-
-
-                                </tbody>
-                              </table>
-
-
-
-                            </div>
-                          </div>
-                        </div>
 
                         <div class="col-md-12 col-sm-12">
                           <div class="x_content">
 
-                            <ul class="nav nav-tabs bar_tabs tab-text" id="myTab" role="tablist">
+                            <ul class="nav nav-tabs bar_tabs" id="myTab" role="tablist">
                               <li class="nav-item">
-                                <a class="nav-link active" id="installment-tab" data-toggle="tab" href="#installment" role="tab" aria-controls="installment" aria-selected="true">Installment</a>
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
                               </li>
                               <li class="nav-item">
-                                <a class="nav-link" id="milestone-tab" data-toggle="tab" href="#milestone" role="tab" aria-controls="milestone" aria-selected="false">Milestone</a>
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
                               </li>
-
+                              <li class="nav-item">
+                                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" id="contact1-tab" data-toggle="tab" href="#contact1" role="tab" aria-controls="contact1" aria-selected="false">Contact1</a>
+                              </li>
                             </ul>
                             <div class="tab-content" id="myTabContent">
-                              <div class="tab-pane fade show active" id="installment" role="tabpanel" aria-labelledby="installment-tab">
-                                <form class="form-label-left input_mask">
-                                  <div class="col-md-4 col-sm-4  form-group has-feedback">
-                                    <label for="fullname">Total Selling Price :</label>
-                                    <input type="text" id="fullname" class="form-control" name="fullname"/>
-                                  </div>
-
-                                  <div class="col-md-4 col-sm-4  form-group has-feedback">
-                                    <label for="fullname">Reservation Fee :</label>
-                                    <input type="text" id="fullname" class="form-control" name="fullname" />
-                                  </div>
-
-                                  <div class="col-md-4 col-sm-4  form-group has-feedback">
-                                    <label for="fullname">Reservation Fee (%) :</label>
-                                    <input type="text" id="fullname" class="form-control" name="fullname" />
-                                  </div>
-
-                                  <div class="col-md-4 col-sm-4  form-group has-feedback">
-                                    <label for="fullname">Downpayment (%) :</label>
-                                    <input type="text" id="fullname" class="form-control" name="fullname"/>
-                                  </div>
-
-                                  <div class="col-md-4 col-sm-4  form-group has-feedback">
-                                    <label for="fullname">Downpayment (Fixed Amount) :</label>
-                                    <input type="text" id="fullname" class="form-control" name="fullname" />
-                                  </div>
-
-                                  <div class="col-md-4 col-sm-4  form-group has-feedback">
-                                    <label for="fullname">Downpayment Due Date:</label>
-                                    <input type="text" id="fullname" class="form-control" name="fullname" required />
-                                  </div>
-                                  <div class="col-md-4 col-sm-4  form-group has-feedback">
-                                    <label for="fullname">Number of Installments :</label>
-                                    <input type="text" id="fullname" class="form-control" name="fullname"/>
-                                  </div>
-
-                                  <div class="col-md-4 col-sm-4  form-group has-feedback">
-                                    <label for="fullname">Installment Period (in Months) :</label>
-                                    <input type="text" id="fullname" class="form-control" name="fullname" />
-                                  </div>
-
-                                  <div class="col-md-12 col-sm-12  form-group has-feedback">
-                                     <div class="ln_solid"></div>
-                                     <button type="submit" class="btn btn-login">Create Payment Plan</button>
-                                     <button class="btn btn-gray" type="reset">Reset</button>
-                                  </div>
-
-
-                                </form>
+                              <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher
+                                    synth. Cosby sweater eu banh mi, qui irure terr.
                               </div>
-
-                              <div class="tab-pane fade" id="milestone" role="tabpanel" aria-labelledby="profile-tab">
-                                <form method="post" enctype="multipart/form-data" id="myForm">
-                                <div class="row" id="rowToDuplicate">
-                                  <div class="col-md-4 col-sm-4">
-                                     <label for="input25" class="form-label">Milestone</label>
-                                     <input type="text" class="form-control" id="input51" placeholder="Milestone" required name="installment[]">
-                                 </div>
-                                 <div class="col-md-3 col-sm-3">
-                                     <label for="input25" class="form-label">Amount (LKR)</label>
-                                     <input type="text" class="form-control" name="amount[]" placeholder="Amount (LKR)" required>
-
-                                 </div>
-
-
-                                 <div class="col-md-3 col-sm-3">
-                                     <label for="input25" class="form-label">Due Date</label>
-                                     <input type="date" class="form-control" id="input51" placeholder="Due Date" required name="due_date[]">
-                                 </div>
-
-                                 <div class="col-md-2 col-sm-2  form-group has-feedback">
-                                  <button type="button" class="btn btn-login plus-top" onclick="duplicateRow()"><i class='fa fa-plus'></i>&nbsp;Add New</button>
-                                 </div>
-
-                             </div>
-                             <div id="rowContainer"></div>
-                             <div class="row">
-                              <input type="hidden" value="" name="selling_price">
-                              <input type="hidden" id="sale_id" name="sale_id" required value="">
-                              <input type="hidden" value="" name="sale_date" required/>
-                              <input type="hidden" value="" name="Created_by" required/>
-
-                              <div class="col-md-12">
-
-                                <br/>
-                                 <div id="errorText" style="color: red;"></div> <b><div id="totalAmountMessage"></div></b>
-                                 <br/>
-                                <div class="d-md-flex d-grid align-items-center gap-3">
-                                  <button type="submit" class="btn btn-login" name="Milestoneplansubmit" id="submitButton">Submit</button>
-                                  <button class="btn btn-gray" type="reset">Reset</button>
-                                </div>
+                              <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo
+                                    booth letterpress, commodo enim craft beer mlkshk aliquip
+                              </div>
+                              <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                                xxFood truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo
+                                    booth letterpress, commodo enim craft beer mlkshk
+                              </div>
+                              <div class="tab-pane fade" id="contact1" role="tabpanel" aria-labelledby="contact1-tab">
+                                xxFood truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo
+                                    booth letterpress, commodo enim craft beer mlkshk
                               </div>
                             </div>
                             </form>
@@ -295,11 +153,8 @@
         <!-- /page content -->
 
         <!-- footer content -->
-        <footer style="margin-left: 0px;">
-          <div class="pull-right">
-          <a>  QT</a>
-          </div>
-          <div class="clearfix"></div>
+        <footer class="pull-right">
+            <p class="mb-0">© 2023 - <script> document.write(new Date().getFullYear())</script>2024 All right reserved. Quik Track for Blue Ocean Group Of Companies &amp; Kelsey Developments PLC, made with ❤️ by <a href="javascript:;" class="fw-medium">Blue Ocean IT</a></p>
         </footer>
         <!-- /footer content -->
       </div>
