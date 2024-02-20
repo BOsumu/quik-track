@@ -207,8 +207,8 @@
 
                                   <div class="col-md-4 col-sm-4  form-group has-feedback">
 
-                                     <button type="submit" class="btn btn-login">Add Payments</button>
-                                     <button class="btn btn-gray" type="reset">Reset</button>
+                                     <button type="submit" class="btn btn-add btn-sm">Add Payments</button>
+                                     <button class="btn btn-gray btn-sm" type="reset">Reset</button>
                                   </div>
 
                               </div>

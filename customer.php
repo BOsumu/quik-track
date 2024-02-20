@@ -93,19 +93,18 @@
                                       <div class="card-box table-responsive">
                                         <p class="text-muted font-13 m-b-30">
                                           <form>
-
-                                              <button type="button" class="btn btn-add btn-sm" data-toggle="modal" data-target=".bs-example-modal-lg">Add New Company</button>
+                                              <button type="text" class="btn btn-add btn-sm"><a href="add_customer.php" style="color:#ffffff;">Add New Customer</a></button>
                                           </form>
                                         </p>
 
                               <table id="datatable-buttons" class="table table-striped table-bordered" style="width:100%">
                                 <thead>
                                   <tr>
-                                    <th>Company</th>
-                                    <th>Description</th>
-                                    <th>Address</th>
-                                    <th>Create by</th>
-                                    <th>Create</th>
+                                    <th>Name</th>
+                                    <th>NIC/Password</th>
+                                    <th>Email</th>
+                                    <th>Occupation</th>
+                                    <th>Country</th>
                                     <th>Status</th>
                                     <th>Action</th>
 
@@ -120,13 +119,12 @@
                                     <td>Edinburgh</td>
                                     <td>61</td>
                                     <td>2011/04/25</td>
-                                    <td>  <span class="badge badge-success">Success</span>
-                                      </td>
+                                    <td>$320,800</td>
 
                                     <td>
                                       <p class="text-muted">
-                                        <form action="view-company.php">
-                                           <button type="text" class="btn btn-edit btn-sm">view & Edit</button>
+                                        <form action="view_customer.php">
+                                           <button type="text" class="btn btn-payments btn-sm">view & Edit</button>
                                         </form>
                                       </p>
 
@@ -139,7 +137,7 @@
                                     <td>San Francisco</td>
                                     <td>39</td>
                                     <td>2009/09/15</td>
-                                    <td><span class="badge badge-danger">Danger</span></td>
+                                    <td>$205,500</td>
                                     <td>61</td>
 
                                   </tr>
@@ -148,9 +146,10 @@
                                     <td>Software Engineer</td>
                                     <td>Edinburgh</td>
                                     <td>23</td>
+                                    <td>2008/12/13</td>
                                     <td>$103,600</td>
-                                    <td><span class="badge badge-danger">Danger</span></td>
-                                    <td>2011/04/25</td>
+                                    <td>61</td>
+
                                   </tr>
 
                                   <tr>
@@ -159,56 +158,15 @@
                                     <td>San Francisco</td>
                                     <td>48</td>
                                     <td>2010/03/11</td>
-                                    <td><span class="badge badge-danger">Danger</span></td>
+                                    <td>$850,000</td>
                                     <td>61</td>
+
 
                                   </tr>
 
 
                                 </tbody>
                               </table>
-
-
-
-                                                <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
-                                                  <div class="modal-dialog modal-lg">
-                                                    <div class="modal-content">
-
-                                                      <div class="modal-header">
-                                                        <h4 class="modal-title" id="myModalLabel">Add New Company</h4>
-                                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
-                                                        </button>
-                                                      </div>
-                                                      <div class="modal-body">
-                                                        <form>
-                                                          <div class="field item form-group">
-                                                              <label class="col-form-label col-md-3 col-sm-3  label-align">Comapany Name<span class="required">*</span></label>
-                                                              <div class="col-md-6 col-sm-6">
-                                                                  <input class="form-control" type="password" name="password2" data-validate-linked='password' required='required' /></div>
-                                                          </div>
-                                                          <div class="field item form-group">
-                                                              <label class="col-form-label col-md-3 col-sm-3  label-align">Company Description<span class="required">*</span></label>
-                                                              <div class="col-md-6 col-sm-6">
-                                                                  <input class="form-control" type="tel" class='tel' name="phone" required='required' data-validate-length-range="8,20" /></div>
-                                                          </div>
-                                                          <div class="field item form-group">
-                                                              <label class="col-form-label col-md-3 col-sm-3  label-align">Address<span class="required">*</span></label>
-                                                              <div class="col-md-6 col-sm-6">
-                                                                  <textarea required="required" name='message' rows="4" cols="50"></textarea>
-                                                                </div>
-                                                          </div>
-
-                                                        </form>
-
-                                                      </div>
-                                                      <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
-                                                        <button type="button" class="btn btn-add btn-sm">Add Comapany</button>
-                                                      </div>
-
-                                                    </div>
-                                                  </div>
-                                                </div>
                             </div>
                           </div>
                           </div>

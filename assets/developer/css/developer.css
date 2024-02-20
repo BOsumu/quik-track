@@ -236,7 +236,7 @@ margin-bottom: 10px;
         }
 
         button:hover {
-            background-color: #0056b3;
+            background-color: none;
         }
 
         .step-indicator {
@@ -374,6 +374,7 @@ margin-bottom: 10px;
     border: 1px solid #ced4da;
     border-radius: 0rem;
     background:none repeat scroll 0 0 #CCC;
+    font-size: 12px;
 }
 .input-group-prepend{
   background-color: #ccc;
@@ -461,4 +462,29 @@ div.dataTables_wrapper div.dataTables_filter label {
     padding: 0.25rem;
     vertical-align: top;
     border-top: 1px solid #dee2e6;
+}
+.btn-edit {
+    background: url(../../images/edit-icon.png) no-repeat left center #023b62;
+    color: #fff;
+    background-color: #005593;
+    border-color: #005593;
+    padding-left: 21.5px;
+  background-position: 4px;
+  letter-spacing: .0px;
+}
+.btn-edit:hover {
+    color: #fff;
+    background-color: #01376a;
+  }
+.form-control {
+    font-size: 12px;
+}
+.form-horizontal .control-label1 {
+    padding: 15px 0px 5px 8px;
+    font-family: "Roboto Condensed",sans-serif;
+    font-weight: bold;
+    border-bottom: 1px dotted #ccc;
+    font-size: 21px;
+    font-style: italic;
+    color: #ccc;
 }

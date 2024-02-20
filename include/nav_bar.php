@@ -36,12 +36,12 @@
                       </a>
                       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                           <a class="dropdown-item" href="company.php">Company</a>
-                          <a class="dropdown-item" href="#">Project</a>
+                          <a class="dropdown-item" href="project.php">Project</a>
                         </div>
             </li>
-            <li role="presentation"><a href="#"><i class="fa fa-user" aria-hidden="true">&nbsp;</i>Customer</a>
+            <li role="presentation"><a href="customer.php"><i class="fa fa-user" aria-hidden="true">&nbsp;</i>Customer</a>
             </li>
-            <li role="presentation"><a href="#"><i class="fa fa-users" aria-hidden="true">&nbsp;</i>User Management</a>
+            <li role="presentation"><a href="system-users.php"><i class="fa fa-users" aria-hidden="true">&nbsp;</i>User Management</a>
             </li>
           </ul>
         </div>

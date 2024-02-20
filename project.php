@@ -94,18 +94,17 @@
                                         <p class="text-muted font-13 m-b-30">
                                           <form>
 
-                                              <button type="button" class="btn btn-add btn-sm" data-toggle="modal" data-target=".bs-example-modal-lg">Add New Company</button>
+                                              <button type="button" class="btn btn-add btn-sm" data-toggle="modal" data-target=".bs-example-modal-lg">Add New Project</button>
                                           </form>
                                         </p>
 
                               <table id="datatable-buttons" class="table table-striped table-bordered" style="width:100%">
                                 <thead>
                                   <tr>
+                                    <th>Project</th>
                                     <th>Company</th>
-                                    <th>Description</th>
-                                    <th>Address</th>
-                                    <th>Create by</th>
-                                    <th>Create</th>
+                                    <th>Location</th>
+                                    <th>Units</th>
                                     <th>Status</th>
                                     <th>Action</th>
 
@@ -119,13 +118,12 @@
                                     <td>System Architect</td>
                                     <td>Edinburgh</td>
                                     <td>61</td>
-                                    <td>2011/04/25</td>
                                     <td>  <span class="badge badge-success">Success</span>
                                       </td>
 
                                     <td>
                                       <p class="text-muted">
-                                        <form action="view-company.php">
+                                        <form action="view-project.php">
                                            <button type="text" class="btn btn-edit btn-sm">view & Edit</button>
                                         </form>
                                       </p>
@@ -135,7 +133,6 @@
 
                                   <tr>
                                     <td>Colleen Hurst</td>
-                                    <td>Javascript Developer</td>
                                     <td>San Francisco</td>
                                     <td>39</td>
                                     <td>2009/09/15</td>
@@ -145,7 +142,6 @@
                                   </tr>
                                   <tr>
                                     <td>Sonya Frost</td>
-                                    <td>Software Engineer</td>
                                     <td>Edinburgh</td>
                                     <td>23</td>
                                     <td>$103,600</td>
@@ -155,7 +151,6 @@
 
                                   <tr>
                                     <td>Fiona Green</td>
-                                    <td>Chief Operating Officer (COO)</td>
                                     <td>San Francisco</td>
                                     <td>48</td>
                                     <td>2010/03/11</td>
@@ -175,24 +170,35 @@
                                                     <div class="modal-content">
 
                                                       <div class="modal-header">
-                                                        <h4 class="modal-title" id="myModalLabel">Add New Company</h4>
+                                                        <h4 class="modal-title" id="myModalLabel">Add New Project</h4>
                                                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
                                                         </button>
                                                       </div>
                                                       <div class="modal-body">
                                                         <form>
                                                           <div class="field item form-group">
-                                                              <label class="col-form-label col-md-3 col-sm-3  label-align">Comapany Name<span class="required">*</span></label>
+                                                              <label class="col-form-label col-md-3 col-sm-3  label-align">Comapany<span class="required">*</span></label>
                                                               <div class="col-md-6 col-sm-6">
-                                                                  <input class="form-control" type="password" name="password2" data-validate-linked='password' required='required' /></div>
+                                                                <select class="form-control">
+                                                                  <option>SELECT</option>
+                                                                  <option>Active</option>
+                                                                  <option>Inactive</option>
+                                                                </select>
+                                                                </div>
                                                           </div>
                                                           <div class="field item form-group">
-                                                              <label class="col-form-label col-md-3 col-sm-3  label-align">Company Description<span class="required">*</span></label>
+                                                              <label class="col-form-label col-md-3 col-sm-3  label-align">Project Name<span class="required">*</span></label>
                                                               <div class="col-md-6 col-sm-6">
                                                                   <input class="form-control" type="tel" class='tel' name="phone" required='required' data-validate-length-range="8,20" /></div>
                                                           </div>
                                                           <div class="field item form-group">
-                                                              <label class="col-form-label col-md-3 col-sm-3  label-align">Address<span class="required">*</span></label>
+                                                              <label class="col-form-label col-md-3 col-sm-3  label-align">Location<span class="required">*</span></label>
+                                                              <div class="col-md-6 col-sm-6">
+                                                                  <input class="form-control" type="tel" class='tel' name="phone" required='required' data-validate-length-range="8,20" /></div>
+                                                          </div>
+
+                                                          <div class="field item form-group">
+                                                              <label class="col-form-label col-md-3 col-sm-3  label-align">Description<span class="required">*</span></label>
                                                               <div class="col-md-6 col-sm-6">
                                                                   <textarea required="required" name='message' rows="4" cols="50"></textarea>
                                                                 </div>

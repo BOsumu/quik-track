@@ -220,7 +220,7 @@
 
                                                                        <div class="ln_solid"></div>
                                                                        <div class="item form-group">
-                                                                         <div class="col-md-6 col-sm-6 offset-md-3 left-align">
+                                                                         <div class="col-md-6 col-sm-6 left-align">
                                                                            <button type="submit" class="btn btn-login"><a href="payment_plan.php">Next :Create Payment Plan</a></button>
                                                                            <button class="btn btn-gray" type="reset">Reset</button>
                                                                          </div>
