@@ -27,7 +27,7 @@
                         </div>
             </li>
 
-            <li role="presentation"><a href="#"><i class="fa fa-money" aria-hidden="true">&nbsp;</i>Payments</a>
+            <li role="presentation"><a href="payments.php"><i class="fa fa-money" aria-hidden="true">&nbsp;</i>Payments</a>
             </li>
             <li role="presentation" class="dropdown">
               <a id="drop6" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
@@ -35,7 +35,7 @@
                           <span class="caret"></span>
                       </a>
                       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          <a class="dropdown-item" href="#">Company</a>
+                          <a class="dropdown-item" href="company.php">Company</a>
                           <a class="dropdown-item" href="#">Project</a>
                         </div>
             </li>

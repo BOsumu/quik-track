@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Sales List | Quick Track Admin - Kelsey Developments PLC</title>
+    <title>Payment List | Quick Track Admin - Kelsey Developments PLC</title>
 
     <!-- Bootstrap -->
     <link href="cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
@@ -124,9 +124,9 @@
                                     <td>61</td>
                                     <td>2011/04/25</td>
                                     <td>
-                                      <p class="text-muted font-13 m-b-30">
-                                        <form action="add.php">
-                                           <button type="text" class="btn btn-view btn-sm">View</button>
+                                      <p class="text-muted">
+                                        <form action="addpayment.php">
+                                           <button type="text" class="btn btn-payments btn-sm">Add Payment</button>
                                         </form>
                                       </p>
 

@@ -213,8 +213,8 @@
                                     <input type="text" id="fullname" class="form-control" name="fullname" />
                                   </div>
 
-                                  <div class="col-md-4 col-sm-4  form-group has-feedback">
-                                     <div class="ln_solid"></div>
+                                  <div class="col-md-4 col-sm-4  form-group has-feedback" style="margin-top: 27px;">
+
                                      <button type="submit" class="btn btn-login">Create Payment Plan</button>
                                      <button class="btn btn-gray" type="reset">Reset</button>
                                   </div>

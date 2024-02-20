@@ -40,7 +40,7 @@
                                        </div>
 
                                        <div class="setting">
-                                          <div class="backbtn"><a href="dashboard.php"> </a></div>
+                                          <div class="backbtn"><a href="sales.php"> </a></div>
                                            <div class="subtext"><h2>Add New Sales</h2></div>
                                           <div class="clear"></div>
                                       </div>
@@ -84,25 +84,25 @@
 
                       </ul>
                       <div >
-                        <h2 class="StepTitle">Create Payment Plane</h2>
+                        <h2 class="StepTitle">View The sales</h2>
                         <div class="row">
 
 
                         <div class="col-md-12 col-sm-12">
                           <div class="x_content">
 
-                            <ul class="nav nav-tabs bar_tabs" id="myTab" role="tablist">
+                            <ul class="nav nav-tabs bar_tabs tab-text" id="myTab" role="tablist">
                               <li class="nav-item">
-                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Sale Details</a>
                               </li>
                               <li class="nav-item">
-                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Payment Plan</a>
                               </li>
                               <li class="nav-item">
-                                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+                                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Payments</a>
                               </li>
                               <li class="nav-item">
-                                <a class="nav-link" id="contact1-tab" data-toggle="tab" href="#contact1" role="tab" aria-controls="contact1" aria-selected="false">Contact1</a>
+                                <a class="nav-link" id="contact1-tab" data-toggle="tab" href="#contact1" role="tab" aria-controls="contact1" aria-selected="false">Payments Slips</a>
                               </li>
                             </ul>
                             <div class="tab-content" id="myTabContent">
