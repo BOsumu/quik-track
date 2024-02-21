@@ -10,6 +10,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="assets/images/favicon.png" type="image/png" />
 
     <title> Login | Quik Track Admin - Kelsey Developments PLC | </title>
 
@@ -138,13 +139,13 @@
 <!-- registration_form -->
 
 <!-- footer content -->
-<footer>
+<!-- <footer>
   <div class="pull-right">
     <p class="mb-0">© 2023 - <script> document.write(new Date().getFullYear())</script> All right reserved. Quik Track for Blue Ocean Group Of Companies & Kelsey Developments PLC, made with ❤️ by <a href="javascript:;"  class="fw-medium">Blue Ocean IT</a></p>
   </footer>
   </div>
   <div class="clearfix"></div>
-</footer>
+</footer> -->
 <!-- /footer content -->
 
       </div>

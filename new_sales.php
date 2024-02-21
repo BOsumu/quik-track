@@ -1,5 +1,24 @@
+<?php ob_start();?>
+<?php include 'include/dbConnection.php';?>
+<?php include 'include/session.php';?>
+<?php
+$result=mysqli_query($conn, "select U_id from user  where U_id='$session_id'")or die('Error In Session');
+$row=mysqli_fetch_array($result);
+?>
 <?php include 'include/header.php';?>
 <?php include 'include/nav_bar.php';?>
+
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"/> -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+ <link rel="stylesheet" type="text/css" href="css/amsify.select.css">
+
+<!-- Amsify Plugin -->
+
+<script type="text/javascript" src="js/jquery.amsifyselect.js"></script>
+
+
+
         <!-- page content -->
         <div class="right_col" role="main">
           <div class="">
@@ -94,16 +113,25 @@
                       <div>
                         <form class="form-horizontal form-label-left">
 
+                          <div class="form-group row">
+                            <label class="control-label col-md-2 col-sm-3 ">Select Second Owner :</label>
+                            <div class="col-md-5 col-sm-9 ">
+                            fdsfsfsdsdf
+                            </div>
+                          </div>
+
 
                                                                        <div class="form-group row">
                                                                          <label class="control-label col-md-2 col-sm-3 ">Select First Owner :</label>
                                                                          <div class="col-md-5 col-sm-9 ">
-                                                                           <select class="form-control">
+                                                                           <select class="form-control" id="firstowner" required name="Customer_id" data-placeholder="Choose one thing">
                                                                              <option>SELECT</option>
-                                                                             <option>Option one</option>
-                                                                             <option>Option two</option>
-                                                                             <option>Option three</option>
-                                                                             <option>Option four</option>
+                                                                             <?php
+											            $result = mysqli_query($conn, "SELECT * FROM customer WHERE C_status = '0'");
+											            while ($row = mysqli_fetch_array($result)) {
+											                ?>
+                                                                             <option value="<?php echo $row["Customer_id"]; ?>"><?php echo $row["C_fullname"]; ?></option>
+                                                                           <?php } ?>
                                                                            </select>
                                                                          </div>
                                                                        </div>
@@ -112,12 +140,15 @@
                                                                           <div class="form-group row">
                                                                             <label class="control-label col-md-2 col-sm-3 ">Select Second Owner :</label>
                                                                             <div class="col-md-5 col-sm-9 ">
-                                                                              <select class="form-control">
-                                                                                <option>SELECT</option>
-                                                                                <option>Option one</option>
-                                                                                <option>Option two</option>
-                                                                                <option>Option three</option>
-                                                                                <option>Option four</option>
+                                                                              <select class="form-control" id="secondowner" data-placeholder="Choose one thing" name="Customer_idS" disabled>
+                                                                                <option selected disabled value>SELECT</option>
+                                                                                <?php
+                                 // Use a different variable name for the result set to avoid conflicts
+                                 $resultSecondOwner = mysqli_query($conn, "SELECT * FROM customer WHERE C_status = '0'");
+                                 while ($rowSecondOwner = mysqli_fetch_array($resultSecondOwner)) {
+                                     ?>
+                                     <option value="<?php echo $rowSecondOwner["Customer_id"]; ?>"> <?php echo $rowSecondOwner["C_fullname"]; ?></option>
+<?php } ?>
                                                                               </select>
                                                                             </div>
                                                                           </div>
@@ -125,12 +156,14 @@
                                                                           <div class="form-group row">
                                                                             <label class="control-label col-md-2 col-sm-3 ">Select Project :</label>
                                                                             <div class="col-md-5 col-sm-9 ">
-                                                                              <select class="form-control">
-                                                                                <option>SELECT</option>
-                                                                                <option>Option one</option>
-                                                                                <option>Option two</option>
-                                                                                <option>Option three</option>
-                                                                                <option>Option four</option>
+                                                                              <select class="form-control"id="project-select" data-placeholder="Choose one thing" required name="project_id">
+											                                                          <option selected disabled value>SELECT</option>
+                                                                                <?php
+ 											                                                              $result = mysqli_query($conn, "SELECT * FROM project WHERE project_status = '0'");
+ 											                                                              while ($row = mysqli_fetch_array($result)) {
+ 											                                                                  ?>
+ 											                                                                  <option value="<?php echo $row["project_id"]; ?>"> <?php echo $row["project_name"]; ?></option>
+ 											                                                              <?php } ?>
                                                                               </select>
                                                                             </div>
                                                                           </div>
@@ -138,13 +171,9 @@
                                                                           <div class="form-group row">
                                                                             <label class="control-label col-md-2 col-sm-3 ">Select Project Unit :</label>
                                                                             <div class="col-md-5 col-sm-9 ">
-                                                                              <select class="form-control">
-                                                                                <option>SELECT</option>
-                                                                                <option>Option one</option>
-                                                                                <option>Option two</option>
-                                                                                <option>Option three</option>
-                                                                                <option>Option four</option>
-                                                                              </select>
+                                                                              <select class="form-control"id="project-unit-select" data-placeholder="Choose one thing" required name="unit_id">
+									                                                                <option selected disabled value>SELECT</option>
+									                                                            </select>
                                                                             </div>
                                                                           </div>
 
@@ -154,7 +183,7 @@
                                                                        <div class="form-group row ">
                                                                          <label class="control-label col-md-2 col-sm-3 ">Sale Date :</label>
                                                                          <div class="col-md-5 col-sm-9 ">
-                                                                            <input id="#" class="date-picker form-control" placeholder="dd-mm-yyyy" type="text" type="text" onfocus="this.type='date'" onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
+                                                                            <input id="#" name="sale_date" required class="date-picker form-control" placeholder="dd-mm-yyyy" type="text" onfocus="this.type='date'" onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
                                                                          </div>
                                                                        </div>
 
@@ -166,7 +195,7 @@
                                                                                <div class="input-group-prepend">
                                                                                <span class="input-group-text" id="basic-addon1">LKR</span>
                                                                                </div>
-                                                                               <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                                                               <input type="text" class="form-control" aria-describedby="basic-addon1" id="inputCompareatprice" placeholder="00.00" required name="sale_unit_price" readonly>
                                                                              </div>
                                                                         </div>
                                                                       </div>
@@ -178,7 +207,7 @@
                                                                               <div class="input-group-prepend">
                                                                               <span class="input-group-text" id="basic-addon1">LKR</span>
                                                                               </div>
-                                                                              <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                                                              <input type="text" class="form-control" aria-describedby="basic-addon1" id="inputDiscount" placeholder="00.00" oninput="calculateDiscount()" name="sale_unit_discount_price">
                                                                             </div>
                                                                          </div>
                                                                        </div>
@@ -190,7 +219,7 @@
                                                                               <div class="input-group-prepend">
                                                                               <span class="input-group-text" id="basic-addon1">&nbsp;&nbsp;%&nbsp;&nbsp;</span>
                                                                               </div>
-                                                                              <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                                                              <input type="text" class="form-control" aria-describedby="basic-addon1" id="inputDiscountpercentage" placeholder="00.0" readonly name="sale_unit_discount_price_presentage">
                                                                             </div>
                                                                          </div>
                                                                        </div>
@@ -201,28 +230,39 @@
                                                                               <div class="input-group-prepend">
                                                                               <span class="input-group-text" id="basic-addon1">LKR</span>
                                                                               </div>
-                                                                              <input type="text" class="form-control" aria-describedby="basic-addon1">
+                                                                              <input type="text" class="form-control" aria-describedby="basic-addon1" id="inputSellingPrice" placeholder="00.00" readonly required name="selling_price">
                                                                             </div>
                                                                          </div>
                                                                        </div>
                                                                        <div class="form-group row">
                                                                          <label class="control-label col-md-2 col-sm-3 ">Sales Person :</label>
                                                                          <div class="col-md-5 col-sm-9 ">
-                                                                           <select class="form-control">
-                                                                             <option>SELECT</option>
-                                                                             <option>Option one</option>
-                                                                             <option>Option two</option>
-                                                                             <option>Option three</option>
-                                                                             <option>Option four</option>
+                                                                           <select class="form-control"id="single-select-field" data-placeholder="Choose one thing" required name="sale_by">
+														                                                   <option selected disabled value>Select</option>
+													                                                      	<?php
+															                                                       $result = mysqli_query($conn, "SELECT * FROM user WHERE U_Status = '0'" );
+															                                                       while ($row = mysqli_fetch_array($result)) {
+													                                                       	?>
+														                                                       <option value="<?php echo $row["U_id"];?>"> <?php echo $row["U_FName"];?> <?php echo $row["U_LName"];?></option>
+													                                                       	<?php }?>
                                                                            </select>
                                                                          </div>
                                                                        </div>
 
+                                                                       <input type="hidden" value="<?php echo $session_id;?>" name="sale_crate_by"/>
+                                                                           <?php
+                                                                           date_default_timezone_set('Asia/Colombo');
+                                                                           $C_date = date("d-m-Y"); // Format the date as "dd/mm/yyyy"
+                                                                           ?>
+
+                                                                           <input type="hidden" value="<?php echo $C_date; ?>" name="sale_crate_bate">
+
+
                                                                        <div class="ln_solid"></div>
                                                                        <div class="item form-group">
                                                                          <div class="col-md-6 col-sm-6 left-align">
-                                                                           <button type="submit" class="btn btn-login"><a href="payment_plan.php">Next :Create Payment Plan</a></button>
-                                                                           <button class="btn btn-gray" type="reset">Reset</button>
+                                                                           <button type="submit" class="btn btn-login btn-sm"><a href="payment_plan.php">Next :Create Payment Plan</a></button>
+                                                                           <button class="btn btn-gray btn-sm" type="reset">Reset</button>
                                                                          </div>
                                                                        </div>
 
@@ -241,6 +281,7 @@
 
               </div>
             </div>
+            <?php include 'PHP/Write/addSales_script.php';?>
           </div>
            <!-- / RIGHT LIST -->
           </div>
@@ -267,6 +308,134 @@
     <!-- <script src="assets/vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js"></script> -->
     <!-- Custom Theme Scripts -->
     <script src="assets/build/js/custom.min.js"></script>
+
+    <script>
+    // Add an event listener to the First Owner dropdown
+    $('#firstowner').on('change', function () {
+        // Enable the Second Owner dropdown
+        $('#secondowner').prop('disabled', false);
+
+        // Get the selected value
+        var selectedValue = $(this).val();
+
+        // Disable the option in the Second Owner dropdown with the same value
+        $('#secondowner option[value="' + selectedValue + '"]').prop('disabled', true);
+
+        // If the previously selected option in Second Owner is not selected in First Owner anymore, enable it
+        if ($(this).data('prevValue')) {
+            $('#secondowner option[value="' + $(this).data('prevValue') + '"]').prop('disabled', false);
+        }
+
+        // Store the current selected value for future reference
+        $(this).data('prevValue', selectedValue);
+    });
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    // Get references to the two dropdowns and the input field
+    const projectSelect = document.getElementById("project-select");
+    const projectUnitSelect = document.getElementById("project-unit-select");
+    const inputCompareatprice = document.getElementById("inputCompareatprice");
+
+    // Event listener for the project dropdown
+    projectSelect.addEventListener("change", function () {
+        // Clear the project unit dropdown and unit price field
+        projectUnitSelect.innerHTML = '<option selected disabled value>SELECT</option>';
+        inputCompareatprice.value = "";
+
+        // Get the selected project ID
+        const selectedProjectId = projectSelect.value;
+
+        // Fetch project units related to the selected project using AJAX
+        if (selectedProjectId !== "SELECT") {
+            fetchProjectUnits(selectedProjectId);
+        }
+    });
+
+    // Event listener for the project unit dropdown
+    projectUnitSelect.addEventListener("change", function () {
+        // Get the selected unit object (including unit_Name and unit_Price)
+        const selectedUnit = projectUnitSelect.options[projectUnitSelect.selectedIndex];
+
+        // Set the unit Name and unit Price in the input field
+        inputCompareatprice.value = selectedUnit.getAttribute("data-unit-price");
+    });
+
+    // Function to fetch project units using AJAX
+    function fetchProjectUnits(projectId) {
+        $.ajax({
+            url: "fetch_project_units.php",
+            type: "POST",
+            data: { project_id: projectId }, // Corrected parameter name
+            dataType: "json", // Specify JSON dataType
+            success: function (data) {
+                if (data && data.length > 0) { // Check if data is valid and not empty
+                    // Append project unit options to the dropdown
+                    data.forEach(function (unit) {
+                        const option = document.createElement("option");
+                        option.value = unit.unit_id;
+                        option.textContent = unit.unit_Name;
+                        option.setAttribute("data-unit-price", unit.unit_Price); // Store unit_Price as data attribute
+                        projectUnitSelect.appendChild(option);
+                    });
+                } else {
+                    // Handle the case where no data is returned
+                    console.log("No project units found for the selected project.");
+                }
+            },
+            error: function (xhr, status, error) {
+                // Handle AJAX errors, e.g., network issues or server errors
+                console.error("AJAX error:", status, error);
+            }
+        });
+    }
+});
+
+</script>
+
+
+
+  <script>
+  // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+      'use strict'
+
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = document.querySelectorAll('.needs-validation')
+
+      // Loop over them and prevent submission
+      Array.prototype.slice.call(forms)
+      .forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+        }, false)
+      })
+    })()
+</script>
+
+<script>
+      function calculateDiscount() {
+          // Get the values entered by the user and remove commas
+          const unitPrice = parseFloat(document.getElementById("inputCompareatprice").value.replace(/,/g, ''));
+          const discountLKR = parseFloat(document.getElementById("inputDiscount").value);
+
+          // Calculate the discount percentage with one decimal place
+          const discountPercentage = ((discountLKR / unitPrice) * 100).toFixed(1);
+
+          // Calculate the selling price
+          const sellingPrice = (unitPrice - discountLKR).toFixed(2);
+
+          // Update the "Discount (%)" and "Selling Price (LKR)" fields
+          document.getElementById("inputDiscountpercentage").value = discountPercentage;
+          document.getElementById("inputSellingPrice").value = sellingPrice;
+      }
+  </script>
 
 
   </body>

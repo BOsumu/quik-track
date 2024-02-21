@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" href="assets/images/favicon.ico" type="image/ico"/>
+	<link rel="icon" href="assets/images/favicon.png" type="image/png" />
 
     <title>Quik Track</title>
 
@@ -30,4 +30,6 @@
     <link href="assets/build/css/custom.min.css" rel="stylesheet">
     <!-- Developer css -->
     <link href="assets/developer/css/developer.css" rel="stylesheet">
+
+ <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   </head>

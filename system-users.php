@@ -101,11 +101,11 @@
                               <table id="datatable-buttons" class="table table-striped table-bordered" style="width:100%">
                                 <thead>
                                   <tr>
-                                    <th>Company</th>
-                                    <th>Description</th>
-                                    <th>Address</th>
-                                    <th>Create by</th>
-                                    <th>Create</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Contact</th>
+                                    <th>Desig</th>
+                                    <th>Type</th>
                                     <th>Status</th>
                                     <th>Action</th>
 
@@ -119,13 +119,13 @@
                                     <td>System Architect</td>
                                     <td>Edinburgh</td>
                                     <td>61</td>
-                                    <td>2011/04/25</td>
+                                    <td>  <span class="badge badge-success">Success</span>
                                     <td>  <span class="badge badge-success">Success</span>
                                       </td>
 
                                     <td>
                                       <p class="text-muted">
-                                        <form action="view-company.php">
+                                        <form action="view-system-user.php">
                                            <button type="text" class="btn btn-edit btn-sm">view & Edit</button>
                                         </form>
                                       </p>
@@ -138,7 +138,7 @@
                                     <td>Javascript Developer</td>
                                     <td>San Francisco</td>
                                     <td>39</td>
-                                    <td>2009/09/15</td>
+                                  <td>  <span class="badge badge-success">Success</span>
                                     <td><span class="badge badge-danger">Danger</span></td>
                                     <td>61</td>
 
@@ -148,7 +148,7 @@
                                     <td>Software Engineer</td>
                                     <td>Edinburgh</td>
                                     <td>23</td>
-                                    <td>$103,600</td>
+                                      <td><span class="badge badge-danger">Danger</span></td>
                                     <td><span class="badge badge-danger">Danger</span></td>
                                     <td>2011/04/25</td>
                                   </tr>
@@ -158,7 +158,7 @@
                                     <td>Chief Operating Officer (COO)</td>
                                     <td>San Francisco</td>
                                     <td>48</td>
-                                    <td>2010/03/11</td>
+                                    <td><span class="badge badge-danger">Danger</span></td>
                                     <td><span class="badge badge-danger">Danger</span></td>
                                     <td>61</td>
 
@@ -175,31 +175,120 @@
                                                     <div class="modal-content">
 
                                                       <div class="modal-header">
-                                                        <h4 class="modal-title" id="myModalLabel">Add New Company</h4>
+                                                        <h4 class="modal-title" id="myModalLabel">Add System User</h4>
                                                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
                                                         </button>
                                                       </div>
                                                       <div class="modal-body">
-                                                        <form>
-                                                          <div class="field item form-group">
-                                                              <label class="col-form-label col-md-3 col-sm-3  label-align">Comapany Name<span class="required">*</span></label>
-                                                              <div class="col-md-6 col-sm-6">
-                                                                  <input class="form-control" type="password" name="password2" data-validate-linked='password' required='required' /></div>
+
+
+
+                                                        <form id="demo-form" data-parsley-validate>
+
+                                                          <div class='col-sm-2'>
+                                                            Title
+                                                              <div class="form-group">
+                                                                  <div class='input-group date' id='myDatepicker2'>
+                                                                    <select id="heard" class="form-control">
+                                                                      <option value="">Choose..</option>
+                                                                      <option value="Mr.">Mr.</option>
+                                                                      <option value="Mrs.">Mrs.</option>
+                                                                      <option value="Miss.">Miss.</option>
+                                                                      <option value="Ms.">Ms.</option>
+                                                                      <option value="Dr.">Dr.</option>
+                                                                    </select>
+                                                                  </div>
+                                                              </div>
                                                           </div>
-                                                          <div class="field item form-group">
-                                                              <label class="col-form-label col-md-3 col-sm-3  label-align">Company Description<span class="required">*</span></label>
-                                                              <div class="col-md-6 col-sm-6">
-                                                                  <input class="form-control" type="tel" class='tel' name="phone" required='required' data-validate-length-range="8,20" /></div>
-                                                          </div>
-                                                          <div class="field item form-group">
-                                                              <label class="col-form-label col-md-3 col-sm-3  label-align">Address<span class="required">*</span></label>
-                                                              <div class="col-md-6 col-sm-6">
-                                                                  <textarea required="required" name='message' rows="4" cols="50"></textarea>
+
+                                                          <div class='col-sm-5'>
+                                                            First Name
+                                                            <div class="form-group">
+                                                                <div class='input-group date' id='myDatepicker2'>
+                                                                  <input type="text" id="first-name" required="required" class="form-control ">
+
                                                                 </div>
+                                                            </div>
                                                           </div>
+                                                          <div class='col-sm-5'>
+                                                            Last Name
+                                                            <div class="form-group">
+                                                                <div class='input-group date' id='myDatepicker2'>
+                                                                  <input type="text" id="first-name" required="required" class="form-control ">
+
+                                                                </div>
+                                                            </div>
+                                                          </div>
+
+
+                                                          <div class='col-sm-6'>
+                                                            Email
+                                                            <div class="form-group">
+                                                                <div class='input-group date' id='myDatepicker2'>
+                                                                  <input type="text" id="first-name" required="required" class="form-control ">
+
+                                                                </div>
+                                                            </div>
+                                                          </div>
+
+                                                          <div class='col-sm-6'>
+                                                            Contact No
+                                                            <div class="form-group">
+                                                                <div class='input-group date' id='myDatepicker2'>
+                                                                  <input type="text" id="first-name" required="required" class="form-control ">
+
+                                                                </div>
+                                                            </div>
+                                                          </div>
+
+
+                                                          <div class='col-sm-6'>
+                                                            Designation
+                                                            <div class="form-group">
+                                                                <div class='input-group date' id='myDatepicker2'>
+                                                                  <input type="text" id="first-name" required="required" class="form-control ">
+
+                                                                </div>
+                                                            </div>
+                                                          </div>
+
+                                                          <div class='col-sm-6'>
+                                                              User Type
+                                                              <div class="form-group">
+                                                                  <div class='input-group date' id='myDatepicker2'>
+                                                                    <select id="heard" class="form-control">
+                                            													<option value="">Choose..</option>
+                                            													<option value="Super Admin">Super Admin</option>
+                                            													<option value="Admin">Admin</option>
+                                            													<option value="Sales Admin">Sales Admin</option>
+                                                                      <option value="Sales Person">Sales Person</option>
+                                            												</select>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+
+                                                           <div class='col-sm-6'>
+                                                              Password
+                                                              <div class="form-group">
+                                                                  <div class='input-group date' id='myDatepicker3'>
+                                                                      <input type="text" id="fullname" class="form-control" name="fullname" />
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+
+
+
+                                                           <div class='col-sm-6'>
+                                                              Re Enter Password
+                                                              <div class="form-group">
+                                                                  <div class='input-group date' id='datetimepicker6'>
+                                                                      <input type="text" id="fullname" class="form-control" name="fullname" />
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+
 
                                                         </form>
-
                                                       </div>
                                                       <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>

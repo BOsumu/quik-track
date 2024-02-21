@@ -64,7 +64,7 @@
                                                                      <label class="control-label col-md-2 col-sm-3 ">Full Name:</label>
                                                                      <div class="col-md-2 col-sm-9 ">
                                                                        <select class="form-control">
-                                                                         <option>Choose.</option>
+                                                                         <option>Choose title.</option>
                                                                          <option value="Mr.">Mr.</option>
                                                      										 <option value="Mrs.">Mrs.</option>
                                                      										 <option value="Miss.">Miss.</option>

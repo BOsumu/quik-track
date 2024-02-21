@@ -4,7 +4,7 @@
     margin-left: 0px;
 }
 .nav_menu {
-  background: #13446f;
+  background: #014C83;
   position: fixed;
 z-index: 10;
 }
@@ -12,7 +12,7 @@ z-index: 10;
 }
 .nav_title {
   border: 0;
-  background: #13446f;
+  background: #014C83;
   /* height: 46px; */
 }
 
@@ -98,7 +98,7 @@ body.nav-md {
 }
 
 .btn-gray {
-    color: #fff;
+    color: #959ba0;
     background-color: #D8DCE0;
     border-color: #D8DCE0;
 }
@@ -188,7 +188,7 @@ margin-bottom: 10px;
 }
 /* ----SEARCH  ---*/
 .nav_title {
-    width: 222px;
+    width: 235px;
 
 }
 
@@ -207,6 +207,7 @@ margin-bottom: 10px;
         .form-step.active {
             display: block;
         }
+
 
         h2 {
             color: #333;
@@ -487,4 +488,13 @@ div.dataTables_wrapper div.dataTables_filter label {
     font-size: 21px;
     font-style: italic;
     color: #ccc;
+}
+.top_nav .navbar-right {
+    margin-top: 9px;
+    margin-bottom: 5px;
+    width: auto;
+    float: right;
+}
+.dropdown-toggle::after {
+    /* margin-left: 15px; */
 }
