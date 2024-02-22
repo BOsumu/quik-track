@@ -2,9 +2,6 @@
 // Include your database connection code here
 include('include/dbConnection.php');
 
-
-
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Check if the project_id parameter is set in the POST request
     if (isset($_POST['project_id'])) {

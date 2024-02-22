@@ -498,3 +498,36 @@ div.dataTables_wrapper div.dataTables_filter label {
 .dropdown-toggle::after {
     /* margin-left: 15px; */
 }
+.btn-print{
+      color: #fff;
+      background-color: #005593;
+      border-color: #005593;
+  }
+  .btn-print:hover {
+      color: #fff;
+      background-color: #01376a;
+  }
+  .btn-tbview {
+      background: url(../../images/show-icon.png) no-repeat left center #023b62;
+      color: #fff;
+      background-color: #005593;
+      border-color: #005593;
+      padding-left: 28px;
+      background-position: 6px;
+  }
+  .btn-tbview:hover {
+      color: #fff;
+      background-color: #01376a;
+  }
+  .btn-tbedit {
+      background: url(../../images/edit-icon.png) no-repeat left center #023b62;
+      color: #fff;
+      background-color: #005593;
+      border-color: #005593;
+      padding-left: 28px;
+      background-position: 6px;
+  }
+  .btn-tbedit:hover {
+      color: #fff;
+      background-color: #01376a;
+  }

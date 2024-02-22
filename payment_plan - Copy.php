@@ -1,9 +1,11 @@
 <?php ob_start();?>
-<?php include 'include/dbConnection.php';?>
+<?php include 'include/dbConnection.php';
+?>
 <?php include 'include/session.php';?>
 <?php
 $result=mysqli_query($conn, "select U_id from user  where U_id='$session_id'")or die('Error In Session');
-$row=mysqli_fetch_array($result);?>
+$row=mysqli_fetch_array($result);
+?>
 <?php include 'include/header.php';?>
 <?php include 'include/nav_bar.php';?>
         <!-- page content -->
@@ -34,7 +36,6 @@ $row=mysqli_fetch_array($result);?>
             </div>
             <!--/ SIDE  LIST -->
            <!-- RIGHT LIST -->
-
             <div class="col-sm-10 mail_view">
 
                                        <div class="mail_heading row">
@@ -92,7 +93,6 @@ $row=mysqli_fetch_array($result);?>
 
                       </ul>
                       <div >
-                	<?php include 'PHP/Read/view-sales-script.php'; ?>
                         <h2 class="StepTitle">Create Payment Plane</h2>
                         <div class="row">
                         <div class="col-md-6 col-sm-6">
@@ -108,54 +108,23 @@ $row=mysqli_fetch_array($result);?>
 
                                 <tbody>
                                   <tr>
-                                    <?php
-              $select_admin = "SELECT C_namewinitials, C_Phone, C_NIC, C_Passport, C_Address, C_Email FROM customer  WHERE Customer_id ='$Customer_id'";
-              $run_query = mysqli_query($conn,$select_admin);
-              while ($row_post = mysqli_fetch_array($run_query)){
-                $C_namewinitials = $row_post ['C_namewinitials'];
-                $C_NIC = $row_post ['C_NIC'];
-                $C_Passport = $row_post ['C_Passport'];
-                $C_Address = $row_post ['C_Address'];
-                $C_Email = $row_post ['C_Email'];
-                $C_Phone = $row_post ['C_Phone'];
-                }
-              ?>
 
-              <?php
-              $select_admin = "SELECT C_namewinitials, C_Phone, C_NIC, C_Passport, C_Address, C_Email FROM customer  WHERE Customer_id ='$Customer_idS'";
-              $run_query = mysqli_query($conn,$select_admin);
-              while ($row_post = mysqli_fetch_array($run_query)){
-                $C_namewinitialss = $row_post ['C_namewinitials'];
-                $C_NICs = $row_post ['C_NIC'];
-                $C_Passports = $row_post ['C_Passport'];
-                $C_Addresss = $row_post ['C_Address'];
-                $C_Emails = $row_post ['C_Email'];
-                $C_Phones = $row_post ['C_Phone'];
-                }
-              ?>
+                                    <td>Customer : </td>
 
 
-                                    <td>Customer :  <?php echo $C_namewinitials; ?></td>
-                                    <?php
-                                  								if ($Customer_idS > 0) {
-                                  									echo '<tr><td>Customer :'. $C_namewinitialss. '</td></tr>';
-                                  								}else {
-                                  									// code...
-                                  								}
-      ?>
                                   </tr>
 
                                   <tr>
-                                    <td>Contact : <?php echo $C_Phone; ?> </td>
+                                    <td>Contact : </td>
                                   </tr>
                                   <tr>
-                                    <td>NIC/Passport :   <?php echo $C_NIC; ?> <?php echo '/' . $C_Passport; ?></td>
+                                    <td>NIC/Passport :  </td>
                                   </tr>
                                   <tr>
-                                    <td>Address :  <?php echo $C_Address; ?></td>
+                                    <td>Address : </td>
                                   </tr>
                                   <tr>
-                                    <td>Email : <?php echo $C_Email; ?></td>
+                                    <td>Email :</td>
                                   </tr>
 
 
@@ -180,33 +149,19 @@ $row=mysqli_fetch_array($result);?>
 
                                 <tbody>
                                   <tr>
-                                    <?php
-								$select_admin = "SELECT project_name FROM project  WHERE project_id ='$project_id'";
-								$run_query = mysqli_query($conn,$select_admin);
-								while ($row_post = mysqli_fetch_array($run_query)){
-								  $project_name = $row_post ['project_name'];
-									}
-								?>
-                                       <td>project: <?php echo $project_name; ?></td>
+                                       <td>project:</td>
                                   </tr>
                                   <tr>
-                                    <?php
-              $select_admin = "SELECT unit_Name FROM project_units   WHERE unit_id ='$unit_id'";
-              $run_query = mysqli_query($conn,$select_admin);
-              while ($row_post = mysqli_fetch_array($run_query)){
-                $unit_Name = $row_post ['unit_Name'];
-                }
-              ?>
-                                    <td>Unit : <?php echo $unit_Name; ?></td>
+                                    <td>Unit : </td>
                                   </tr>
                                   <tr>
-                                    <td>Unit Price : <?php echo $sale_unit_price;?> LKR</td>
+                                    <td>Unit Price :  LKR</td>
                                   </tr>
                                   <tr>
-                                    <td>Discount :   <?php echo $sale_unit_discount_price;?> LKR | <?php echo $sale_unit_discount_price_presentage;?>%</td>
+                                    <td>Discount :  LKR | </td>
                                   </tr>
                                   <tr>
-                                    <td>Selling Price : <b><?php echo $selling_price;?>LKR</b></td>
+                                    <td>Selling Price : LKR</td>
                                   </tr>
 
 
@@ -224,62 +179,22 @@ $row=mysqli_fetch_array($result);?>
 
                             <ul class="nav nav-tabs bar_tabs tab-text" id="myTab" role="tablist">
                               <li class="nav-item">
-                                <a class="nav-link active" id="installment-tab" data-toggle="tab" href="#primaryhome" role="tab" aria-controls="installment" aria-selected="true">Installment</a>
+                                <a class="nav-link active" id="installment-tab" data-toggle="tab" href="#installment" role="tab" aria-controls="installment" aria-selected="true">Installment</a>
                               </li>
                               <li class="nav-item">
-                                <a class="nav-link" id="milestone-tab" data-toggle="tab" href="#primaryprofile" role="tab" aria-controls="milestone" aria-selected="false">Milestone</a>
+                                <a class="nav-link" id="milestone-tab" data-toggle="tab" href="#milestone" role="tab" aria-controls="milestone" aria-selected="false">Milestone</a>
                               </li>
 
                             </ul>
                             <div class="tab-content" id="myTabContent">
-                              <script>
-      // Function to calculate Reservation Fee percentage and display it
-      function calculateReservationFeePercentage() {
-          const reservationFeeFixedAmount = document.getElementById('reservation_fee');
-          const reservationFeePercentage = document.getElementById('reservation_fee_percentage');
 
-          if (reservationFeeFixedAmount.value) {
-              const sellingPrice = parseFloat(document.getElementById('selling_price').value);
-              const fixedAmount = parseFloat(reservationFeeFixedAmount.value);
 
-              if (!isNaN(sellingPrice) && !isNaN(fixedAmount)) {
-                  const percentage = (fixedAmount / sellingPrice) * 100;
-                  reservationFeePercentage.value = percentage.toFixed(2);
-              } else {
-                  reservationFeePercentage.value = '';
-              }
-          } else {
-              reservationFeePercentage.value = '';
-          }
-      }
+                              <div class="tab-pane fade show active" id="installment" role="tabpanel" aria-labelledby="installment-tab">
 
-      // Function to calculate Downpayment fixed amount and display it
-      function calculateDownpaymentAmount() {
-          const downpaymentPercentage = document.getElementById('downpayment_percentage');
-          const downpaymentAmount = document.getElementById('downpayment');
-
-          if (downpaymentPercentage.value) {
-              const sellingPrice = parseFloat(document.getElementById('selling_price').value);
-              const percentage = parseFloat(downpaymentPercentage.value);
-
-              if (!isNaN(sellingPrice) && !isNaN(percentage)) {
-                  const amount = (percentage / 100) * sellingPrice;
-                  downpaymentAmount.value = amount.toFixed(2);
-              } else {
-                  downpaymentAmount.value = '';
-              }
-          } else {
-              downpaymentAmount.value = '';
-          }
-      }
-  </script>
-
-                              <div class="tab-pane fade show active" id="primaryhome" role="tabpanel" aria-labelledby="installment-tab">
-
-                                <form class="form-label-left input_mask"  method="POST" enctype="multipart/form-data">
+                                <form class="form-label-left input_mask">
                                   <div class="col-md-4 col-sm-4  form-group has-feedback">
                                     <label for="fullname">Total Selling Price :</label>
-                                  	<input type="text" class="form-control" id="selling_price" name="selling_price" min="1" step="0.01" required value="<?php echo $selling_price;?>" readonly>
+                                  	<input type="text" class="form-control" id="selling_price" name="selling_price" min="1" step="0.01" required value="" readonly>
                                   </div>
 
                                   <div class="col-md-4 col-sm-4  form-group has-feedback">
@@ -315,32 +230,24 @@ $row=mysqli_fetch_array($result);?>
                                     <label for="fullname">Installment Period (in Months) :</label>
                                   	<input type="number" class="form-control"  id="installment_period" name="installment_period" min="1" required>
                                   </div>
-                                  <input type="hidden" id="sale_id" name="sale_id" required value="<?php echo $sale_id;?>">
-                                      <input type="hidden" value="<?php echo $sale_date;?>" name="sale_date" required/>
-                                      <input type="hidden" value="<?php echo $session_id;?>" name="Created_by" required/>
+                                  <input type="hidden" id="sale_id" name="sale_id" required value="">
+                  <input type="hidden" value="" name="sale_date" required/>
+                  <input type="hidden" value="" name="Created_by" required/>
 
                                   <div class="col-md-4 col-sm-4  form-group has-feedback" style="margin-top: 27px;">
 
-                                     <button type="submit" class="btn btn-login btn-sm" name="instalmentPplan">Crate Payment Plan</button>
-                                     <button class="btn btn-gray btn-sm" type="reset">Reset</button>
+                                     <button type="submit" class="btn btn-login" name="instalmentPplan">Crate Payment Plan</button>
+                                     <button class="btn btn-gray" type="reset">Reset</button>
                                   </div>
 
 
                                 </form>
-                                <?php include 'PHP/Write/addinstalment_paymentPlan__script.php'; ?>
-    <script>
-        // Calculate Reservation Fee percentage when the Fixed Amount changes
-        calculateReservationFeePercentage();
-
-        // Calculate Downpayment fixed amount when the Percentage changes
-        calculateDownpaymentAmount();
-    </script>
 
 
                               </div>
 
 
-                              <div class="tab-pane fade" id="primaryprofile" role="tabpanel" aria-labelledby="profile-tab">
+                              <div class="tab-pane fade" id="milestone" role="tabpanel" aria-labelledby="profile-tab">
 
                                 <form method="post" enctype="multipart/form-data" id="myForm">
                                 <div class="row" id="rowToDuplicate">
@@ -361,16 +268,16 @@ $row=mysqli_fetch_array($result);?>
                                  </div>
 
                                  <div class="col-md-2 col-sm-2  form-group has-feedback">
-                                  <button type="button" class="btn btn-login plus-top btn-sm" onclick="duplicateRow()" style="vertical-align:baseline;"><i class='fa fa-plus'></i>&nbsp;Add New</button>
+                                  <button type="button" class="btn btn-login plus-top" onclick="duplicateRow()"><i class='fa fa-plus'></i>&nbsp;Add New</button>
                                  </div>
 
                              </div>
                              <div id="rowContainer"></div>
                              <div class="row">
-                               <input type="hidden" value="<?php echo $selling_price;?>" name="selling_price">
-  									           <input type="hidden" id="sale_id" name="sale_id" required value="<?php echo $sale_id;?>">
-  									           <input type="hidden" value="<?php echo $sale_date;?>" name="sale_date" required/>
-  									           <input type="hidden" value="<?php echo $session_id;?>" name="Created_by" required/>
+                               <input type="hidden" value="" name="selling_price">
+  									           <input type="hidden" id="sale_id" name="sale_id" required value="">
+  									           <input type="hidden" value="" name="sale_date" required/>
+  									           <input type="hidden" value="" name="Created_by" required/>
 
                               <div class="col-md-12">
 
@@ -378,13 +285,13 @@ $row=mysqli_fetch_array($result);?>
                                  <div id="errorText" style="color: red;"></div> <b><div id="totalAmountMessage"></div></b>
                                  <br/>
                                 <div class="d-md-flex d-grid align-items-center gap-3">
-                                  <button type="text" class="btn btn-login btn-sm" name="Milestoneplansubmit" id="submitButton"><a href="#" style="color:#ffffff;">Submit</a></button>
-                                  <button class="btn btn-gray btn-sm" type="reset">Reset</button>
+                                  <button type="text" class="btn btn-login" name="Milestoneplansubmit" id="submitButton"><a href="view_sales.php" style="color:#ffffff;">Submit</a></button>
+                                  <button class="btn btn-gray" type="reset">Reset</button>
                                 </div>
                               </div>
                             </div>
                             </form>
-                            <h6 class="mb-0 text-danger"><?php include 'PHP/Write/mpaymentplan_script.php';?></h6>
+                            <h6 class="mb-0 text-danger"></h6>
 
 
 
@@ -427,16 +334,13 @@ $row=mysqli_fetch_array($result);?>
         					// Add margin class to the cloned row
         					rowToDuplicate.classList.add('mt-2');
 
-                  // Apply vertical-align: baseline; style
-                  rowToDuplicate.style.verticalAlign = 'baseline';
-
         					// Append the cloned row to the parent container
         					document.querySelector('#rowContainer').appendChild(rowToDuplicate);
 
         					// Add a delete button to the cloned row
         					var deleteButton = document.createElement('button');
         					deleteButton.textContent = 'Delete';
-        					deleteButton.className = 'btn btn-danger btn-sm';
+        					deleteButton.className = 'btn btn-danger mt-4';
         					deleteButton.onclick = function() {
         							document.querySelector('#rowContainer').removeChild(rowToDuplicate);
         					};
