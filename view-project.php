@@ -1,3 +1,10 @@
+<?php ob_start();?>
+<?php include 'include/dbConnection.php';?>
+<?php include 'include/session.php';?>
+<?php
+$result=mysqli_query($conn, "select U_id from user  where U_id='$session_id'")or die('Error In Session');
+$row=mysqli_fetch_array($result);?>
+
   <?php include 'include/header.php';?>
 <?php include 'include/nav_bar.php';?>
         <!-- page content -->
@@ -44,32 +51,44 @@
                                            <div class="subtext"><h2>Add New Sales</h2></div>
                                           <div class="clear"></div>
                                       </div>
-
+<?php include_once 'PHP/Read/view-project-script.php'; ?>
             <div class="row">
 
               <div class="col-md-12 col-sm-12 ">
 
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>-PASS COMPANY NAME-</h2>
+                    <h2><?php echo $project_name;?></h2>
 
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
                     <br />
-                    <form class="form-horizontal form-label-left">
+                    <form class="form-horizontal form-label-left" method="post" enctype="multipart/form-data">
 
 
                                                                    <div class="form-group row">
-                                                                     <label class="control-label col-md-2 col-sm-3 ">Campany Name:</label>
+                                                                     <label class="control-label col-md-2 col-sm-3 ">Campany :</label>
                                                                      <div class="col-md-5 col-sm-9 ">
-                                                                       <select class="form-control">
-                                                                         <option>SELECT</option>
-                                                                         <option>Option one</option>
-                                                                         <option>Option two</option>
-                                                                         <option>Option three</option>
-                                                                         <option>Option four</option>
-                                                                       </select>
+                                                                       <?php
+             $select_admin = "SELECT * FROM companies  WHERE company_id ='$company_id'";
+             $run_query = mysqli_query($conn,$select_admin);
+             while ($row_post = mysqli_fetch_array($run_query)){
+               $company_id = $row_post ['company_id'];
+               $company_name = $row_post ['company_name'];
+             }
+
+             ?>
+             <select id="bsValidation9" class="form-control" required=="required" name="company_id">
+                 <option value="<?php echo $company_id;?>"><?php echo $company_name;?></option>
+
+               <?php
+                 $result = mysqli_query($conn, "SELECT * FROM companies " );
+                 while ($row = mysqli_fetch_array($result)) {
+               ?>
+               <option value="<?php echo $row["company_id"];?>"> <?php echo $row["company_name"];?></option>
+               <?php }?>
+             </select>
                                                                      </div>
                                                                    </div>
 
@@ -77,32 +96,43 @@
                                                                       <div class="form-group row">
                                                                         <label class="control-label col-md-2 col-sm-3 ">Project Name :</label>
                                                                         <div class="col-md-5 col-sm-9 ">
-                                                                	<input type="text" id="first-name" required="required" class="form-control ">
+                                                                          	<input type="text" class="form-control" id="input35" value="<?php echo $project_name;?>" name="project_name" required="required">
+
                                                                         </div>
                                                                       </div>
 
                                                                       <div class="form-group row">
                                                                         <label class="control-label col-md-2 col-sm-3 ">Project Location :</label>
                                                                         <div class="col-md-5 col-sm-9 ">
-                                                                    	<input type="text" id="first-name" required="required" class="form-control ">
+                                                                    		<input type="text" class="form-control" id="input36"  value="<?php echo $project_location;?>" name="project_location" required="required">
                                                                         </div>
                                                                       </div>
 
                                                                       <div class="form-group row">
                                                                         <label class="control-label col-md-2 col-sm-3 ">Project Description :</label>
                                                                         <div class="col-md-5 col-sm-9 ">
-                                                                      <textarea required="required" name='message' rows="4" cols="50"></textarea>
+
+	                                                                          <textarea class="form-control" id="bsValidation13" placeholder="Description ..."  required="required" name="project_description" rows="4" cols="50"><?php echo $project_description; ?> </textarea>
                                                                         </div>
                                                                       </div>
 
+
+									<?php
+                    if ($project_status == '0') {
+                      $U_StatusD = 'Active';
+                    }else {
+                      $U_StatusD = 'Deactivate';
+                    }
+                    ?>
+
                                                                       <div class="form-group row">
-                                                                        <label class="control-label col-md-2 col-sm-3 ">Status :</label>
+                                                                        <label class="control-label col-md-2 col-sm-3 ">Project Status :</label>
                                                                         <div class="col-md-5 col-sm-9 ">
-                                                                          <select class="form-control">
-                                                                            <option>SELECT</option>
-                                                                            <option>Active</option>
-                                                                            <option>Deactive</option>
-                                                                          </select>
+                                                                          <select class="form-control" id="input39"  name="project_status" required>
+													<option value="<?php echo $U_Status; ?>"><?php echo $U_StatusD;?></option>
+				                  <option value="0">Active</option>
+				                  <option value="1">Deactivate</option>
+										  </select>
                                                                         </div>
                                                                       </div>
 
@@ -112,26 +142,48 @@
                                                                    <div class="form-group row ">
                                                                      <label class="control-label col-md-2 col-sm-3 ">Create Date :</label>
                                                                      <div class="col-md-5 col-sm-9 ">
-                                                                      	<input type="text" class="form-control" disabled="disabled" placeholder="Disabled Input">
+                                                                      	<input type="text" class="form-control" id="input38" placeholder="Created Date" value="<?php echo $project_createdate;?>" disabled="disabled">
                                                                      </div>
                                                                    </div>
+                                                                   <?php
+
+                   $select_crateby = "SELECT * FROM user  WHERE U_id ='$project_createby'";
+                   $run_query = mysqli_query($conn,$select_crateby);
+                   while ($row_post = mysqli_fetch_array($run_query)){
+                     $U_id = $row_post ['U_id'];
+
+                     $U_FName = $row_post ['U_FName'];
+                     $U_LName = $row_post ['U_LName'];
+
+
+                   }
+
+                   ?>
 
 
                                                                    <div class="form-group row ">
                                                                     <label class="control-label col-md-2 col-sm-3 ">Create by :</label>
                                                                      <div class="col-md-5 col-sm-9 ">
 
-                                                                           	<input type="text" class="form-control" disabled="disabled" placeholder="Disabled Input">
+                                                                           	<input type="text" class="form-control" id="input38" placeholder="Created by" value="<?php echo $U_FName;?> <?php echo $U_LName; ?>" disabled="disabled">
                                                                          </div>
                                                                     </div>
 
-
+	<input type="hidden" value="<?php echo $project_id;?>" name="project_id">
 
 
                                                                    <div class="ln_solid"></div>
                                                                    <div class="item form-group">
                                                                      <div class="col-md-6 col-sm-6  left-align">
-                                                                       <button type="submit" class="btn btn-login btn-sm"><a href="payment_plan.php">Update</a></button>
+                                                                       <?php
+ 												if ($U_Typesession == '0' || $U_Typesession == '1' ) {
+ 													echo '<button type="submit" class="btn btn-login btn-sm" name="P_Update">Update</button>';
+ 												}else {
+ 													// code...
+ 												}
+
+ 												?>
+
                                                                        <button class="btn btn-gray btn-sm" type="reset">Reset</button>
                                                                      </div>
                                                                    </div>
@@ -143,6 +195,7 @@
             </div>
           </div>
            <!-- / RIGHT LIST -->
+           		<?php include_once 'PHP/Write/update-project-script.php'; ?>
           </div>
         </div>
         <!-- /page content -->

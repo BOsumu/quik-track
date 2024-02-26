@@ -1,3 +1,9 @@
+<?php ob_start();?>
+<?php include 'include/dbConnection.php';?>
+<?php include 'include/session.php';?>
+<?php
+$result=mysqli_query($conn, "select U_id from user  where U_id='$session_id'")or die('Error In Session');
+$row=mysqli_fetch_array($result);?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,8 +12,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    	<link rel="icon" href="assets/images/favicon.png" type="image/png" />
 
-    <title>Payment List | Quick Track Admin - Kelsey Developments PLC</title>
+    <title>Company List | Quick Track Admin - Kelsey Developments PLC</title>
 
     <!-- Bootstrap -->
     <link href="cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
@@ -94,7 +101,7 @@
                                         <p class="text-muted font-13 m-b-30">
                                           <form>
 
-                                              <button type="button" class="btn btn-add btn-sm" data-toggle="modal" data-target=".bs-example-modal-lg">Add New Company</button>
+                                              <button type="button" class="btn btn-add btn-sm" data-toggle="modal" data-target=".bs-example-modal-lg">Add New Project</button>
                                           </form>
                                         </p>
 
@@ -102,70 +109,76 @@
                                 <thead>
                                   <tr>
                                     <th>Company</th>
-                                    <th>Description</th>
-                                    <th>Address</th>
-                                    <th>Create by</th>
-                                    <th>Create</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
+                    <th>Description</th>
+                    <th>Address</th>
+                    <th>Crate by</th>
+                    <th>Crate</th>
+                    <th>Status</th>
+                    <th>Action</th>
 
                                   </tr>
                                 </thead>
 
 
                                 <tbody>
-                                  <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>System Architect</td>
-                                    <td>Edinburgh</td>
-                                    <td>61</td>
-                                    <td>2011/04/25</td>
-                                    <td>  <span class="badge badge-success">Success</span>
-                                      </td>
-
-                                    <td>
-                                      <p class="text-muted">
-                                        <form action="view-company.php">
-                                           <button type="text" class="btn btn-edit btn-sm">view & Edit</button>
-                                        </form>
-                                      </p>
-
-                                    </td>
-                                  </tr>
+                                  <?php
+                                   $sql = 'SELECT * FROM  companies';
+                                   $result = mysqli_query($conn,$sql);
+                                   $i = 1;
+                                   while($row = mysqli_fetch_array($result))
+                                     {
+                                  ?>
 
                                   <tr>
-                                    <td>Colleen Hurst</td>
-                                    <td>Javascript Developer</td>
-                                    <td>San Francisco</td>
-                                    <td>39</td>
-                                    <td>2009/09/15</td>
-                                    <td><span class="badge badge-danger">Danger</span></td>
-                                    <td>61</td>
+                                    <td><?php echo $row['company_name'];?></td>
+                            <td><?php echo $row['company_description']; ?></td>
+                            <td><?php echo $row['company_address']; ?></td>
+                            <?php
+                            $select_admin = "SELECT * FROM user  WHERE U_id ='$session_id'";
+                            $run_query = mysqli_query($conn,$select_admin);
+                            while ($row_post = mysqli_fetch_array($run_query)){
+                              $U_id = $row_post ['U_id'];
 
-                                  </tr>
-                                  <tr>
-                                    <td>Sonya Frost</td>
-                                    <td>Software Engineer</td>
-                                    <td>Edinburgh</td>
-                                    <td>23</td>
-                                    <td>$103,600</td>
-                                    <td><span class="badge badge-danger">Danger</span></td>
-                                    <td>2011/04/25</td>
-                                  </tr>
+                              $U_FName = $row_post ['U_FName'];
+                              $U_LName = $row_post ['U_LName'];
 
-                                  <tr>
-                                    <td>Fiona Green</td>
-                                    <td>Chief Operating Officer (COO)</td>
-                                    <td>San Francisco</td>
-                                    <td>48</td>
-                                    <td>2010/03/11</td>
-                                    <td><span class="badge badge-danger">Danger</span></td>
-                                    <td>61</td>
+                              $u_Image = $row_post ['u_Image'];
+                            }
+                            ?>
+                            <td>
+                              <span class="avatar avatar-sm"> <img class="avatar-img rounded-circle" alt src="assets/img/profiles/<?php echo $u_Image ?>"></span><?php echo $U_FName ?> <?php echo $U_LName ?></td>
+                            <td><?php echo $row['company_createdate']; ?></td>
 
-                                  </tr>
+                          <?php
+                            if ($row['company_status']=='0') {
+                                echo '<td><span class="badge bg-success">Active</span></td>';
+                            }else {
+                              echo '<td><span class="badge bg-danger">Inactive</span></td>';
+                            }
+                            ?>
+
+                            <td>
+                                <p class="text-muted">
+                              <a href="view-company.php?view_company=<?php echo $row['company_id']; ?>"><button type="button" class="btn btn-edit btn-sm">View & Edit</button></a></td>
+                               </p>
+                        </tr>
+
+
+                                        <?php $i++; } ?>
 
 
                                 </tbody>
+                                <tfoot>
+									<tr>
+										<th>Company</th>
+                    <th>Description</th>
+                    <th>Address</th>
+                    <th>Crate by</th>
+                    <th>Crate</th>
+                    <th>Status</th>
+                    <th>Action</th>
+									</tr>
+								</tfoot>
                               </table>
 
 
@@ -180,35 +193,51 @@
                                                         </button>
                                                       </div>
                                                       <div class="modal-body">
-                                                        <form>
+                                                        <form method="post" enctype="multipart/form-data">
+
                                                           <div class="field item form-group">
-                                                              <label class="col-form-label col-md-3 col-sm-3  label-align">Comapany Name<span class="required">*</span></label>
+                                                              <label class="col-form-label col-md-3 col-sm-3  label-align">Company Name<span class="required">*</span></label>
                                                               <div class="col-md-6 col-sm-6">
-                                                                  <input class="form-control" type="password" name="password2" data-validate-linked='password' required='required' /></div>
+                                                                  <input class="form-control" id="bsValidation4" type="text" placeholder="Company Name" name="company_name" required='required' /></div>
+                                                                  <div class="invalid-feedback">Please provide a Company Name.</div>
                                                           </div>
                                                           <div class="field item form-group">
                                                               <label class="col-form-label col-md-3 col-sm-3  label-align">Company Description<span class="required">*</span></label>
                                                               <div class="col-md-6 col-sm-6">
-                                                                  <input class="form-control" type="tel" class='tel' name="phone" required='required' data-validate-length-range="8,20" /></div>
-                                                          </div>
+                                                                  <input class="form-control" type="text" name="company_description" placeholder="Company Description" id="bsValidation4" required='required' /></div>
+                                                                 <div class="invalid-feedback">Please Type Description.</div>
+                                                           </div>
+
                                                           <div class="field item form-group">
                                                               <label class="col-form-label col-md-3 col-sm-3  label-align">Address<span class="required">*</span></label>
                                                               <div class="col-md-6 col-sm-6">
-                                                                  <textarea required="required" name='message' rows="4" cols="50"></textarea>
+                                                                  <textarea class="form-control" id="bsValidation4" placeholder="Address..." required="required" name='company_address' rows="4" cols="50"></textarea>
+                                                                  <div class="invalid-feedback">
+										                                            	Please enter a valid address.
+									                                              	</div>
                                                                 </div>
                                                           </div>
 
-                                                        </form>
+
 
                                                       </div>
                                                       <div class="modal-footer">
+                                                        <input type="hidden" value="<?php echo $session_id;?>" name="company_createby">
+                                                             <?php
+                                                             date_default_timezone_set('Asia/Colombo');
+                                                             $C_date = date("Y/m/d"); ?>
+
+                                                             <input type="hidden" value="<?php echo $C_date;?>" name="company_createdate">
                                                         <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
-                                                        <button type="button" class="btn btn-add btn-sm">Add Comapany</button>
+                                                        <button type="submit" class="btn btn-add btn-sm" name="add_Company">Add Comapany</button>
                                                       </div>
 
+                                                      </form>
                                                     </div>
                                                   </div>
                                                 </div>
+	                                          <?php include_once 'PHP/Write/addCompany_script.php'; ?>
+
                             </div>
                           </div>
                           </div>
@@ -267,6 +296,8 @@
 
     <!-- Custom Theme Scripts -->
     <script src="assets/build/js/custom.min.js"></script>
+
+
 
   </body>
   </html>

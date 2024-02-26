@@ -124,7 +124,7 @@ $row = mysqli_fetch_array($result);
                     </div>
 
                     <div class="invoice overflow-auto" id='GFG'>
-          <table style="width: 100%;">
+          <table class="table" style="width: 100%;">
           <tbody>
           <tr>
           <td style="width: 50%; border-bottom: 1px solid !important; padding:0px !important; background-color: #fff !important; color:#000 !important;" align="left">
@@ -185,7 +185,7 @@ $row = mysqli_fetch_array($result);
 
 								<div><?php echo $C_Address; ?>, <?php echo $C_Country; ?>.</div>
 
-				
+
 
 								</td>
 								<td style="width: 50%; background-color: #fff !important; " align="right">
@@ -316,7 +316,7 @@ $row = mysqli_fetch_array($result);
         <!-- /page content -->
 
         <!-- footer content -->
-        <footer class="pull-right">
+        <footer class="footer-pull-right">
             <p class="mb-0">© 2023 - <script> document.write(new Date().getFullYear())</script>2024 All right reserved. Quik Track for Blue Ocean Group Of Companies &amp; Kelsey Developments PLC, made with ❤️ by <a href="javascript:;" class="fw-medium">Blue Ocean IT</a></p>
         </footer>
         <!-- /footer content -->

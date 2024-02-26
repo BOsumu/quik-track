@@ -1,3 +1,11 @@
+<?php ob_start();?>
+<?php include 'include/dbConnection.php';?>
+<?php include 'include/session.php';?>
+<?php
+$result=mysqli_query($conn, "select U_id from user  where U_id='$session_id'")or die('Error In Session');
+$row=mysqli_fetch_array($result);?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,8 +14,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    	<link rel="icon" href="assets/images/favicon.png" type="image/png" />
 
-    <title>Payment List | Quick Track Admin - Kelsey Developments PLC</title>
+    <title>System Users List | Quick Track Admin - Kelsey Developments PLC</title>
 
     <!-- Bootstrap -->
     <link href="cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
@@ -83,6 +92,7 @@
                   <div class="x_content">
 
 
+
                         <div class="row">
 
                           <div class="col-md-12 col-sm-12 ">
@@ -92,7 +102,7 @@
                                     <div class="col-sm-12">
                                       <div class="card-box table-responsive">
                                         <p class="text-muted font-13 m-b-30">
-                                          <form>
+                                          <form >
 
                                               <button type="button" class="btn btn-add btn-sm" data-toggle="modal" data-target=".bs-example-modal-lg">Add New Company</button>
                                           </form>
@@ -114,56 +124,55 @@
 
 
                                 <tbody>
-                                  <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>System Architect</td>
-                                    <td>Edinburgh</td>
-                                    <td>61</td>
-                                    <td>  <span class="badge badge-success">Success</span>
-                                    <td>  <span class="badge badge-success">Success</span>
-                                      </td>
-
-                                    <td>
-                                      <p class="text-muted">
-                                        <form action="view-system-user.php">
-                                           <button type="text" class="btn btn-edit btn-sm">view & Edit</button>
-                                        </form>
-                                      </p>
-
-                                    </td>
-                                  </tr>
+                                  <?php
+                   $sql = 'SELECT * FROM  user';
+                   $result = mysqli_query($conn,$sql);
+                   $i = 1;
+                   while($row = mysqli_fetch_array($result))
+                     {
+                  ?>
 
                                   <tr>
-                                    <td>Colleen Hurst</td>
-                                    <td>Javascript Developer</td>
-                                    <td>San Francisco</td>
-                                    <td>39</td>
-                                  <td>  <span class="badge badge-success">Success</span>
-                                    <td><span class="badge badge-danger">Danger</span></td>
-                                    <td>61</td>
+                                    <td><?php echo $row['U_Title'];echo $row['U_FName']; echo '&nbsp';  echo $row['U_LName']; ?></td>
+                        <td><?php echo $row['U_Email']; ?></td>
+                        <td><?php echo $row['U_Contact']; ?></td>
+                        <td><?php echo $row['U_Designation']; ?></td>
+                        <?php if ($row['U_Type']=='0') {
+                          echo '<td><span class="badge bg-success  shadow-sm w-100">Super Admin</span>';
+                        }elseif($row['U_Type']=='1') {
+                          echo '<td><span class="badge bg-info  shadow-sm w-100">Admin</span></td>';
+                        }elseif($row['U_Type']=='2') {
+                          echo '<td><span class="badge bg-primary  shadow-sm w-100"> Sales Admin</span></td>';
+                        }else {
+                            echo '<td><span class="badge bg-warning  shadow-sm w-100"> Sales Person</span></td>';
 
-                                  </tr>
-                                  <tr>
-                                    <td>Sonya Frost</td>
-                                    <td>Software Engineer</td>
-                                    <td>Edinburgh</td>
-                                    <td>23</td>
-                                      <td><span class="badge badge-danger">Danger</span></td>
-                                    <td><span class="badge badge-danger">Danger</span></td>
-                                    <td>2011/04/25</td>
-                                  </tr>
+                        }
 
-                                  <tr>
-                                    <td>Fiona Green</td>
-                                    <td>Chief Operating Officer (COO)</td>
-                                    <td>San Francisco</td>
-                                    <td>48</td>
-                                    <td><span class="badge badge-danger">Danger</span></td>
-                                    <td><span class="badge badge-danger">Danger</span></td>
-                                    <td>61</td>
+                        if ($row['U_Status']=='0') {
+                            echo '<td><span class="badge bg-success  shadow-sm w-100">Active</span></td>';
+                        }else {
+                          echo '<td><span class="badge bg-danger  shadow-sm w-100">Deactivate</span></td>';
+                        }
+                        ?>
 
-                                  </tr>
+                        <td><a href="View-System-user.php?view_user=<?php echo $row['U_id']; ?>"><button type="button" class="btn btn-sm btn-primary btn-rounded waves-effect waves-light">View & Edit</button></a></td>
 
+                    </tr>
+                      <?php $i++; } ?>
+
+<tfoot>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Contact</th>
+    <th>Desig</th>
+    <th>Type</th>
+    <th>Status</th>
+    <th>Action</th>
+
+  </tr>
+
+</tfoot>
 
                                 </tbody>
                               </table>
@@ -183,7 +192,7 @@
 
 
 
-                                                        <form id="demo-form" data-parsley-validate>
+                                                        <form id="demo-form" data-parsley-validate method="post" enctype="multipart/form-data">
 
                                                           <div class='col-sm-2'>
                                                             Title

@@ -1,3 +1,12 @@
+<?php ob_start();?>
+<?php include 'include/dbConnection.php';?>
+<?php include 'include/session.php';?>
+<?php
+$result=mysqli_query($conn, "select U_id from user  where U_id='$session_id'")or die('Error In Session');
+$row=mysqli_fetch_array($result);?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,6 +15,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    	<link rel="icon" href="assets/images/favicon.png" type="image/png" />
 
     <title>Payment List | Quick Track Admin - Kelsey Developments PLC</title>
 
@@ -91,11 +101,11 @@
                                 <div class="row">
                                     <div class="col-sm-12">
                                       <div class="card-box table-responsive">
-                                        <p class="text-muted font-13 m-b-30">
+                                        <!-- <p class="text-muted font-13 m-b-30">
                                           <form>
                                               <button type="text" class="btn btn-add btn-sm"><a href="new_sales.php" style="color:#ffffff;">Add New Sales</a></button>
                                           </form>
-                                        </p>
+                                        </p> -->
 
                               <table id="datatable-buttons" class="table table-striped table-bordered" style="width:100%">
                                 <thead>
@@ -114,62 +124,85 @@
 
 
                                 <tbody>
+                                  <?php
+        $sql = 'SELECT * FROM sales
+            JOIN project ON project.project_id = sales.project_id
+            JOIN project_units ON project_units.unit_id = sales.unit_id
+            JOIN customer ON customer.Customer_id = sales.Customer_id';
+
+        $result = mysqli_query($conn, $sql);
+        while ($row = mysqli_fetch_array($result)) {
+            $sale_id = $row['sale_id'];
+            $sale_date = $row['sale_date'];
+            $project_name = $row['project_name'];
+            $unit_Name = $row['unit_Name'];
+            $C_namewinitials = $row['C_namewinitials'];
+            $selling_price = isset($row['selling_price']) ? number_format($row['selling_price'], 2) : '0.00';
+
+            // Calculate total paid amount using a subquery
+            $payment_query = "SELECT COALESCE(SUM(paid_amount), 0) AS payment_amount FROM payments WHERE sale_id = $sale_id";
+            $payment_result = mysqli_query($conn, $payment_query);
+            $payment_row = mysqli_fetch_array($payment_result);
+            $totalPaid = isset($payment_row['payment_amount']) ? number_format($payment_row['payment_amount'], 2) : '0.00';
+
+            // Calculate balance
+            $balance = number_format($row['selling_price'] - $payment_row['payment_amount'], 2);
+
+            $earliest_unpaid_due_date = ''; // Initialize the variable
+
+            // Fetch the earliest unpaid due date
+            $sql_due_dates = "SELECT MIN(due_date) AS earliest_due_date
+                              FROM payment_plan
+                              WHERE sale_id = $sale_id
+                              AND amount > (SELECT COALESCE(SUM(paid_amount), 0) FROM payments WHERE sale_id = $sale_id)";
+            $result_due_dates = mysqli_query($conn, $sql_due_dates);
+            $row_due_date = mysqli_fetch_assoc($result_due_dates);
+            if ($row_due_date && $row_due_date['earliest_due_date']) {
+                $earliest_unpaid_due_date = $row_due_date['earliest_due_date'];
+            }
+
+						// Define classes based on due date comparison
+            $due_date_class = '';
+            if ($earliest_unpaid_due_date !== '') {
+                $due_date_timestamp = strtotime($earliest_unpaid_due_date);
+                $current_date = strtotime(date('Y-m-d'));
+
+                if ($due_date_timestamp < $current_date) {
+                    $due_date_class = 'text-danger'; // Red color for past due date
+                } elseif ($due_date_timestamp == $current_date) {
+                    $due_date_class = 'text-info'; // Blue color for current due date
+                } else {
+                    $due_date_class = 'text-success'; // Green color for future due date
+                }
+            }
+
+            ?>
                                   <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>System Architect</td>
-                                    <td>Edinburgh</td>
-                                    <td>61</td>
-                                    <td>2011/04/25</td>
-                                    <td>$320,800</td>
-                                    <td>61</td>
-                                    <td>2011/04/25</td>
-                                    <td>
-                                      <p class="text-muted">
-                                        <form action="addpayment.php">
-                                           <button type="text" class="btn btn-payments btn-sm">Add Payment</button>
-                                        </form>
-                                      </p>
-
-                                    </td>
+                                    <td><?php echo $sale_date; ?></td>
+                  <td><?php echo $project_name; ?></td>
+                  <td><?php echo $unit_Name; ?></td>
+                  <td><?php echo $C_namewinitials; ?></td>
+                  <td align="right" ><?php echo $selling_price; ?></td>
+                  <td align="right" ><?php echo $totalPaid; ?></td>
+                  <td align="right" ><?php echo $balance; ?></td>
+                  <td class="<?php echo $due_date_class; ?>"><b><?php echo $earliest_unpaid_due_date !== '' ? date('Y-m-d', strtotime($earliest_unpaid_due_date)) : ''; ?></b></td>
+                 <td><a href="addpayment.php?sale_id=<?php echo $row['sale_id']; ?>"><button type="button" class="btn btn-sm btn-add">Add Payment</button></a></td>
                                   </tr>
-
-                                  <tr>
-                                    <td>Colleen Hurst</td>
-                                    <td>Javascript Developer</td>
-                                    <td>San Francisco</td>
-                                    <td>39</td>
-                                    <td>2009/09/15</td>
-                                    <td>$205,500</td>
-                                    <td>61</td>
-                                    <td>2011/04/25</td>
-                                    <td>$320,800</td>
-                                  </tr>
-                                  <tr>
-                                    <td>Sonya Frost</td>
-                                    <td>Software Engineer</td>
-                                    <td>Edinburgh</td>
-                                    <td>23</td>
-                                    <td>2008/12/13</td>
-                                    <td>$103,600</td>
-                                    <td>61</td>
-                                    <td>2011/04/25</td>
-                                    <td>$320,800</td>
-                                  </tr>
-
-                                  <tr>
-                                    <td>Fiona Green</td>
-                                    <td>Chief Operating Officer (COO)</td>
-                                    <td>San Francisco</td>
-                                    <td>48</td>
-                                    <td>2010/03/11</td>
-                                    <td>$850,000</td>
-                                    <td>61</td>
-                                    <td>2011/04/25</td>
-                                    <td>$320,800</td>
-                                  </tr>
-
-
+                              <?php } ?>
                                 </tbody>
+                                <tfoot>
+        <tr>
+            <th>Sale ID</th>
+            <th>Project</th>
+            <th>Unit</th>
+            <th>Customer</th>
+            <th>Selling Price (LKR)</th>
+            <th>Paid (LKR)</th>
+            <th>Balance (LKR)</th>
+            <th>Due Date</th>
+            <th>View</th>
+        </tr>
+    </tfoot>
                               </table>
                             </div>
                           </div>
@@ -229,6 +262,32 @@
 
     <!-- Custom Theme Scripts -->
     <script src="assets/build/js/custom.min.js"></script>
+
+
+
+		<script>
+		// Example starter JavaScript for disabling form submissions if there are invalid fields
+			(function () {
+			  'use strict'
+
+			  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+			  var forms = document.querySelectorAll('.needs-validation')
+
+			  // Loop over them and prevent submission
+			  Array.prototype.slice.call(forms)
+				.forEach(function (form) {
+				  form.addEventListener('submit', function (event) {
+					if (!form.checkValidity()) {
+					  event.preventDefault()
+					  event.stopPropagation()
+					}
+
+					form.classList.add('was-validated')
+				  }, false)
+				})
+			})()
+	</script>
+
 
   </body>
   </html>

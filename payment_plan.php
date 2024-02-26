@@ -497,7 +497,7 @@ $row=mysqli_fetch_array($result);?>
 
 
         <!-- footer content -->
-        <footer class="pull-right">
+        <footer class="footer-pull-right">
             <p class="mb-0">© 2023 - <script> document.write(new Date().getFullYear())</script>2024 All right reserved. Quik Track for Blue Ocean Group Of Companies &amp; Kelsey Developments PLC, made with ❤️ by <a href="javascript:;" class="fw-medium">Blue Ocean IT</a></p>
         </footer>
         <!-- /footer content -->

@@ -1,3 +1,10 @@
+<?php ob_start();?>
+<?php include 'include/dbConnection.php';?>
+<?php include 'include/session.php';?>
+<?php
+$result=mysqli_query($conn, "select U_id from user  where U_id='$session_id'")or die('Error In Session');
+$row=mysqli_fetch_array($result);?>
+
   <?php include 'include/header.php';?>
 <?php include 'include/nav_bar.php';?>
         <!-- page content -->
@@ -41,9 +48,11 @@
 
                                        <div class="setting">
                                           <div class="backbtn"><a href="dashboard.php"> </a></div>
-                                           <div class="subtext"><h2>Add New Sales</h2></div>
+                                           <div class="subtext"><h2>Add New Customer</h2></div>
                                           <div class="clear"></div>
                                       </div>
+
+                                      <?php include_once 'PHP/Read/View-customer-script.php'; ?>
 
             <div class="row">
 
@@ -51,20 +60,20 @@
 
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Add Customer Details</h2>
+                    <h2><?php echo $C_Title;echo $C_namewinitials;?></h2>
 
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
                     <br />
-                    <form class="form-horizontal form-label-left">
+                    <form class="form-horizontal form-label-left" method="post" enctype="multipart/form-data">
 
 
                                                                    <div class="form-group row">
                                                                      <label class="control-label col-md-2 col-sm-3 ">Full Name:</label>
                                                                      <div class="col-md-2 col-sm-9 ">
-                                                                       <select class="form-control">
-                                                                         <option>Choose.</option>
+                                                                       <select class="form-control" id="input39" name="C_Title" required>
+                                                                         <option value="<?php echo $C_Title;?>"><?php echo $C_Title;?></option>
                                                                          <option value="Mr.">Mr.</option>
                                                      										 <option value="Mrs.">Mrs.</option>
                                                      										 <option value="Miss.">Miss.</option>
@@ -73,7 +82,7 @@
                                                                        </select>
                                                                      </div>
                                                                      <div class="col-md-5 col-sm-9 ">
-                                                                      	<input type="text" id="first-name" required="required" class="form-control ">
+                                                                      	<input type="text" class="form-control" id="fullname" placeholder="Full Name" value="<?php echo $C_fullname;?>" name="C_fullname" required>
                                                                      </div>
                                                                    </div>
 
@@ -81,45 +90,52 @@
                                                                       <div class="form-group row">
                                                                         <label class="control-label col-md-2 col-sm-3 ">Name with initial :</label>
                                                                         <div class="col-md-5 col-sm-9 ">
-                                                                	<input type="text" id="first-name" required="required" class="form-control ">
+                                                                	<input type="text" class="form-control" id="nInitials" placeholder="Name With Initials" value="<?php echo $C_namewinitials;?>" name="C_namewinitials" readonly>
                                                                         </div>
                                                                       </div>
 
                                                                       <div class="form-group row">
                                                                         <label class="control-label col-md-2 col-sm-3 ">Occupation:</label>
                                                                         <div class="col-md-5 col-sm-9 ">
-                                                                      <input type="text" id="first-name" required="required" class="form-control ">
+                                                                      	<input type="text" class="form-control" id="input37" placeholder="Email Address" value="<?php echo $C_Occupation; ?>" name="C_Occupation" required>
                                                                         </div>
                                                                       </div>
 
                                                                       <div class="form-group row">
                                                                         <label class="control-label col-md-2 col-sm-3 ">NIC :</label>
                                                                         <div class="col-md-5 col-sm-9 ">
-                                                                  <input type="text" id="first-name" required="required" class="form-control ">
+                                                                  <input type="text" class="form-control" id="input1" placeholder="NIC" value="<?php echo $C_NIC;?>" name="C_NIC">
                                                                         </div>
                                                                       </div>
 
                                                                       <div class="form-group row">
                                                                         <label class="control-label col-md-2 col-sm-3 ">Passport:</label>
                                                                         <div class="col-md-5 col-sm-9 ">
-                                                                    <input type="text" id="first-name" required="required" class="form-control ">
+                                                                    <input type="text" class="form-control" id="input38" placeholder="Passport" value="<?php echo $C_Passport;?>" name="C_Passport">
                                                                         </div>
                                                                       </div>
 
                                                                       <div class="form-group row">
                                                                         <label class="control-label col-md-2 col-sm-3 ">Date of Birth :</label>
                                                                         <div class="col-md-5 col-sm-9 ">
-                                                                  <input id="#" class="date-picker form-control" placeholder="dd-mm-yyyy" type="text" type="text" onfocus="this.type='date'" onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
+                                                                  <input id="input38" class="date-picker form-control" placeholder="dd-mm-yyyy" type="text" onfocus="this.type='date'" onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)" value="<?php echo $C_berth;?>" name="C_berth">
                                                                         </div>
                                                                       </div>
 
                                                                       <div class="form-group row">
                                                                         <label class="control-label col-md-2 col-sm-3 ">Gender:</label>
+                                                                        <?php
+                                                                           if ($C_Gender == 'M') {
+                                                                             $C_GenderM = 'Male';
+                                                                         }else {
+                                                                             $C_GenderM = 'Female';
+                                                                           }
+                                                                           ?>
                                                                         <div class="col-md-5 col-sm-9 ">
-                                                                          <select class="form-control">
-                                                                            <option>Choose.</option>
-                                                                            <option value="mail_heading.">mail_heading.</option>
-                                                                            <option value="Female.">Female.</option>
+                                                                          <select id="" class="form-control" required name="C_Gender">
+                                                                            <option value="<?php echo $C_Gender;?>"><?php echo $C_GenderM;?></option>
+                                                                              <option value="M">Male</option>
+                                                                              <option value="F">Female</option>
 
                                                                           </select>
                                                                         </div>
@@ -127,8 +143,8 @@
                                                                       <div class="form-group row">
                                                                         <label class="control-label col-md-2 col-sm-3 ">Country:</label>
                                                                         <div class="col-md-5 col-sm-9 ">
-                                                                          <select class="select2_single form-control" tabindex="-1">
-                                                                            <option selected disabled value>Choose...</option>
+                                                                          <select class="select2_single form-control" tabindex="-1" id="input7" class="form-control" required name="C_Country">
+                                                                            <option value="<?php echo $C_Country;?>"><?php echo $C_Country;?></option>
                                                 														<option value="Sri Lanka">Sri Lanka</option>
                                                 														<option value="Afghanistan">Afghanistan</option>
                                                 														<option value="Albania">Albania</option>
@@ -337,14 +353,14 @@
                                                                       <div class="form-group row ">
                                                                         <label class="control-label col-md-2 col-sm-3 ">Address :</label>
                                                                         <div class="col-md-5 col-sm-9 ">
-                                                                           <textarea required="required" name='message' rows="2" cols="50"></textarea>
+                                                                           	<textarea class="form-control" id="input11" placeholder="Address ..." required name="C_Address"><?php echo $C_Address;?></textarea>
                                                                         </div>
                                                                       </div>
 
                                                                       <div class="form-group row ">
                                                                         <label class="control-label col-md-2 col-sm-3 ">Postal Address :</label>
                                                                         <div class="col-md-5 col-sm-9 ">
-                                                                           <textarea required="required" name='message' rows="2" cols="50"></textarea>
+                                                                          <textarea class="form-control" id="input11" placeholder="Postal Address ..."  name="C_AddressP"><?php echo $C_AddressP;?></textarea>
                                                                         </div>
                                                                       </div>
 
@@ -355,21 +371,21 @@
                                                                       <div class="form-group row">
                                                                         <label class="control-label col-md-2 col-sm-3 ">Mobile:</label>
                                                                         <div class="col-md-5 col-sm-9 ">
-                                                                    <input type="text" id="first-name" required="required" class="form-control ">
+                                                                    	<input type="text" class="form-control" id="input38" placeholder="Phone" value="<?php echo $C_Phone;?>" name="C_Phone" required>
                                                                         </div>
                                                                       </div>
 
                                                                       <div class="form-group row">
                                                                         <label class="control-label col-md-2 col-sm-3 ">Land No:</label>
                                                                         <div class="col-md-5 col-sm-9 ">
-                                                                    <input type="text" id="first-name" required="required" class="form-control ">
+                                                                    <input type="text" class="form-control" id="input38" placeholder="Land No" value="<?php echo $C_LandNo;?>" name="C_LandNo">
                                                                         </div>
                                                                       </div>
 
                                                                       <div class="form-group row">
                                                                         <label class="control-label col-md-2 col-sm-3 ">Email:</label>
                                                                         <div class="col-md-5 col-sm-9 ">
-                                                                  <input type="text" id="first-name" required="required" class="form-control ">
+                                                                  <input type="email" class="form-control" id="input38" placeholder="Email" value="<?php echo $C_Email;?>" name="C_Email">
                                                                         </div>
                                                                       </div>
 
@@ -380,22 +396,80 @@
                                                                       <div class="form-group row">
                                                                         <label class="control-label col-md-2 col-sm-3 ">Company Name:</label>
                                                                         <div class="col-md-5 col-sm-9 ">
-                                                                    <input type="text" id="first-name" required="required" class="form-control ">
+                                                                    <input type="text" class="form-control" id="input38" placeholder="Company Name" value="<?php echo $C_CompanyName;?>" name="C_CompanyName" required>
                                                                         </div>
                                                                       </div>
 
                                                                       <div class="form-group row ">
                                                                         <label class="control-label col-md-2 col-sm-3 ">Company Address :</label>
                                                                         <div class="col-md-5 col-sm-9 ">
-                                                                           <textarea required="required" name='message' rows="2" cols="50"></textarea>
+                                                                           	<textarea class="form-control" id="" placeholder="Company Address ..." name="C_AddressCS"><?php echo $C_AddressCS;?></textarea>
                                                                         </div>
                                                                       </div>
+
+                                                                      <!-- ---------------------------------------------------- -->
+                                                                      <div class="form-group row ">
+                                                                        <label class="control-label1 col-md-12 col-sm-12 ">System Details</label>
+                                                                      </div>
+
+
+    								                                                     	<?php
+                                                                             if ($C_status == '0') {
+                                                                               $U_StatusD = 'Active';
+                                                                             }else {
+                                                                               $U_StatusD = 'Deactivate';
+                                                                             }
+                                                                             ?>
+
+                                                                        <div class="form-group row">
+                                                                          <label class="control-label col-md-2 col-sm-3 ">Customer Status :</label>
+                                                                          <div class="col-md-5 col-sm-9 ">
+                                                                            <select class="form-control" id="input39" name="C_status" required="required">
+                                                                                    <option value="<?php echo $unit_status; ?>"><?php echo $U_StatusD;?></option>
+                                                                                    <option value="0">Active</option>
+                                                                                    <option value="1">Deactivate</option>
+                                                                                </select>
+                                                                          </div>
+                                                                        </div>
+
+                                                                        <?php
+
+                  $select_crateby = "SELECT * FROM user  WHERE U_id ='$C_Cratedby'";
+                  $run_query = mysqli_query($conn,$select_crateby);
+                  while ($row_post = mysqli_fetch_array($run_query)){
+                    $U_id = $row_post ['U_id'];
+
+                    $U_FName = $row_post ['U_FName'];
+                    $U_LName = $row_post ['U_LName'];
+
+
+                  }
+
+                  ?>
+
+                  <div class="form-group row">
+                    <label class="control-label col-md-2 col-sm-3 ">Created by:</label>
+                    <div class="col-md-5 col-sm-9 ">
+                  	<input type="text" class="form-control" id="input38" placeholder="Created by" value="<?php echo $U_FName;?> <?php echo $U_LName; ?>" disabled name="U_Cratedby">
+                    </div>
+                  </div>
+
+                  <input type="hidden" value="<?php echo $Customer_id;?>" name="Customer_id">
+									<input type="hidden" value="<?php echo $session_id; ?>" name="u_id">
+
 
 
                                                                    <div class="ln_solid"></div>
                                                                    <div class="item form-group">
                                                                      <div class="col-md-6 col-sm-6  left-align">
-                                                                       <button type="submit" class="btn btn-edit btn-sm"><a href="#">Update</a></button>
+                                                                       <?php
+ 												if ($U_Typesession == '0' || $U_Typesession == '1' ) {
+ 													echo '<button type="submit" class="btn btn-edit btn-sm" name="c_Update">Update</button>';
+ 												}else {
+ 													// code...
+ 												}
+
+ 												?>
                                                                        <button class="btn btn-gray btn-sm" type="reset">Reset</button>
                                                                      </div>
                                                                    </div>
@@ -407,13 +481,17 @@
             </div>
           </div>
            <!-- / RIGHT LIST -->
+           		<?php include_once 'PHP/Write/update-customer-script.php'; ?>
           </div>
         </div>
         <!-- /page content -->
 
         <!-- footer content -->
-        <footer class="pull-right">
-            <p class="mb-0">© 2023 - <script> document.write(new Date().getFullYear())</script>2024 All right reserved. Quik Track for Blue Ocean Group Of Companies &amp; Kelsey Developments PLC, made with ❤️ by <a href="javascript:;" class="fw-medium">Blue Ocean IT</a></p>
+        <footer style="margin-left: 0px;">
+          <div class="pull-right" style="margin-left: 0px;">
+             © 2023 - <script> document.write(new Date().getFullYear())</script>2024 All right reserved. Quik Track for Blue Ocean Group Of Companies &amp; Kelsey Developments PLC, made with ❤️ by <a href="javascript:;" class="fw-medium">Blue Ocean IT</a>
+          </div>
+          <div class="clearfix"></div>
         </footer>
         <!-- /footer content -->
       </div>

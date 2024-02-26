@@ -1,3 +1,10 @@
+<?php ob_start();?>
+<?php include 'include/dbConnection.php';?>
+<?php include 'include/session.php';?>
+<?php
+$result=mysqli_query($conn, "select U_id from user  where U_id='$session_id'")or die('Error In Session');
+$row=mysqli_fetch_array($result);?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,6 +13,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    	<link rel="icon" href="assets/images/favicon.png" type="image/png" />
 
     <title>Payment List | Quick Track Admin - Kelsey Developments PLC</title>
 
@@ -113,59 +121,52 @@
 
 
                                 <tbody>
+                                  <?php
+                     $sql = 'SELECT * FROM customer';
+                     $result = mysqli_query($conn,$sql);
+                     $i = 1;
+                     while($row = mysqli_fetch_array($result))
+                       {
+                    ?>
                                   <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>System Architect</td>
-                                    <td>Edinburgh</td>
-                                    <td>61</td>
-                                    <td>2011/04/25</td>
-                                    <td>$320,800</td>
+                                    <td><?php echo $row['C_Title'];echo $row['C_namewinitials'];?></td>
+                          <td><?php echo $row['C_NIC']; ?> / <?php echo $row['C_Passport']; ?></td>
+  												<td><?php echo $row['C_Email']; ?></td>
+  												<td><?php echo $row['C_Occupation']; ?></td>
 
-                                    <td>
-                                      <p class="text-muted">
-                                        <form action="view_customer.php">
-                                           <button type="text" class="btn btn-payments btn-sm">view & Edit</button>
-                                        </form>
-                                      </p>
+                          <td><?php echo $row['C_Country']; ?></td>
+                          <?php
 
-                                    </td>
-                                  </tr>
+                        if ($row['C_status']=='0') {
+                            echo '<td><span class="badge bg-success  shadow-sm w-100">Active</span></td>';
+                        }else {
+                          echo '<td><span class="badge bg-danger  shadow-sm w-100">Deactivate</span></td>';
+                        }
+                        ?>
 
-                                  <tr>
-                                    <td>Colleen Hurst</td>
-                                    <td>Javascript Developer</td>
-                                    <td>San Francisco</td>
-                                    <td>39</td>
-                                    <td>2009/09/15</td>
-                                    <td>$205,500</td>
-                                    <td>61</td>
+                        <td><a href="View_customer.php?view_customer=<?php echo $row['Customer_id']; ?>"><button type="button" class="btn btn-sm btn-primary btn-rounded waves-effect waves-light">View & Edit</button></a></td>
 
-                                  </tr>
-                                  <tr>
-                                    <td>Sonya Frost</td>
-                                    <td>Software Engineer</td>
-                                    <td>Edinburgh</td>
-                                    <td>23</td>
-                                    <td>2008/12/13</td>
-                                    <td>$103,600</td>
-                                    <td>61</td>
-
-                                  </tr>
-
-                                  <tr>
-                                    <td>Fiona Green</td>
-                                    <td>Chief Operating Officer (COO)</td>
-                                    <td>San Francisco</td>
-                                    <td>48</td>
-                                    <td>2010/03/11</td>
-                                    <td>$850,000</td>
-                                    <td>61</td>
 
 
                                   </tr>
+                                    <?php $i++; } ?>
+
 
 
                                 </tbody>
+                                <tfoot>
+                                  <tr>
+                                    <th>Name</th>
+                                    <th>NIC/Password</th>
+                                    <th>Email</th>
+                                    <th>Occupation</th>
+                                    <th>Country</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+
+                                  </tr>
+
+                                </tfoot>
                               </table>
                             </div>
                           </div>
@@ -189,8 +190,11 @@
 
         <!-- Datatables -->
         <!-- footer content -->
-        <footer class="pull-right">
-            <p class="mb-0">© 2023 - <script> document.write(new Date().getFullYear())</script>2024 All right reserved. Quik Track for Blue Ocean Group Of Companies &amp; Kelsey Developments PLC, made with ❤️ by <a href="javascript:;" class="fw-medium">Blue Ocean IT</a></p>
+        <footer style="margin-left: 0px;">
+          <div class="pull-right" style="margin-left: 0px;">
+             © 2023 - <script> document.write(new Date().getFullYear())</script>2024 All right reserved. Quik Track for Blue Ocean Group Of Companies &amp; Kelsey Developments PLC, made with ❤️ by <a href="javascript:;" class="fw-medium">Blue Ocean IT</a>
+          </div>
+          <div class="clearfix"></div>
         </footer>
         <!-- /footer content -->
       </div>

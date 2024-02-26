@@ -1,3 +1,9 @@
+<?php ob_start();?>
+<?php include 'include/dbConnection.php';?>
+<?php include 'include/session.php';?>
+<?php
+$result=mysqli_query($conn, "select U_id from user  where U_id='$session_id'")or die('Error In Session');
+$row=mysqli_fetch_array($result);?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,6 +12,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    	<link rel="icon" href="assets/images/favicon.png" type="image/png" />
 
     <title>Payment List | Quick Track Admin - Kelsey Developments PLC</title>
 
@@ -100,6 +107,7 @@
 
                               <table id="datatable-buttons" class="table table-striped table-bordered" style="width:100%">
                                 <thead>
+
                                   <tr>
                                     <th>Project</th>
                                     <th>Company</th>
@@ -113,54 +121,44 @@
 
 
                                 <tbody>
+                                  <?php
+                                 $sql = 'SELECT * FROM  project JOIN companies ON companies.company_id = project.company_id';
+                                 $result = mysqli_query($conn,$sql);
+                                 $i = 1;
+                                 while($row = mysqli_fetch_array($result))
+                                   {
+                                ?>
                                   <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>System Architect</td>
-                                    <td>Edinburgh</td>
-                                    <td>61</td>
-                                    <td>  <span class="badge badge-success">Success</span>
-                                      </td>
-
-                                    <td>
-                                      <p class="text-muted">
-                                        <form action="view-project.php">
-                                           <button type="text" class="btn btn-edit btn-sm">view & Edit</button>
-                                        </form>
-                                      </p>
-
-                                    </td>
-                                  </tr>
-
-                                  <tr>
-                                    <td>Colleen Hurst</td>
-                                    <td>San Francisco</td>
-                                    <td>39</td>
-                                    <td>2009/09/15</td>
-                                    <td><span class="badge badge-danger">Danger</span></td>
-                                    <td>61</td>
+                                    <td><?php echo $row['project_name'];?></td>
+                                        <td><?php echo $row['company_name']; ?></td>
+                                        <td><?php echo $row['project_location']; ?></td>
+                                        <td><a href="units.php?view_project=<?php echo $row['project_id']; ?>"><button type="button" class="btn btn-sm btn-login">Manage</button></a></td>
+                                        <?php
+                                        if ($row['project_status']=='0') {
+                                            echo '<td><span class="badge bg-success">Active</span></td>';
+                                        }else {
+                                          echo '<td><span class="badge bg-danger">Inactive</span></td>';
+                                        }
+                                        ?>
+                                      <td>
+                                          <p class="text-muted">
+                                        <a href="view-project.php?view_project=<?php echo $row['project_id']; ?>"><button type="button" class="btn btn-sm btn-view">View & Edit</button></a></td>
+                                         </p>
 
                                   </tr>
-                                  <tr>
-                                    <td>Sonya Frost</td>
-                                    <td>Edinburgh</td>
-                                    <td>23</td>
-                                    <td>$103,600</td>
-                                    <td><span class="badge badge-danger">Danger</span></td>
-                                    <td>2011/04/25</td>
-                                  </tr>
-
-                                  <tr>
-                                    <td>Fiona Green</td>
-                                    <td>San Francisco</td>
-                                    <td>48</td>
-                                    <td>2010/03/11</td>
-                                    <td><span class="badge badge-danger">Danger</span></td>
-                                    <td>61</td>
-
-                                  </tr>
-
+                                   <?php $i++; } ?>
 
                                 </tbody>
+                                <tfoot>
+                <tr>
+                  <th>Project</th>
+                  <th>Company</th>
+                  <th>Location</th>
+                  <th>Units</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </tfoot>
                               </table>
 
 
@@ -170,47 +168,68 @@
                                                     <div class="modal-content">
 
                                                       <div class="modal-header">
-                                                        <h4 class="modal-title" id="myModalLabel">Add New Project</h4>
+                                                        <h4 class="modal-title" id="myModalLabel">Add Project</h4>
                                                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
                                                         </button>
                                                       </div>
                                                       <div class="modal-body">
-                                                        <form>
+                                                        <form method="post" enctype="multipart/form-data">
                                                           <div class="field item form-group">
                                                               <label class="col-form-label col-md-3 col-sm-3  label-align">Comapany<span class="required">*</span></label>
                                                               <div class="col-md-6 col-sm-6">
-                                                                <select class="form-control">
-                                                                  <option>SELECT</option>
-                                                                  <option>Active</option>
-                                                                  <option>Inactive</option>
-                                                                </select>
+                                                                <select id="bsValidation9" class="form-control" required name="company_id">
+											<option selected disabled value>...</option>
+											<?php
+												$result = mysqli_query($conn, "SELECT * FROM companies WHERE company_status = '0'" );
+												while ($row = mysqli_fetch_array($result)) {
+											?>
+								      <option value="<?php echo $row["company_id"];?>"> <?php echo $row["company_name"];?></option>
+							  			<?php }?>
+										</select>
+										<div class="invalid-feedback">
+										   Please select a Company.
+										</div>
                                                                 </div>
                                                           </div>
                                                           <div class="field item form-group">
                                                               <label class="col-form-label col-md-3 col-sm-3  label-align">Project Name<span class="required">*</span></label>
                                                               <div class="col-md-6 col-sm-6">
-                                                                  <input class="form-control" type="tel" class='tel' name="phone" required='required' data-validate-length-range="8,20" /></div>
+                                                                  <input type="text" class="form-control" id="bsValidation4" placeholder="Project Name" name="project_name" required='required' data-validate-length-range="8,20" /></div>
+
+                  <div class="invalid-feedback">Please provide a Project Name.</div>
                                                           </div>
                                                           <div class="field item form-group">
                                                               <label class="col-form-label col-md-3 col-sm-3  label-align">Location<span class="required">*</span></label>
                                                               <div class="col-md-6 col-sm-6">
-                                                                  <input class="form-control" type="tel" class='tel' name="phone" required='required' data-validate-length-range="8,20" /></div>
+                                                                  <input class="form-control" type="text"  id="bsValidation4" placeholder="Location" name="project_location" required='required' data-validate-length-range="8,20" /></div>
+                                                                  	<div class="invalid-feedback">Please Type Location.</div>
                                                           </div>
 
                                                           <div class="field item form-group">
                                                               <label class="col-form-label col-md-3 col-sm-3  label-align">Description<span class="required">*</span></label>
                                                               <div class="col-md-6 col-sm-6">
-                                                                  <textarea required="required" name='message' rows="4" cols="50"></textarea>
+                                                                  <textarea required="required" name='message' rows="4" cols="50" id="bsValidation13" placeholder="Description ..." name="project_description"></textarea>
+                                                                  <div class="invalid-feedback">
+                    Please enter Description.
+                  </div>
                                                                 </div>
                                                           </div>
 
-                                                        </form>
+
 
                                                       </div>
                                                       <div class="modal-footer">
+                                                        <input type="hidden" value="<?php echo $session_id;?>" name="project_createby">
+                <?php
+                date_default_timezone_set('Asia/Colombo');
+                $C_date = date("Y/m/d"); ?>
+
+                <input type="hidden" value="<?php echo $C_date;?>" name="project_createdate">
+
                                                         <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
-                                                        <button type="button" class="btn btn-add btn-sm">Add Comapany</button>
+                                                        <button type="submit" class="btn btn-add btn-sm" name="add_Project">Add Project</button>
                                                       </div>
+                                                        </form>
 
                                                     </div>
                                                   </div>
@@ -231,6 +250,7 @@
             </div>
           </div>
            <!-- / RIGHT LIST -->
+           		<?php include_once 'PHP/Write/addproject_script.php'; ?>
           </div>
         </div>
         <!-- /page content -->
