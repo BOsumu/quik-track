@@ -198,7 +198,7 @@ $row=mysqli_fetch_array($result);?>
                                                             Title
                                                               <div class="form-group">
                                                                   <div class='input-group date' id='myDatepicker2'>
-                                                                    <select id="heard" class="form-control">
+                                                                  	<select id="bsValidation9" class="form-control" name="U_Title" required>
                                                                       <option value="">Choose..</option>
                                                                       <option value="Mr.">Mr.</option>
                                                                       <option value="Mrs.">Mrs.</option>
@@ -206,6 +206,9 @@ $row=mysqli_fetch_array($result);?>
                                                                       <option value="Ms.">Ms.</option>
                                                                       <option value="Dr.">Dr.</option>
                                                                     </select>
+                                                                    <div class="invalid-feedback">
+                    Please select.
+                  </div>
                                                                   </div>
                                                               </div>
                                                           </div>
@@ -214,7 +217,8 @@ $row=mysqli_fetch_array($result);?>
                                                             First Name
                                                             <div class="form-group">
                                                                 <div class='input-group date' id='myDatepicker2'>
-                                                                  <input type="text" id="first-name" required="required" class="form-control ">
+                                                                  <input type="text" class="form-control" id="bsValidation3" placeholder="First Name" name="U_FName" required>
+										                                              <div class="invalid-feedback">Please Type First Name.</div>
 
                                                                 </div>
                                                             </div>
@@ -223,8 +227,8 @@ $row=mysqli_fetch_array($result);?>
                                                             Last Name
                                                             <div class="form-group">
                                                                 <div class='input-group date' id='myDatepicker2'>
-                                                                  <input type="text" id="first-name" required="required" class="form-control ">
-
+                                                                  <input type="text" class="form-control" id="bsValidation4" placeholder="Last Name" name="U_LName" required>
+  										                                            <div class="invalid-feedback">Please Type First Name.</div>
                                                                 </div>
                                                             </div>
                                                           </div>
@@ -234,7 +238,8 @@ $row=mysqli_fetch_array($result);?>
                                                             Email
                                                             <div class="form-group">
                                                                 <div class='input-group date' id='myDatepicker2'>
-                                                                  <input type="text" id="first-name" required="required" class="form-control ">
+                                                                  <input type="email" class="form-control" id="bsValidation4" placeholder="Email" name="U_Email" required>
+										                                              <div class="invalid-feedback">Please provide a valid email.</div>
 
                                                                 </div>
                                                             </div>
@@ -244,7 +249,8 @@ $row=mysqli_fetch_array($result);?>
                                                             Contact No
                                                             <div class="form-group">
                                                                 <div class='input-group date' id='myDatepicker2'>
-                                                                  <input type="text" id="first-name" required="required" class="form-control ">
+                                                                  <input type="number" class="form-control" id="bsValidation4" placeholder="Contact No" name="U_Contact" required>
+  									                                             	<div class="invalid-feedback">Please Type Contact Number.</div>
 
                                                                 </div>
                                                             </div>
@@ -255,8 +261,8 @@ $row=mysqli_fetch_array($result);?>
                                                             Designation
                                                             <div class="form-group">
                                                                 <div class='input-group date' id='myDatepicker2'>
-                                                                  <input type="text" id="first-name" required="required" class="form-control ">
-
+                                                                  <input type="text" class="form-control" id="bsValidation4" placeholder="Designation" name="U_Designation" required>
+  									                                             	<div class="invalid-feedback">Please Type Designation.</div>
                                                                 </div>
                                                             </div>
                                                           </div>
@@ -265,13 +271,16 @@ $row=mysqli_fetch_array($result);?>
                                                               User Type
                                                               <div class="form-group">
                                                                   <div class='input-group date' id='myDatepicker2'>
-                                                                    <select id="heard" class="form-control">
-                                            													<option value="">Choose..</option>
-                                            													<option value="Super Admin">Super Admin</option>
-                                            													<option value="Admin">Admin</option>
-                                            													<option value="Sales Admin">Sales Admin</option>
-                                                                      <option value="Sales Person">Sales Person</option>
-                                            												</select>
+                                                                    <select id="bsValidation9" class="form-control" name="U_Type" required>
+  										                                               	<option selected disabled value>Choose.</option>
+  										                                               	<option value="0">Super Admin</option>
+                                                                       <option value="1">Admin</option>
+                                                                       <option value="2">Sales Admin</option>
+                                                                       <option value="3">Sales Person</option>
+  									                                               	</select>
+  									                                               	<div class="invalid-feedback">
+  										                                               	Please select.
+  									                                               	</div>
                                                                   </div>
                                                               </div>
                                                           </div>
@@ -280,7 +289,10 @@ $row=mysqli_fetch_array($result);?>
                                                               Password
                                                               <div class="form-group">
                                                                   <div class='input-group date' id='myDatepicker3'>
-                                                                      <input type="text" id="fullname" class="form-control" name="fullname" />
+                                                                    <input type="password" class="form-control" id="password" onkeyup='check()' placeholder="Enter Password" required>
+                  <div class="invalid-feedback">
+                    Please Type a password.
+                  </div>
                                                                   </div>
                                                               </div>
                                                           </div>
@@ -291,7 +303,11 @@ $row=mysqli_fetch_array($result);?>
                                                               Re Enter Password
                                                               <div class="form-group">
                                                                   <div class='input-group date' id='datetimepicker6'>
-                                                                      <input type="text" id="fullname" class="form-control" name="fullname" />
+
+                                                                    <input type="password" class="form-control" id="checkPassword" onkeyup='check()' placeholder="Re-Enter Password" name="U_Password" required>
+                  <div class="invalid-feedback">
+                    Please Re Enter Password.
+                  </div>
                                                                   </div>
                                                               </div>
                                                           </div>
@@ -300,8 +316,15 @@ $row=mysqli_fetch_array($result);?>
                                                         </form>
                                                       </div>
                                                       <div class="modal-footer">
+                                                        <input type="hidden" value="<?php echo $session_id;?>" name="U_Cratedby">
+            <?php
+            date_default_timezone_set('Asia/Colombo');
+            $C_date = date("Y/m/d"); ?>
+						<input type="hidden" value="<?php echo $C_date;?>" name="U_CratedDate">
+
+						<button type="submit" class="btn btn-add btn-sm" name="add_user">Add User</button>
                                                         <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
-                                                        <button type="button" class="btn btn-add btn-sm">Add Comapany</button>
+                                                        
                                                       </div>
 
                                                     </div>
@@ -322,6 +345,7 @@ $row=mysqli_fetch_array($result);?>
               </div>
             </div>
           </div>
+          		<?php include_once 'PHP/Write/addsystemuser_script.php'; ?>
            <!-- / RIGHT LIST -->
           </div>
         </div>
@@ -365,6 +389,74 @@ $row=mysqli_fetch_array($result);?>
 
     <!-- Custom Theme Scripts -->
     <script src="assets/build/js/custom.min.js"></script>
+
+	<script>
+		$(document).ready(function() {
+		  var table = $('#example2').DataTable( {
+			buttons: ['excel', 'pdf', 'print'],
+			lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]]
+		  });
+
+		  table.buttons().container()
+			.appendTo('#example2_wrapper .col-md-6:eq(0)')
+			.addClass('btn-container'); // Add a class to the buttons container
+		});
+	  </script>
+
+	  <style>
+		/* Add custom styling for the space between buttons and length menu */
+		.btn-container {
+		  margin-top: 10px; /* Adjust this value as needed for the desired spacing */
+		}
+	  </style>
+
+		<script>
+		// Example starter JavaScript for disabling form submissions if there are invalid fields
+			(function () {
+			  'use strict'
+
+			  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+			  var forms = document.querySelectorAll('.needs-validation')
+
+			  // Loop over them and prevent submission
+			  Array.prototype.slice.call(forms)
+				.forEach(function (form) {
+				  form.addEventListener('submit', function (event) {
+					if (!form.checkValidity()) {
+					  event.preventDefault()
+					  event.stopPropagation()
+					}
+
+					form.classList.add('was-validated')
+				  }, false)
+				})
+			})()
+	</script>
+
+	<script>
+    var check = function() {
+        var password = document.getElementById('password').value;
+        var checkPassword = document.getElementById('checkPassword').value;
+        var passwordLength = password.length;
+        var validCharacters = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,15}$/;
+
+        if (passwordLength < 8 || passwordLength > 15) {
+            document.getElementById('alertPassword').style.color = '#EE2B39';
+            document.getElementById('alertPassword').innerHTML = '<span><i class="fas fa-exclamation-triangle"></i> Password must be between 8 and 15 characters long!</span>';
+        } else if (!validCharacters.test(password)) {
+            document.getElementById('alertPassword').style.color = '#EE2B39';
+            document.getElementById('alertPassword').innerHTML = '<span><i class="fas fa-exclamation-triangle"></i> Password must contain at least one lowercase letter, one uppercase letter, one number, and one symbol!</span>';
+        } else if (password !== checkPassword) {
+            document.getElementById('alertPassword').style.color = '#EE2B39';
+            document.getElementById('alertPassword').innerHTML = '<span><i class="fas fa-exclamation-triangle"></i> Passwords do not match!</span>';
+        } else {
+            document.getElementById('alertPassword').style.color = '#8CC63E';
+            document.getElementById('alertPassword').innerHTML = '<span><i class="fas fa-check-circle"></i> Password is a match!</span>';
+        }
+    }
+</script>
+
+
 
   </body>
   </html>
