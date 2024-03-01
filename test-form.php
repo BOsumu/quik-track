@@ -1,4 +1,11 @@
-<?php include 'include/header.php';?>
+<?php ob_start();?>
+<?php include 'include/dbConnection.php';?>
+<?php include 'include/session.php';?>
+<?php
+$result=mysqli_query($conn, "select U_id from user  where U_id='$session_id'")or die('Error In Session');
+$row=mysqli_fetch_array($result);?>
+
+  <?php include 'include/header.php';?>
 <?php include 'include/nav_bar.php';?>
 
         <!-- page content -->

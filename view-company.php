@@ -35,7 +35,7 @@ $row=mysqli_fetch_array($result);?>
             </div>
             <!--/ SIDE  LIST -->
            <!-- RIGHT LIST -->
-           
+
             <div class="col-sm-10 mail_view">
 
                                        <div class="mail_heading row">
@@ -176,11 +176,14 @@ $row=mysqli_fetch_array($result);?>
         <!-- /page content -->
         			<?php include_once 'PHP/Write/update-company-script.php'; ?>
 
-        <!-- footer content -->
-        <footer class="pull-right">
-            <p class="mb-0">© 2023 - <script> document.write(new Date().getFullYear())</script>2024 All right reserved. Quik Track for Blue Ocean Group Of Companies &amp; Kelsey Developments PLC, made with ❤️ by <a href="javascript:;" class="fw-medium">Blue Ocean IT</a></p>
-        </footer>
-        <!-- /footer content -->
+              <!-- /footer content -->
+              <footer style="margin-left: 0px;">
+                <div class="pull-right" style="margin-left: 0px;">
+                   © 2023 - <script> document.write(new Date().getFullYear())</script>2024 All right reserved. Quik Track for Blue Ocean Group Of Companies &amp; Kelsey Developments PLC, made with ❤️ by <a href="javascript:;" class="fw-medium">Blue Ocean IT</a>
+                </div>
+                <div class="clearfix"></div>
+              </footer>
+              <!-- /footer content -->
       </div>
     </div>
 

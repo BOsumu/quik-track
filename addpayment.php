@@ -47,7 +47,7 @@ $row=mysqli_fetch_array($result);?>
 
                                        <div class="setting">
                                           <div class="backbtn"><a href="dashboard.php"> </a></div>
-                                           <div class="subtext"><h2>Add New Sales</h2></div>
+                                           <div class="subtext"><h2>Add NewPayment</h2></div>
                                           <div class="clear"></div>
                                       </div>
 
@@ -182,14 +182,14 @@ $row=mysqli_fetch_array($result);?>
                           </div>
                           <div class="x_content">
                             <br />
-                            <form class="form-label-left input_mask">
+                            <form class="form-label-left input_mask" method="post" enctype="multipart/form-data">
                               <div class="row">
 
                                   <div class='col-sm-6'>
                                     Payment Date
                                     <div class="form-group">
                                         <div class='input-group date' id='myDatepicker2'>
-                                            <input class="form-control" placeholder="dd-mm-yyyy" type="text"  type="text" onfocus="this.type='date'" onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
+                                            <input class="form-control" placeholder="dd-mm-yyyy" type="text" onfocus="this.type='date'" onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)" name="pay_date" required="required">
 
                                         </div>
                                     </div>
@@ -277,6 +277,7 @@ $row=mysqli_fetch_array($result);?>
 
                         <input type="hidden" value="<?php echo $C_date; ?>" name="payment_crate_bate">
                         <input type="hidden" value="<?php echo $sale_id?>" name="sale_id">
+                        <input type="hidden" value="<?php echo $due_date?>" name="due_date">
 
                         <br/>
                         <button type="submit" class="btn btn-add btn-sm" name="add_payment">Add Payment</button>
@@ -308,8 +309,11 @@ $row=mysqli_fetch_array($result);?>
         <!-- /page content -->
 
         <!-- footer content -->
-        <footer class="pull-right">
-            <p class="mb-0">© 2023 - <script> document.write(new Date().getFullYear())</script>2024 All right reserved. Quik Track for Blue Ocean Group Of Companies &amp; Kelsey Developments PLC, made with ❤️ by <a href="javascript:;" class="fw-medium">Blue Ocean IT</a></p>
+        <footer style="margin-left: 0px;">
+          <div class="pull-right" style="margin-left: 0px;">
+             © 2023 - <script> document.write(new Date().getFullYear())</script>2024 All right reserved. Quik Track for Blue Ocean Group Of Companies &amp; Kelsey Developments PLC, made with ❤️ by <a href="javascript:;" class="fw-medium">Blue Ocean IT</a>
+          </div>
+          <div class="clearfix"></div>
         </footer>
         <!-- /footer content -->
       </div>

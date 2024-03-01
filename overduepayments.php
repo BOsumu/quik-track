@@ -3,8 +3,8 @@
 <?php include 'include/session.php';?>
 <?php
 $result=mysqli_query($conn, "select U_id from user  where U_id='$session_id'")or die('Error In Session');
-$row=mysqli_fetch_array($result);
-?>
+$row=mysqli_fetch_array($result);?>
+
 <!doctype html>
 <html lang="en" >
 <head>

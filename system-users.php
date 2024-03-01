@@ -138,13 +138,13 @@ $row=mysqli_fetch_array($result);?>
                         <td><?php echo $row['U_Contact']; ?></td>
                         <td><?php echo $row['U_Designation']; ?></td>
                         <?php if ($row['U_Type']=='0') {
-                          echo '<td><span class="badge bg-success  shadow-sm w-100">Super Admin</span>';
+                          echo '<td><span class="badge badge-danger  shadow-sm w-100">Super Admin</span>';
                         }elseif($row['U_Type']=='1') {
-                          echo '<td><span class="badge bg-info  shadow-sm w-100">Admin</span></td>';
+                          echo '<td><span class="badge badge-info  shadow-sm w-100">Admin</span></td>';
                         }elseif($row['U_Type']=='2') {
-                          echo '<td><span class="badge bg-primary  shadow-sm w-100"> Sales Admin</span></td>';
+                          echo '<td><span class="badge badge-primary shadow-sm w-100"> Sales Admin</span></td>';
                         }else {
-                            echo '<td><span class="badge bg-warning  shadow-sm w-100"> Sales Person</span></td>';
+                            echo '<td><span class="badge badge-warning  shadow-sm w-100"> Sales Person</span></td>';
 
                         }
 
@@ -155,7 +155,7 @@ $row=mysqli_fetch_array($result);?>
                         }
                         ?>
 
-                        <td><a href="View-System-user.php?view_user=<?php echo $row['U_id']; ?>"><button type="button" class="btn btn-sm btn-primary btn-rounded waves-effect waves-light">View & Edit</button></a></td>
+                        <td><a href="View-System-user.php?view_user=<?php echo $row['U_id']; ?>"><button type="button" class="btn btn-sm btn-edit">View & Edit</button></a></td>
 
                     </tr>
                       <?php $i++; } ?>
@@ -313,7 +313,7 @@ $row=mysqli_fetch_array($result);?>
                                                           </div>
 
 
-                                                        </form>
+
                                                       </div>
                                                       <div class="modal-footer">
                                                         <input type="hidden" value="<?php echo $session_id;?>" name="U_Cratedby">
@@ -324,8 +324,9 @@ $row=mysqli_fetch_array($result);?>
 
 						<button type="submit" class="btn btn-add btn-sm" name="add_user">Add User</button>
                                                         <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
-                                                        
+
                                                       </div>
+                                                    </form>
 
                                                     </div>
                                                   </div>
@@ -353,8 +354,11 @@ $row=mysqli_fetch_array($result);?>
 
         <!-- Datatables -->
         <!-- footer content -->
-        <footer class="pull-right">
-            <p class="mb-0">© 2023 - <script> document.write(new Date().getFullYear())</script>2024 All right reserved. Quik Track for Blue Ocean Group Of Companies &amp; Kelsey Developments PLC, made with ❤️ by <a href="javascript:;" class="fw-medium">Blue Ocean IT</a></p>
+        <footer style="margin-left: 0px;">
+          <div class="pull-right" style="margin-left: 0px;">
+             © 2023 - <script> document.write(new Date().getFullYear())</script>2024 All right reserved. Quik Track for Blue Ocean Group Of Companies &amp; Kelsey Developments PLC, made with ❤️ by <a href="javascript:;" class="fw-medium">Blue Ocean IT</a>
+          </div>
+          <div class="clearfix"></div>
         </footer>
         <!-- /footer content -->
       </div>

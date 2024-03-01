@@ -29,7 +29,6 @@ while ($row_post = mysqli_fetch_array($run_query)){
       <div class="top_nav">
         <div class="nav_menu">
 
-
         <div class="col-md-2" style="background: #2A3F54;">
           <div class="navbar nav_title">
             <a href="dashboard.php" class="site_title"><img src="assets/images/favicon-logo.png" class="logo-icon" alt="logo icon">&nbsp;Quik Track</a>
@@ -77,7 +76,7 @@ while ($row_post = mysqli_fetch_array($run_query)){
 
                 <a href="javascript:;" class="d-flex align-items-center user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
 
-                  <div class="user-infor" style="padding-right: 12px;">
+                  <div class="user-infor" style="padding-right: 15px;">
                     <span class="user-name mb-0">Hi ! <?php echo $U_FNamesession;?></span>
                     <?php
                       if ($U_Typesession == '0') {

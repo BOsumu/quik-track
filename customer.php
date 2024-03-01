@@ -144,7 +144,7 @@ $row=mysqli_fetch_array($result);?>
                         }
                         ?>
 
-                        <td><a href="View_customer.php?view_customer=<?php echo $row['Customer_id']; ?>"><button type="button" class="btn btn-sm btn-primary btn-rounded waves-effect waves-light">View & Edit</button></a></td>
+                        <td><a href="View_customer.php?view_customer=<?php echo $row['Customer_id']; ?>"><button type="button" class="btn btn-sm btn-edit ">View & Edit</button></a></td>
 
 
 

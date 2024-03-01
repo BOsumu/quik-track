@@ -161,6 +161,8 @@ $row=mysqli_fetch_array($result);?>
                 $earliest_unpaid_due_date = $row_due_date['earliest_due_date'];
             }
 
+
+
 						// Define classes based on due date comparison
             $due_date_class = '';
             if ($earliest_unpaid_due_date !== '') {
@@ -186,7 +188,8 @@ $row=mysqli_fetch_array($result);?>
                   <td align="right" ><?php echo $totalPaid; ?></td>
                   <td align="right" ><?php echo $balance; ?></td>
                   <td class="<?php echo $due_date_class; ?>"><b><?php echo $earliest_unpaid_due_date !== '' ? date('Y-m-d', strtotime($earliest_unpaid_due_date)) : ''; ?></b></td>
-                 <td><a href="addpayment.php?sale_id=<?php echo $row['sale_id']; ?>"><button type="button" class="btn btn-sm btn-add">Add Payment</button></a></td>
+
+                 <td><a href="addpayment.php?sale_id=<?php echo $row['sale_id']; ?>"><button type="button" class="btn btn-sm btn-add btn-font">Add Payment</button></a></td>
                                   </tr>
                               <?php } ?>
                                 </tbody>
@@ -225,9 +228,12 @@ $row=mysqli_fetch_array($result);?>
         <!-- /page content -->
 
         <!-- Datatables -->
-        <!-- footer content -->
-        <footer class="pull-right">
-            <p class="mb-0">© 2023 - <script> document.write(new Date().getFullYear())</script>2024 All right reserved. Quik Track for Blue Ocean Group Of Companies &amp; Kelsey Developments PLC, made with ❤️ by <a href="javascript:;" class="fw-medium">Blue Ocean IT</a></p>
+        <!-- /footer content -->
+        <footer style="margin-left: 0px;">
+          <div class="pull-right" style="margin-left: 0px;">
+             © 2023 - <script> document.write(new Date().getFullYear())</script>2024 All right reserved. Quik Track for Blue Ocean Group Of Companies &amp; Kelsey Developments PLC, made with ❤️ by <a href="javascript:;" class="fw-medium">Blue Ocean IT</a>
+          </div>
+          <div class="clearfix"></div>
         </footer>
         <!-- /footer content -->
       </div>

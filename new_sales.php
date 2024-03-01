@@ -8,6 +8,9 @@ $row=mysqli_fetch_array($result);
 <?php include 'include/header.php';?>
 <?php include 'include/nav_bar.php';?>
 
+
+<!-- <link href="assets/lib/select2/css/select2.min.css" rel="stylesheet"> -->
+
         <!-- page content -->
         <div class="right_col" role="main">
           <div class="">
@@ -16,11 +19,21 @@ $row=mysqli_fetch_array($result);
 
             <!-- /SIDE LIST -->
             <div class="col-sm-2 mail_list_column">
-              <h2>Sales Summary</h2>
-                  <h3>for Feb - 2024</h3>
+              <h3>Collection Summary</h3>
+                    <h2 style="margin-bottom:5px;font-weight:600;">for <?php echo date('M - Y'); ?></h2>
               <p>This a summary of the present total payment collections for the above said month.</p>
+
+
+                      <ul class="list-unstyled project_files">
+                           <li><a href=""style="color:#000000;"><i class="fa fa-circle color-red"></i> Collection</a>
+                           </li>
+                           <li><a href=""style="color:#000000;"><i class="fa fa-circle color-green"></i> Due Collection</a>
+                           </li>
+                           <li><a href=""style="color:#000000;"><i class="fa fa-circle color-blue"></i> Total Revenue</a>
+                           </li>
+                         </ul>
               <!-- <button id="compose" class="btn btn-sm btn-success btn-block" type="button">COMPOSE</button> -->
-              <a href="#">
+              <!-- <a href="#">
                 <div class="mail_list">
                   <div class="left">
                     <i class="fa fa-circle"></i> <i class="fa fa-edit"></i>
@@ -30,10 +43,86 @@ $row=mysqli_fetch_array($result);
                     <p>Ut enim ad minim veniam, quis nostrud exercitation enim ad minim veniam, quis nostrud exercitation...</p>
                   </div>
                 </div>
-              </a>
+              </a> -->
+
+           <div class="x_content">
+
+           <ul class="nav nav-tabs bar_sidetabs tab-text" id="myTab" role="tablist" style="border:none;">
+             <li class="nav-item">
+               <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"style="border-color: #dee2e6 #dee2e6 #dee2e6 #dee2e6;border: 0px solid transparent;border-top-left-radius: 0rem;border-top-right-radius: 0rem;color: #000000;">By Companies</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" name="project" aria-controls="profile" aria-selected="false" style="border: 0px solid transparent;border-top-left-radius: 0rem;border-top-right-radius: 0rem;">By Project</a>
+             </li>
+
+           </ul>
+
+           <div class="tab-content" id="myTabContent">
+             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
 
-            </div>
+                  <div class="mail_list" style="border:none;">
+                    <div class="right">
+                      <?php
+                       $sql = 'SELECT * FROM  companies';
+                       $result = mysqli_query($conn,$sql);
+                       $i = 1;
+                       while($row = mysqli_fetch_array($result))
+                         {
+                      ?>
+                      <p class="sidelist">
+                          <span><?php echo $row['company_name'];?></span>
+
+
+
+                          <br><strong class="text-danger">111111</strong>
+
+
+
+                          <br><strong class="text-success">1111111</strong>
+                          <br><strong class="text-info">1111111</strong>
+                          <hr class="sidebarhr">
+                      </p>
+                    <?php $i++; } ?>
+                    </div>
+                  </div>
+
+             </div>
+             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+
+                  <div class="mail_list" style="border:none;">
+                    <div class="right">
+                      <?php
+                       $sql = 'SELECT * FROM sales
+                       JOIN project ON project.project_id = sales.project_id';
+                      $result = mysqli_query($conn,$sql);
+                       while($row = mysqli_fetch_array($result))
+                         {
+                      ?>
+                      <p class="sidelist">
+                        
+                        <span><?php echo $row['project_name'];?></span>
+
+
+                        <br><strong class="text-danger">ddadad</strong>
+
+
+                      <br><strong class="text-success">1111111</strong>
+                        <br><strong class="text-info">1111111</strong>
+                          <hr class="sidebarhr">
+                      </p>
+                    <?php  } ?>
+                    </div>
+                  </div>
+
+             </div>
+
+           </div>
+         </div>
+
+
+          </div>
+
             <!--/ SIDE  LIST -->
            <!-- RIGHT LIST -->
             <div class="col-sm-10 mail_view">
@@ -41,7 +130,7 @@ $row=mysqli_fetch_array($result);
                 <div class="mail_heading row">
                   <div class="col-md-12">
                    <div class="heading">
-                       <h1><span>Customer</span><img src="assets/images/arrow.png" class="logo-icon" alt="logo icon">Summary</h1>
+                       <h1 class="breadcrums"><span>Sales</span><img src="assets/images/arrow.png" class="logo-icon" alt="logo icon">Summary</h1>
                        <h4>Record Book</h4>
                    </div>
                  </div>
@@ -100,6 +189,21 @@ $row=mysqli_fetch_array($result);
                         </li> -->
                       </ul>
                       <div>
+<!--
+                        <div class="col-lg-4 mg-t-20 mg-lg-t-0">
+                          <p class="mg-b-10">Single Select with Search</p>
+                          <select class="form-control select2">
+                            <option label="Choose one"></option>
+                            <option value="Firefox">Firefox</option>
+                            <option value="Chrome">Chrome</option>
+                            <option value="Safari">Safari</option>
+                            <option value="Opera">Opera</option>
+                            <option value="Internet Explorer">Internet Explorer</option>
+                          </select>
+                        </div>-->
+
+
+
                         <form class="form-horizontal form-label-left" novalidate method="post" enctype="multipart/form-data">
                             <div class="form-group row">
                                <label for="form-select" class="control-label col-md-2 col-sm-3 ">Select First Owner :</label>
@@ -424,8 +528,34 @@ $row=mysqli_fetch_array($result);
           }
       </script>
 
+      <!-- <script>
+        // Additional code for adding placeholder in search box of select2
+        (function($) {
+          var Defaults = $.fn.select2.amd.require('select2/defaults');
+
+          $.extend(Defaults.defaults, {
+            searchInputPlaceholder: ''
+          });
+
+          var SearchDropdown = $.fn.select2.amd.require('select2/dropdown/search');
+
+          var _renderSearchDropdown = SearchDropdown.prototype.render;
+
+          SearchDropdown.prototype.render = function(decorated) {
+
+            // invoke parent method
+            var $rendered = _renderSearchDropdown.apply(this, Array.prototype.slice.apply(arguments));
+
+            this.$search.attr('placeholder', this.options.get('searchInputPlaceholder'));
+
+            return $rendered;
+          };
+
+        })(window.jQuery);
+      </script>
 
 
+<script src="assets/lib/select2/js/select2.min.js"></script> -->
 
   </body>
 </html>

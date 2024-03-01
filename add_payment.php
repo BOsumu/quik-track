@@ -289,9 +289,5 @@ $row=mysqli_fetch_array($result);
 
 
 
-	<!--app JS-->
-	<script src="assets/js/app.js"></script>
-
-
 </body>
 </html>
