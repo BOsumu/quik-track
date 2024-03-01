@@ -90,30 +90,37 @@ $row=mysqli_fetch_array($result);
              </div>
              <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 
-                  <div class="mail_list" style="border:none;">
-                    <div class="right">
-                      <?php
-                       $sql = 'SELECT * FROM sales
-                       JOIN project ON project.project_id = sales.project_id';
-                      $result = mysqli_query($conn,$sql);
-                       while($row = mysqli_fetch_array($result))
-                         {
-                      ?>
-                      <p class="sidelist">
-                        
-                        <span><?php echo $row['project_name'];?></span>
+               <div class="mail_list" style="border:none;">
+                       <div class="right">
+                         <?php
+                          $sql = 'SELECT  p.project_id, p.project_name, MONTH(pm.pay_date) AS month, YEAR(pm.pay_date) AS year,SUM(pm.paid_amount) AS total_paid_amount
+                                  FROM project p
+                                  JOIN  sales s ON p.project_id = s.project_id
+                                  JOIN  payments pm ON s.sale_id = pm.sale_id
+                                  GROUP BY p.project_id, p.project_name,
+                                  MONTH(pm.pay_date), YEAR(pm.pay_date)
+                                  ORDER BY p.project_id, YEAR(pm.pay_date), MONTH(pm.pay_date);';
 
 
-                        <br><strong class="text-danger">ddadad</strong>
+                         $result = mysqli_query($conn,$sql);
+                          $p = 1;
+                          while($row = mysqli_fetch_array($result))
+                            {
+                         ?>
+                         <p class="sidelist">
+                           <span><?php echo $row['project_name'];?></span>
+
+                           <br><strong class="text-danger"><?php echo $row['total_paid_amount'];?></strong>
 
 
-                      <br><strong class="text-success">1111111</strong>
-                        <br><strong class="text-info">1111111</strong>
-                          <hr class="sidebarhr">
-                      </p>
-                    <?php  } ?>
-                    </div>
-                  </div>
+                         <br><strong class="text-success">1111111</strong>
+                           <br><strong class="text-info">1111111</strong>
+                             <hr class="sidebarhr">
+                         </p>
+                       <?php $p++; } ?>
+                       </div>
+                     </div>
+
 
              </div>
 
