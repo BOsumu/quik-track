@@ -106,20 +106,30 @@
               <div class="col-md-12 col-sm-12">
 
                   <div class="x_panel">
-                    <div class="x_title">
-                      <h2>Sales Overview - <?php echo date("Y"); ?></h2>
-                      <ul class="nav navbar-right panel_toolbox">
-                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                        </li>
+                    <div class="x_title" style="font-size:16px;">
+                      <h2>Sales summary from all the current projects</h2>
+                      <h2>Total Sales for- <?php echo date("Y"); ?></h2>
 
-                        <li><a class="close-link"><i class="fa fa-close"></i></a>
-                        </li>
-                      </ul>
                       <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
 
                       <div id="echart_bar_horizontal" style="height:370px;"></div>
+
+                      <ul class="stats-overview">
+                        <li>
+                          <span class="name"> Estimated budget </span>
+                          <span class="value text-success"> 2300 </span>
+                        </li>
+                        <li>
+                          <span class="name"> Total amount spent </span>
+                          <span class="value text-success"> 2000 </span>
+                        </li>
+                        <li class="hidden-phone">
+                          <span class="name"> Estimated project duration </span>
+                          <span class="value text-success"> 20 </span>
+                        </li>
+                      </ul>
 
                     </div>
                   </div>

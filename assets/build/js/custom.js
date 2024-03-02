@@ -3990,16 +3990,16 @@ function init_echarts() {
         var echartBar = echarts.init(document.getElementById('echart_bar_horizontal'), theme);
 
         echartBar.setOption({
-            title: {
-                text: 'Bar Graph',
-                subtext: 'Graph subtitle'
-            },
+            // title: {
+            //     text: 'Bar Graph',
+            //     subtext: 'Graph subtitle'
+            // },
             tooltip: {
                 trigger: 'axis'
             },
             legend: {
                 x: 100,
-                data: ['2015', '2016']
+                data: ["Total Units", "Sold Units"]
             },
             toolbox: {
                 show: true,
@@ -4020,11 +4020,11 @@ function init_echarts() {
                 data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']
             }],
             series: [{
-                name: '2015',
+                name: 'Total Units',
                 type: 'bar',
                 data: [18203, 23489, 29034, 104970, 131744, 630230]
             }, {
-                name: '2016',
+                name: 'Sold Units',
                 type: 'bar',
                 data: [19325, 23438, 31000, 121594, 134141, 681807]
             }]
