@@ -67,6 +67,15 @@ while ($row_post = mysqli_fetch_array($run_query)){
             </li>
             <li role="presentation"><a href="system-users.php"><i class="fa fa-users" aria-hidden="true">&nbsp;</i>User Management</a>
             </li>
+            <li role="presentation" class="dropdown">
+              <a id="drop9" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+                          <i class="fa fa-pie-chart" aria-hidden="true">&nbsp;</i>Report
+                          <span class="caret"></span>
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item" href="ccc.php">Collections & Installment Sheet</a>
+                        </div>
+            </li>
           </ul>
 
         </div>

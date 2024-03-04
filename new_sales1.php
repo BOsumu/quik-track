@@ -93,62 +93,69 @@ $row=mysqli_fetch_array($result);
                <div class="mail_list" style="border:none;">
                        <div class="right">
                          <?php
-                              $sql = 'SELECT * FROM project p';
+                         //  $sql = 'SELECT  p.project_id, p.project_name, MONTH(pm.pay_date) AS month, YEAR(pm.pay_date) AS year,SUM(pm.paid_amount) AS total_paid_amount
+                         //          FROM project p
+                         //          JOIN  sales s ON p.project_id = s.project_id
+                         //          JOIN  payments pm ON s.sale_id = pm.sale_id
+                         //          GROUP BY p.project_id, p.project_name,
+                         //          MONTH(pm.pay_date), YEAR(pm.pay_date)
+                         //          ORDER BY p.project_id, YEAR(pm.pay_date), MONTH(pm.pay_date);';
+                         //
+                         //
+                         // $result = mysqli_query($conn,$sql);
+                         //  $p = 1;
+                         //  while($row = mysqli_fetch_array($result))
+                         //    {
 
-                              $result = mysqli_query($conn, $sql);
-                              $p = 1;
-
-                              while ($row = mysqli_fetch_array($result)) {
-                              $project_id = $row['project_id'];
-
-                                   //Get the monthly tatol paid_amount from payment using paid_amount and pay_date
-                                     $totalpayment_query = "SELECT MONTH(pm.pay_date) AS month, YEAR(pm.pay_date) AS year, SUM(pm.paid_amount) AS total_paid_amount
-                                                            FROM payments pm
-                                                            JOIN sales s ON s.sale_id = pm.sale_id
-                                                            WHERE s.project_id = '$project_id'
-                                                            GROUP BY MONTH(pm.pay_date), YEAR(pm.pay_date)
-                                                            ORDER BY YEAR(pm.pay_date), MONTH(pm.pay_date)";
-                                     $totalpayment_result = mysqli_query($conn, $totalpayment_query);
-                                     $totalpayment_row = mysqli_fetch_array($totalpayment_result);
-                                     $totalpayment = isset($totalpayment_row['total_paid_amount']) ? number_format($totalpayment_row['total_paid_amount'], 2) : '0.00';
-
-                                     //Get the monthly total revenue of each project from sale using selling_price and sale_crate_bate
-                                     $totalrevenue_query = "SELECT MONTH(s.sale_date) AS month, YEAR(s.sale_date) AS year, SUM(s.selling_price * s.sale_crate_bate) AS total_revenue
-                                                            FROM sales s
-                                                            WHERE s.project_id = '$project_id'
-                                                            GROUP BY MONTH(s.sale_date), YEAR(s.sale_date)
-                                                            ORDER BY YEAR(s.sale_date), MONTH(s.sale_date)";
-                                    $totalrevenue_result = mysqli_query($conn, $totalrevenue_query);
-                                    $totalrevenue_row = mysqli_fetch_array($totalrevenue_result);
-                                    $totalrevenue = isset($totalrevenue_row['total_revenue']) ? number_format($totalrevenue_row['total_revenue'], 2) : '0.00';
-
-                                    //GEt the monthly paid amount from payment using paid_amount and due_date
-                                    // $monthly_paid_query = "SELECT MONTH(pp.due_date) AS month, YEAR(pp.due_date) AS year, SUM(p.paid_amount) AS monthly_paid_amount
-                                    //                           FROM payments p
-                                    //                           JOIN payment_plan pp ON p.payment_id = pp.payment_id
-                                    //                           JOIN sales s ON p.sale_id = s.sale_id
-                                    //                           WHERE s.project_id = '$project_id'
-                                    //                           GROUP BY MONTH(pp.due_date), YEAR(pp.due_date)
-                                    //                           ORDER BY YEAR(pp.due_date), MONTH(pp.due_date)";
-                                    //    $monthly_paid_result = mysqli_query($conn, $monthly_paid_query);
-                                    //    $monthly_paid_row = mysqli_fetch_array($monthly_paid_result);
-                                    //    $monthly_paid_amount = isset($monthly_paid_row['monthly_paid_amount']) ? number_format($monthly_paid_row['monthly_paid_amount'], 2) : '0.00';
+$sql = 'SELECT * FROM  project';
+ $p = 1;
+$result = mysqli_query($conn, $sql);
+while ($row = mysqli_fetch_array($result)) {
 
 
-                                  ?>
-                                      <p class="sidelist">
-                                          <span><?php echo $row['project_name']; ?></span>
-                                          <br><strong class="text-danger"><?php echo $totalpayment ?></strong>
-                                          <br><strong class="text-success">1232665454</strong>
-                                          <br><strong class="text-info"><?php echo $totalrevenue ?></strong>
-                                          <hr class="sidebarhr">
-                                      </p>
-                                  <?php
-                                  $p++;
-                                      }
-                                        ?>
+    //Get the monthly tatol paid paid_amount
+    $totalpayment_query ="SELECT  p.project_id, p.project_name, MONTH(pm.pay_date) AS month, YEAR(pm.pay_date) AS year,SUM(pm.paid_amount) AS total_paid_amount FROM
+                                  project p
+                          JOIN  sales s ON p.project_id = s.project_id
+                          JOIN  payments pm ON s.sale_id = pm.sale_id
+                          GROUP BY p.project_id, p.project_name,
+                          MONTH(pm.pay_date), YEAR(pm.pay_date)
+                          ORDER BY p.project_id, YEAR(pm.pay_date), MONTH(pm.pay_date);";
+
+    $totalpayment_result = mysqli_query($conn, $totalpayment_query);
+    $totalpayment_row = mysqli_fetch_array($totalpayment_result);
+    $totalpayment =  isset($totalpayment_row['total_paid_amount']) ? number_format($totalpayment_row['total_paid_amount'], 2) : '0.00';
+
+// Get the total revenu
+$totalrevenu_query = "SELECT p.project_id, p.project_name,DATE_FORMAT(payments.pay_date, '%Y-%m') AS month,
+    SUM(payments.paid_amount) AS total_paid_amount,
+    SUM(sales.sale_crate_bate) AS total_selling_price
+FROM
+    project p
+JOIN
+    sales ON p.project_id = sales.project_id
+LEFT JOIN
+    payments ON sales.sale_id = payments.sale_id
+GROUP BY
+    p.project_id, month
+ORDER BY
+    p.project_id, month;";
+$totalrevenu_result = mysqli_query($conn,$totalrevenu_query);
+$totalrevenu_row = mysqli_fetch_array($totalrevenu_result);
+$totalrevenu = isset($totalrevenu_row['total_revenue']) ? number_format($totalrevenu_row['total_revenue'], 2) : '0.00';
+
+    ?>
+                         <p class="sidelist">
+                           <span><?php echo $row['project_name'];?></span>
+
+                           <br><strong class="text-danger"><?php echo $totalpayment;?></strong>
 
 
+                         <br><strong class="text-success"><?php $totalrevenue?></strong>
+                           <br><strong class="text-info">gfgd</strong>
+                             <hr class="sidebarhr">
+                         </p>
+                       <?php $p++; } ?>
                        </div>
                      </div>
 

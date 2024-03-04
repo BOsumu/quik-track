@@ -881,8 +881,8 @@ p.sidelist .btn-bold{
   color: #17a2b8;
 }
 hr.sidebarhr {
-    margin-top: -1rem;
-    margin-bottom: -1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     border: 0;
     border-top: 1px solid rgba(0,0,0,.1);
 }

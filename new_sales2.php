@@ -93,62 +93,49 @@ $row=mysqli_fetch_array($result);
                <div class="mail_list" style="border:none;">
                        <div class="right">
                          <?php
-                              $sql = 'SELECT * FROM project p';
+                         $sql = 'SELECT * FROM project
+                                 JOIN sales ON sales.project_id = project.project_id
+                                 -- JOIN project_units ON project_units.unit_id = sales.unit_id
+                                 -- JOIN customer ON customer.Customer_id = sales.Customer_id';
+                                 $p = 1;
+             $result = mysqli_query($conn, $sql);
+             // $ddd=0;
+             while ($row = mysqli_fetch_array($result)) {
+                 $project_id = $row['project_id'];
+                 $project_name = $row['project_name'];
+                 $project_location = $row['project_location'];
+                 $company_Name = $row['company_Name'];
+                 $project_name_project = isset($project_name_row['project_name']) ? $project_name_row['project_name'] : '';
 
-                              $result = mysqli_query($conn, $sql);
-                              $p = 1;
+                 // Calculate total paid amount using a subquery
+                 $payment_query = "SELECT COALESCE(SUM(paid_amount), 0) AS payment_amount FROM payments WHERE sale_id = $sale_id";
+                 $payment_result = mysqli_query($conn, $payment_query);
+                 $payment_row = mysqli_fetch_array($payment_result);
+                 $totalPaid = isset($payment_row['payment_amount']) ? number_format($payment_row['payment_amount'], 2) : '0.00';
 
-                              while ($row = mysqli_fetch_array($result)) {
-                              $project_id = $row['project_id'];
+                 // Add project_name from the project table
+                    $project_id = $row['project_id'];
+                    $project_name_query = "SELECT project_name FROM project WHERE project_id = $project_id";
+                    $project_name_result = mysqli_query($conn, $project_name_query);
+                    $project_name_row = mysqli_fetch_array($project_name_result);
+                    $project_name_project = isset($project_name_row['project_name']) ? $project_name_row['project_name'] : '';
 
-                                   //Get the monthly tatol paid_amount from payment using paid_amount and pay_date
-                                     $totalpayment_query = "SELECT MONTH(pm.pay_date) AS month, YEAR(pm.pay_date) AS year, SUM(pm.paid_amount) AS total_paid_amount
-                                                            FROM payments pm
-                                                            JOIN sales s ON s.sale_id = pm.sale_id
-                                                            WHERE s.project_id = '$project_id'
-                                                            GROUP BY MONTH(pm.pay_date), YEAR(pm.pay_date)
-                                                            ORDER BY YEAR(pm.pay_date), MONTH(pm.pay_date)";
-                                     $totalpayment_result = mysqli_query($conn, $totalpayment_query);
-                                     $totalpayment_row = mysqli_fetch_array($totalpayment_result);
-                                     $totalpayment = isset($totalpayment_row['total_paid_amount']) ? number_format($totalpayment_row['total_paid_amount'], 2) : '0.00';
-
-                                     //Get the monthly total revenue of each project from sale using selling_price and sale_crate_bate
-                                     $totalrevenue_query = "SELECT MONTH(s.sale_date) AS month, YEAR(s.sale_date) AS year, SUM(s.selling_price * s.sale_crate_bate) AS total_revenue
-                                                            FROM sales s
-                                                            WHERE s.project_id = '$project_id'
-                                                            GROUP BY MONTH(s.sale_date), YEAR(s.sale_date)
-                                                            ORDER BY YEAR(s.sale_date), MONTH(s.sale_date)";
-                                    $totalrevenue_result = mysqli_query($conn, $totalrevenue_query);
-                                    $totalrevenue_row = mysqli_fetch_array($totalrevenue_result);
-                                    $totalrevenue = isset($totalrevenue_row['total_revenue']) ? number_format($totalrevenue_row['total_revenue'], 2) : '0.00';
-
-                                    //GEt the monthly paid amount from payment using paid_amount and due_date
-                                    // $monthly_paid_query = "SELECT MONTH(pp.due_date) AS month, YEAR(pp.due_date) AS year, SUM(p.paid_amount) AS monthly_paid_amount
-                                    //                           FROM payments p
-                                    //                           JOIN payment_plan pp ON p.payment_id = pp.payment_id
-                                    //                           JOIN sales s ON p.sale_id = s.sale_id
-                                    //                           WHERE s.project_id = '$project_id'
-                                    //                           GROUP BY MONTH(pp.due_date), YEAR(pp.due_date)
-                                    //                           ORDER BY YEAR(pp.due_date), MONTH(pp.due_date)";
-                                    //    $monthly_paid_result = mysqli_query($conn, $monthly_paid_query);
-                                    //    $monthly_paid_row = mysqli_fetch_array($monthly_paid_result);
-                                    //    $monthly_paid_amount = isset($monthly_paid_row['monthly_paid_amount']) ? number_format($monthly_paid_row['monthly_paid_amount'], 2) : '0.00';
+    ?>
+                         <p class="sidelist">
+                           <span>
+                              <?php echo $row['project_name'];?></span>
 
 
-                                  ?>
-                                      <p class="sidelist">
-                                          <span><?php echo $row['project_name']; ?></span>
-                                          <br><strong class="text-danger"><?php echo $totalpayment ?></strong>
-                                          <br><strong class="text-success">1232665454</strong>
-                                          <br><strong class="text-info"><?php echo $totalrevenue ?></strong>
-                                          <hr class="sidebarhr">
-                                      </p>
-                                  <?php
-                                  $p++;
-                                      }
-                                        ?>
+                           <br><strong class="text-danger"><?php echo $totalPaid; ?></strong>
+                           <?php
 
+                           ?>
 
+                         <!-- <br><strong class="text-success"><?php $totalPaid ?></strong> -->
+                           <br><strong class="text-info">gfgd</strong>
+                             <hr class="sidebarhr">
+                         </p>
+                       <?php $p++; } ?>
                        </div>
                      </div>
 
