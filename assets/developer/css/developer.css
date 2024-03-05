@@ -886,3 +886,62 @@ hr.sidebarhr {
     border: 0;
     border-top: 1px solid rgba(0,0,0,.1);
 }
+.mail_view_report {
+    border: 1px solid #005593;
+    margin-top: 60px;
+    min-height: 650px;
+}
+.reportbar {
+    padding: 5px 25px 5px 25px;
+
+    font-weight: bold;
+    font-size: 24px;
+    color: #FFF;
+    background: #022b4e;
+}
+.reportbar h2 {
+    font-weight: bold;
+    font-style: italic;
+    font-size: 28px;
+    color: #FFF;
+    text-align: left;
+    padding: 5px 0px;
+    border-bottom: 1px solid #FFF;
+    line-height: 1;
+    margin-bottom: 2px;
+    font-family: 'Roboto Condensed', Helvetica, sans-serif;
+}
+.reportbar .back a {
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 400;
+    font-family: 'Roboto Condensed', Helvetica, sans-serif;
+    color: #FFF;
+    background: url(../../images/back-icon.png) no-repeat left center;
+    padding: 5px 10px 5px 25px;
+}
+.reportbar .print a {
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 400;
+    font-family: 'Roboto Condensed', Helvetica, sans-serif;
+    color: #FFF;
+    background: url(../../images/print-color-icon.png) no-repeat left center;
+    padding: 5px 10px 5px 25px;
+}
+ .reportbar .excel #exportexcel {
+    border: none;
+    background-color: #022b4e;
+    font-family: 'Roboto Condensed', Helvetica, sans-serif;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 400;
+    color: #FFF;
+    cursor: pointer;
+    background: url(../../images/excel-icon.png) no-repeat left center;
+    padding: 5px 10px 5px 25px;
+}
+table.jambo_table thead {
+    background: #DDDDDD;
+  color: #000000;
+}

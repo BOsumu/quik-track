@@ -18,149 +18,7 @@ $row=mysqli_fetch_array($result);
             <div class="clearfix"></div>
 
             <!-- /SIDE LIST -->
-            <div class="col-sm-2 mail_list_column">
-              <h3>Collection Summary</h3>
-                    <h2 style="margin-bottom:5px;font-weight:600;">for <?php echo date('M - Y'); ?></h2>
-              <p>This a summary of the present total payment collections for the above said month.</p>
-
-
-                      <ul class="list-unstyled project_files">
-                           <li><a href=""style="color:#000000;"><i class="fa fa-circle color-red"></i> Collection</a>
-                           </li>
-                           <li><a href=""style="color:#000000;"><i class="fa fa-circle color-green"></i> Due Collection</a>
-                           </li>
-                           <li><a href=""style="color:#000000;"><i class="fa fa-circle color-blue"></i> Total Revenue</a>
-                           </li>
-                         </ul>
-              <!-- <button id="compose" class="btn btn-sm btn-success btn-block" type="button">COMPOSE</button> -->
-              <!-- <a href="#">
-                <div class="mail_list">
-                  <div class="left">
-                    <i class="fa fa-circle"></i> <i class="fa fa-edit"></i>
-                  </div>
-                  <div class="right">
-                    <h3>Dennis Mugo <small>3.00 PM</small></h3>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation enim ad minim veniam, quis nostrud exercitation...</p>
-                  </div>
-                </div>
-              </a> -->
-
-           <div class="x_content">
-
-           <ul class="nav nav-tabs bar_sidetabs tab-text" id="myTab" role="tablist" style="border:none;">
-             <li class="nav-item">
-               <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"style="border-color: #dee2e6 #dee2e6 #dee2e6 #dee2e6;border: 0px solid transparent;border-top-left-radius: 0rem;border-top-right-radius: 0rem;color: #000000;">By Companies</a>
-             </li>
-             <li class="nav-item">
-               <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" name="project" aria-controls="profile" aria-selected="false" style="border: 0px solid transparent;border-top-left-radius: 0rem;border-top-right-radius: 0rem;">By Project</a>
-             </li>
-
-           </ul>
-
-           <div class="tab-content" id="myTabContent">
-             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-
-
-                  <div class="mail_list" style="border:none;">
-                    <div class="right">
-                      <?php
-                       $sql = 'SELECT * FROM  companies';
-                       $result = mysqli_query($conn,$sql);
-                       $i = 1;
-                       while($row = mysqli_fetch_array($result))
-                         {
-                      ?>
-                      <p class="sidelist">
-                          <span><?php echo $row['company_name'];?></span>
-
-
-
-                          <br><strong class="text-danger">111111</strong>
-
-
-
-                          <br><strong class="text-success">1111111</strong>
-                          <br><strong class="text-info">1111111</strong>
-                          <hr class="sidebarhr">
-                      </p>
-                    <?php $i++; } ?>
-                    </div>
-                  </div>
-
-             </div>
-             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-
-               <div class="mail_list" style="border:none;">
-                       <div class="right">
-                         <?php
-                              $sql = 'SELECT * FROM project p';
-
-                              $result = mysqli_query($conn, $sql);
-                              $p = 1;
-
-                              while ($row = mysqli_fetch_array($result)) {
-                              $project_id = $row['project_id'];
-
-                                   //Get the monthly tatol paid_amount from payment using paid_amount and pay_date
-                                     $totalpayment_query = "SELECT MONTH(pm.pay_date) AS month, YEAR(pm.pay_date) AS year, SUM(pm.paid_amount) AS total_paid_amount
-                                                            FROM payments pm
-                                                            JOIN sales s ON s.sale_id = pm.sale_id
-                                                            WHERE s.project_id = '$project_id'
-                                                            GROUP BY MONTH(pm.pay_date), YEAR(pm.pay_date)
-                                                            ORDER BY YEAR(pm.pay_date), MONTH(pm.pay_date)";
-                                     $totalpayment_result = mysqli_query($conn, $totalpayment_query);
-                                     $totalpayment_row = mysqli_fetch_array($totalpayment_result);
-                                     $totalpayment = isset($totalpayment_row['total_paid_amount']) ? number_format($totalpayment_row['total_paid_amount'], 2) : '0.00';
-
-                                     //Get the monthly total revenue of each project from sale using selling_price and sale_crate_bate
-                                     $totalrevenue_query = "SELECT MONTH(s.sale_date) AS month, YEAR(s.sale_date) AS year, SUM(s.selling_price * s.sale_crate_bate) AS total_revenue
-                                                            FROM sales s
-                                                            WHERE s.project_id = '$project_id'
-                                                            GROUP BY MONTH(s.sale_date), YEAR(s.sale_date)
-                                                            ORDER BY YEAR(s.sale_date), MONTH(s.sale_date)";
-                                    $totalrevenue_result = mysqli_query($conn, $totalrevenue_query);
-                                    $totalrevenue_row = mysqli_fetch_array($totalrevenue_result);
-                                    $totalrevenue = isset($totalrevenue_row['total_revenue']) ? number_format($totalrevenue_row['total_revenue'], 2) : '0.00';
-
-                                    //GEt the monthly paid amount from payment using paid_amount and due_date
-                                    // $monthly_paid_query = "SELECT MONTH(pp.due_date) AS month, YEAR(pp.due_date) AS year, SUM(p.paid_amount) AS monthly_paid_amount
-                                    //                           FROM payments p
-                                    //                           JOIN payment_plan pp ON p.payment_id = pp.payment_id
-                                    //                           JOIN sales s ON p.sale_id = s.sale_id
-                                    //                           WHERE s.project_id = '$project_id'
-                                    //                           GROUP BY MONTH(pp.due_date), YEAR(pp.due_date)
-                                    //                           ORDER BY YEAR(pp.due_date), MONTH(pp.due_date)";
-                                    //    $monthly_paid_result = mysqli_query($conn, $monthly_paid_query);
-                                    //    $monthly_paid_row = mysqli_fetch_array($monthly_paid_result);
-                                    //    $monthly_paid_amount = isset($monthly_paid_row['monthly_paid_amount']) ? number_format($monthly_paid_row['monthly_paid_amount'], 2) : '0.00';
-
-
-                                  ?>
-                                      <p class="sidelist">
-                                          <span><?php echo $row['project_name']; ?></span>
-                                          <br><strong class="text-danger"><?php echo $totalpayment ?></strong>
-                                          <br><strong class="text-success">1232665454</strong>
-                                          <br><strong class="text-info"><?php echo $totalrevenue ?></strong>
-                                          <hr class="sidebarhr">
-                                      </p>
-                                  <?php
-                                  $p++;
-                                      }
-                                        ?>
-
-
-                       </div>
-                     </div>
-
-
-             </div>
-
-           </div>
-         </div>
-
-
-          </div>
-
+<?php include 'include/sidelist_cal.php';?>
             <!--/ SIDE  LIST -->
            <!-- RIGHT LIST -->
             <div class="col-sm-10 mail_view">
@@ -246,7 +104,7 @@ $row=mysqli_fetch_array($result);
                             <div class="form-group row">
                                <label for="form-select" class="control-label col-md-2 col-sm-3 ">Select First Owner :</label>
                                 <div class="col-md-5 col-sm-9 ">
-                                  <select class="form-control" id="firstowner" required name="Customer_id" data-placeholder="Choose one thing">
+                                  <select class="form-control" id="firstowner" required ="required" name="Customer_id" data-placeholder="Choose one thing">
                                     <option>SELECT</option>
                                     <?php
                                         $result = mysqli_query($conn, "SELECT * FROM customer WHERE C_status = '0'");
@@ -360,7 +218,7 @@ $row=mysqli_fetch_array($result);
                                                                          <label for="inputStarPoints" class="control-label col-md-2 col-sm-3 ">Sales Person :</label>
                                                                          <div class="col-md-5 col-sm-9 ">
                                                                            <select class="form-control"id="single-select-field" data-placeholder="Choose one thing" required name="sale_by">
-														                                                   <option selected disabled value>Select</option>
+														                                                   <option selected disabled value>SELECT</option>
 													                                                      	<?php
 															                                                       $result = mysqli_query($conn, "SELECT * FROM user WHERE U_Status = '0'" );
 															                                                       while ($row = mysqli_fetch_array($result)) {

@@ -13,25 +13,7 @@ $row=mysqli_fetch_array($result);?>
             <div class="clearfix"></div>
 
             <!-- /SIDE LIST -->
-            <div class="col-sm-2 mail_list_column">
-              <h2>Sales Summary</h2>
-                  <h3>for Feb - 2024</h3>
-              <p>This a summary of the present total payment collections for the above said month.</p>
-              <!-- <button id="compose" class="btn btn-sm btn-success btn-block" type="button">COMPOSE</button> -->
-              <a href="#">
-                <div class="mail_list">
-                  <div class="left">
-                    <i class="fa fa-circle"></i> <i class="fa fa-edit"></i>
-                  </div>
-                  <div class="right">
-                    <h3>Dennis Mugo <small>3.00 PM</small></h3>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation enim ad minim veniam, quis nostrud exercitation...</p>
-                  </div>
-                </div>
-              </a>
-
-
-            </div>
+<?php include 'include/leftside_cal.php';?>
             <!--/ SIDE  LIST -->
            <!-- RIGHT LIST -->
             <div class="col-sm-10 mail_view">
