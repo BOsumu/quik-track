@@ -73,7 +73,7 @@ while ($row_post = mysqli_fetch_array($run_query)){
                           <span class="caret"></span>
                       </a>
                       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          <a class="dropdown-item" href="ccc.php">Collections & Installment Sheet</a>
+                          <a class="dropdown-item" href="sales_collection.php">Collections & Installment Sheet</a>
                         </div>
             </li>
           </ul>

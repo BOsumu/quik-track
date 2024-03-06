@@ -12,7 +12,7 @@
           <!-- /footer content -->
           <footer style="margin-left: 0px;">
             <div class="pull-right" style="margin-left: 0px;">
-               © 2023 - <script> document.write(new Date().getFullYear())</script>2024 All right reserved. Quik Track for Blue Ocean Group Of Companies &amp; Kelsey Developments PLC, made with ❤️ by <a href="javascript:;" class="fw-medium">Blue Ocean IT</a>
+               © 2023 - <script> document.write(new Date().getFullYear())</script> All right reserved. Quik Track for Blue Ocean Group Of Companies &amp; Kelsey Developments PLC, made with ❤️ by <a href="javascript:;" class="fw-medium">Blue Ocean IT</a>
             </div>
             <div class="clearfix"></div>
           </footer>

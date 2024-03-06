@@ -945,3 +945,42 @@ table.jambo_table thead {
     background: #DDDDDD;
   color: #000000;
 }
+.form-group-report{
+    margin-bottom: 4px;
+}
+input.report {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 4px;
+    box-sizing: border-box;
+}
+.btn-filter {
+    color: #fff;
+    background-color: #13446F;
+    border-color: #13446F;
+}
+.btn-filter:hover {
+    color: #fff;
+    background-color: #025A99;
+}
+span.search-title {
+    font-family: 'Roboto Condensed', Helvetica, sans-serif !important;
+    font-size: 18px !important;
+    font-weight: bold !important;
+    font-style: normal !important;
+    color: #666 !important;
+    padding-right: 10px;
+}
+table.jambo_table tfoot {
+    background: #c3c0c0;
+    color: #000000;
+}
+table.jambo_table thead .record-underline {
+    background: #DDDDDD;
+    color: #000000;
+    text-decoration: underline;
+    text-decoration-style: double;
+}
+.form-group-report-filter {
+    margin-bottom: 15px;
+}
