@@ -198,6 +198,7 @@ $row=mysqli_fetch_array($result);?>
                                                                                 $has_payment_plan_data = true;
                                                                             }
 
+
                                                                            $currentYear = date('Y');
                                                                            $currentMonth = date('m');
 

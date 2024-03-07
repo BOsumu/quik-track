@@ -119,6 +119,11 @@ while ($row = mysqli_fetch_array($result)) {
                <div class="mail_list" style="border:none;">
                        <div class="right">
                          <?php
+                         $totalsprice = 0;
+                         $totalCollection = 0;
+                         $totaltobeCollection = 0;
+                         $totalthismCollection  = 0;
+
                               $sql = 'SELECT * FROM project p';
 
                               $result = mysqli_query($conn, $sql);

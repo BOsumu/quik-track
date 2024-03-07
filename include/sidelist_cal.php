@@ -34,6 +34,7 @@
                   <div class="mail_list" style="border:none;">
                     <div class="right">
                       <?php
+                           $totalthismCollection  = 0;
                            $sql = 'SELECT * FROM companies c';
 
                            $result = mysqli_query($conn, $sql);
@@ -63,27 +64,96 @@
                <div class="mail_list" style="border:none;">
                        <div class="right">
                          <?php
-                              $sql = 'SELECT * FROM project p';
+                         $totalthismsprice = 0;
+                         $totaldueCollection = 0;
+                         $totalthismCollection  = 0;
+   // Get the list of project names from the project table
+   $project_query = "SELECT DISTINCT project_name, project_id FROM project WHERE project_status = 0";
+   $project_result = mysqli_query($conn, $project_query);
 
-                              $result = mysqli_query($conn, $sql);
-                              $p = 1;
+   $p = 1; // Initialize $p outside the loop
 
-                              while ($row = mysqli_fetch_array($result)) {
+   while ($project_row = mysqli_fetch_array($project_result)) {
+       $project_name = $project_row['project_name'];
+       $project_id = $project_row['project_id'];
 
-                                  ?>
-                                      <p class="sidelist">
-                                          <span><?php echo $row['project_name']; ?></span>
-                                          <br><strong class="text-danger"></strong>
-                                          <br><strong class="text-success"></strong>
-                                          <br><strong class="text-info"></strong>
-                                          <hr class="sidebarhr">
-                                      </p>
-                                  <?php
-                                  $p++;
-                                      }
-                                        ?>
+       // Get the current month and year
+       $currentMonth = date('m');
+       $currentYear = date('Y');
 
+       // Calculate the total selling price for each project
+       $sql = "SELECT *, SUM(selling_price) AS total_selling_price
+               FROM sales s
+               JOIN project p ON p.project_id = s.project_id
+               JOIN project_units pu ON pu.unit_id = s.unit_id
+               JOIN customer c ON c.Customer_id = s.Customer_id
+               WHERE p.project_id = $project_id
+               AND YEAR(s.sale_date) = $currentYear
+               AND MONTH(s.sale_date) = $currentMonth";
 
+       $result = mysqli_query($conn, $sql);
+       $selling_row = mysqli_fetch_array($result);
+       $total_selling_price = isset($selling_row['total_selling_price']) ? number_format($selling_row['total_selling_price'], 2) : '0.00';
+
+       // Retrieve the sale_id from the current row
+       $sale_id = isset($selling_row['sale_id']) ? $selling_row['sale_id'] : 0;
+
+       // Additional payment-related code
+       $has_payment_plan_data = false;
+       $payment_plan_query = "SELECT * FROM payment_plan WHERE sale_id = $sale_id";
+       $payment_plan_result = mysqli_query($conn, $payment_plan_query);
+       if (mysqli_num_rows($payment_plan_result) > 0) {
+           $has_payment_plan_data = true;
+       }
+
+       $currentYear = date('Y');
+       $currentMonth = date('m');
+
+       $payment_query = "SELECT COALESCE(SUM(paid_amount), 0) AS payment_amount FROM payments WHERE sale_id = $sale_id AND (YEAR(pay_date) < $currentYear OR (YEAR(pay_date) = $currentYear AND MONTH(pay_date) < $currentMonth))";
+       $payment_result = mysqli_query($conn, $payment_query);
+       $payment_row = mysqli_fetch_array($payment_result);
+       $totalPaid = isset($payment_row['payment_amount']) ? number_format($payment_row['payment_amount'], 2) : '0.00';
+
+       $monthpayment_query = "SELECT COALESCE(SUM(amount), 0) AS thismonth_payment FROM payment_plan WHERE sale_id = $sale_id AND YEAR(due_date) = $currentYear AND MONTH(due_date) = $currentMonth";
+       $payment_result2 = mysqli_query($conn, $monthpayment_query);
+       $payment_row2 = mysqli_fetch_array($payment_result2);
+       $thismonthtotalPaid = isset($payment_row2['thismonth_payment']) ? number_format($payment_row2['thismonth_payment'], 2) : '0.00';
+
+       // Calculate balance
+       $balance = number_format($selling_row['total_selling_price'] - $payment_row['payment_amount'], 2);
+
+       $sql_due_dates = "SELECT due_date
+         FROM payment_plan
+         WHERE sale_id = $sale_id
+         AND YEAR(due_date) = $currentYear
+         AND MONTH(due_date) = $currentMonth";
+         $result_due_dates = mysqli_query($conn, $sql_due_dates);
+
+         // Fetch all due dates for the current month and year
+         $due_dates = array();
+         while ($row_due_date = mysqli_fetch_assoc($result_due_dates)) {
+             $due_dates[] = $row_due_date['due_date'];
+         }
+
+         /// total selling amount
+         $totalthismsprice += $selling_row['total_selling_price'];
+         /// To be collecte
+         $totaldueCollection += $selling_row['total_selling_price'] - $payment_row['payment_amount'];
+         /// This month Collection
+         $totalthismCollection += $payment_row2['thismonth_payment'];
+
+       ?>
+       <p class="sidelist">
+           <span><?php echo $project_name; ?></span>
+           <br><strong class="text-danger"><?php echo  $totalthismsprice; ?></strong>
+           <br><strong class="text-success"><?php echo $totalthismCollection; ?></strong>
+           <br><strong class="text-info"><?php echo $totaldueCollection; ?></strong>
+           <hr class="sidebarhr">
+       </p>
+       <?php
+       $p++;
+   }
+   ?>
                        </div>
                      </div>
 
