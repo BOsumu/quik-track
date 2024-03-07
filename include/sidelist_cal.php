@@ -67,11 +67,13 @@
                          $totalthismsprice = 0;
                          $totaldueCollection = 0;
                          $totalthismCollection  = 0;
+
+                         $p = 1;
    // Get the list of project names from the project table
    $project_query = "SELECT DISTINCT project_name, project_id FROM project WHERE project_status = 0";
    $project_result = mysqli_query($conn, $project_query);
 
-   $p = 1; // Initialize $p outside the loop
+    // Initialize $p outside the loop
 
    while ($project_row = mysqli_fetch_array($project_result)) {
        $project_name = $project_row['project_name'];

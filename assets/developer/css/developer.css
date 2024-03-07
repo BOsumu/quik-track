@@ -171,6 +171,15 @@ body.nav-md {
     float: left;
     margin-bottom: 10px;
 }
+.setting .printbtn a {
+   font-family: 'Roboto Condensed', Helvetica, sans-serif;
+   background: url(../../images/print.png) no-repeat #536069 center;
+   padding: 30px 30px 11px 30px;
+   border: none;
+   border-radius: 0 !important;
+   float: left;
+   margin-bottom: 10px;
+}
 .setting .subtext {
 background: url(../../images/subtext_bg.jpg) repeat-y left;
 padding: 10px 20px;
@@ -180,6 +189,16 @@ border: none;
 border-radius: 0 !important;
 float: left;
 margin-bottom: 10px;
+}
+.setting .excelbtn button {
+  font-family: 'Roboto Condensed', Helvetica, sans-serif;
+  background: url(../../images/excel.png) no-repeat #798389 center;
+  padding: 19px 30px 22px 30px;
+  border: none;
+  border-radius: 0 !important;
+  float: left;
+  margin-right: 0px;
+
 }
 .mail_heading h4 {
     font-size: 17px;
@@ -983,4 +1002,12 @@ table.jambo_table thead .record-underline {
 }
 .form-group-report-filter {
     margin-bottom: 15px;
+}
+ .setting .heading .printbtn a {
+    font-family: 'Roboto Condensed', Helvetica, sans-serif;
+    background: url(../../images/print.png) no-repeat #536069 center;
+    padding: 21px 32px 22px;
+    border: none;
+    border-radius: 0 !important;
+    float: left;
 }

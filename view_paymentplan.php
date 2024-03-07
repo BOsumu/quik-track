@@ -33,9 +33,13 @@ $row = mysqli_fetch_array($result);
 
                                        <div class="setting">
                                           <div class="backbtn"><a href="sales.php"> </a></div>
+                                          <div class="printbtn"><a class="print" id="pdf-button" onclick="printDiv()" href="#">&nbsp;</a></div>
+                                          <div class="excelbtn"><button id="export_data" name='export_data'>&nbsp;</button></div>
                                            <div class="subtext"><h2>Add New Sales</h2></div>
                                           <div class="clear"></div>
+                                        
                                       </div>
+
 
 
             <div class="row">
@@ -100,9 +104,9 @@ $row = mysqli_fetch_array($result);
           }
       </script>
                     <div class="toolbar hidden-print">
-                        <div class="text-end"  style="padding-bottom: 36px;">
+                        <!-- <div class="text-end"  style="padding-bottom: 36px;">
                             <button type="button" class="btn btn-print btn-sm" id="pdf-button" onclick="printDiv()" style="float:right;"><i class="fa fa-file-pdf-o"></i> Print</button>
-                        </div>
+                        </div> -->
                     </div>
 
                     <div class="invoice overflow-auto" id='GFG'>
