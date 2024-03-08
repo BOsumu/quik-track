@@ -37,7 +37,7 @@ $row = mysqli_fetch_array($result);
                                           <div class="excelbtn"><button id="export_data" name='export_data'>&nbsp;</button></div>
                                            <div class="subtext"><h2>Add New Sales</h2></div>
                                           <div class="clear"></div>
-                                        
+
                                       </div>
 
 

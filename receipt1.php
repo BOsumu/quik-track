@@ -6,7 +6,6 @@ $result=mysqli_query($conn, "select U_id from user  where U_id='$session_id'")or
 $row=mysqli_fetch_array($result);?>
 <?php include 'include/header.php';?>
 <?php include 'include/nav_bar.php';?>
-
         <!-- page content -->
         <div class="right_col" role="main">
           <div class="">
@@ -66,16 +65,16 @@ $row=mysqli_fetch_array($result);?>
                                             <button type="button" class="btn btn-print btn-sm" id="pdf-button" onclick="printDiv()" style="float:right;"><i class="fa fa-file-pdf-o"></i> Print</button>
                                         </div>
                                     </div> -->
+                          <hr>
 																	<div class="invoice overflow-auto" id='GFG'>
-                                    <link href="assets/build/css/receipt-css1.css" rel="stylesheet">
 																		<table style="width: 100%;">
 																		<tbody>
 																		<tr>
-																		<td style="width: 50%; padding:0px !important; background-color: #fff !important; color:#000 !important;" align="left">
+																		<td style="width: 50%; border-bottom: 1px solid !important; padding:0px !important; background-color: #fff !important; color:#000 !important;" align="left">
 																		<img src="assets/images/companylogo.png"/>
 
 																		</td>
-																		<td style="width: 50%; padding:0px !important; background-color: #fff !important;" align="right">
+																		<td style="width: 50%; border-bottom: 1px solid !important; padding:0px !important; background-color: #fff !important;" align="right">
 																		  <h1 style="color:#008cff; font-size: 1.75rem; padding:10px;">Kelsey Homes Limited</h1>
 																		  <div>No. 9A, De Fonseka Place, Colombo 04, Sri Lanka</div>
 																		  <div>+94 770 774 774</div>
@@ -86,11 +85,24 @@ $row=mysqli_fetch_array($result);?>
 																</table>
 																<table style="width: 100%;">
 																	<tbody>
-                                    <td class="receipt-no">
-                                      <div class="receipt-no-span">
-                                        <h2>OFFICIAL RECEIPT <span style="color:#ccc;"> NO - #<?php echo $payment_id;?><span></h2></div>
-                                          <br>
-                                    </td>
+																		<tr>
+																			<td style="width: 100%; background-color: #fff !important; color:#000 !important;">
+																				<div style="font-size: 1.50rem; color:#008cff;"><b>OFFICIAL RECEIPT - #<?php echo $payment_id;?></b></div>
+																			  <div>Date: <?php echo $pay_dates; ?></div>
+
+
+																				<?php
+																				$select_admin = "SELECT * FROM user  WHERE U_id ='$payment_add_by'";
+																				$run_query = mysqli_query($conn,$select_admin);
+																				while ($row_post = mysqli_fetch_array($run_query)){
+																				  $U_FName = $row_post ['U_FName'];
+																				}
+
+																				?>
+																				<div>Crate By: <?php echo $U_FName; ?></div>
+
+																			</td>
+																		</tr>
 																	</tbody>
 																</table>
 																<br></br>
@@ -122,44 +134,25 @@ $row=mysqli_fetch_array($result);?>
 
 																		}
 																		?>
-
-                                    <tr style ="padding: 0px 0px 10px 0px !important;">
-                                    <td style="width:25%; background-color: #fff !important; color:#000 !important;">Date</td>
-                                    <td>:</td>
-                                    <td style="width: 75%; background-color: #fff !important; color: #000 !important; border-bottom: 1px dashed #999;"> &nbsp;&nbsp;<?php echo $pay_dates; ?>	</td>
-                                    </tr>
-
-                                    <tr style ="padding: 0px 0px 10px 0px !important;">
-                                    <td style="width:25%; background-color: #fff !important; color:#000 !important;">Create By</td>
-                                    <td>:</td>
-                                    <?php
-                                    $select_admin = "SELECT * FROM user  WHERE U_id ='$payment_add_by'";
-                                    $run_query = mysqli_query($conn,$select_admin);
-                                    while ($row_post = mysqli_fetch_array($run_query)){
-                                      $U_FName = $row_post ['U_FName'];
-                                    }
-
-                                    ?>
-                                    <td style="width: 75%; background-color: #fff !important; color: #000 !important; border-bottom: 1px dashed#999;"> &nbsp;&nbsp;<?php echo $U_FName; ?>	</td>
-                                    </tr>
-
 																		<tr style ="padding: 0px 0px 10px 0px !important;">
-																		<td style="width:25%; background-color: #fff !important; color:#000 !important;">Received From</td>
-                                    <td>:</td>
-																		<td style="width: 75%; background-color: #fff !important; color: #000 !important; border-bottom: 1px dashed #999;"> &nbsp;&nbsp;<?php echo $C_namewinitials; ?>	</td>
+																		<td style="width:25%; background-color: #fff !important; color:#000 !important;">	Received From</td>
+                                    <tb>:</tb>
+																		<td style="width: 75%; background-color: #fff !important; color: #000 !important; border-bottom: 1px dotted #000;">: &nbsp;&nbsp;<?php echo $C_namewinitials; ?>
+																		</td>
 																		</tr>
 
 																		<tr style ="padding: 0px 0px 10px 0px !important;">
-																		<td style="width:25%; background-color: #fff !important; color:#000 !important;">NIC / Passport No	</td>
-                                    <td>:</td>
-																		<td style="width: 75%; background-color: #fff !important; color: #000 !important; border-bottom: 1px dashed #999;"> &nbsp;&nbsp;	<?php echo $C_NIC; ?> / <?php echo $C_Passport; ?></td>
+																		<td style="width:25%; background-color: #fff !important; color:#000 !important;">NIC / Passport No</td>
+                                    <tb>:</tb>
+																		<td style="width: 75%; background-color: #fff !important; color: #000 !important; border-bottom: 1px dotted #000;">: &nbsp;&nbsp;	<?php echo $C_NIC; ?> / <?php echo $C_Passport; ?>
+																		</td>
 																		</tr>
 
 
 																		<tr style ="padding: 0px 0px 10px 0px !important;">
-																		<td style="width:25%; background-color: #fff !important; color:#000 !important;">	Address</td>
-                                    <td>:</td>
-																		<td style="width: 75%; background-color: #fff !important; color: #000 !important; border-bottom: 1px dashed #999;"> &nbsp;&nbsp;	<?php echo $C_Address; ?>, <?php echo $C_Country; ?></td>
+																		<td style="width:25%; background-color: #fff !important; color:#000 !important;">Address</td>
+                                    <tb>:</tb>
+																		<td style="width: 75%; background-color: #fff !important; color: #000 !important; border-bottom: 1px dotted #000;">: &nbsp;&nbsp;	<?php echo $C_Address; ?>, <?php echo $C_Country; ?></td>
 																		</tr>
 
 																		<tr style ="padding: 0px 0px 10px 0px !important;">
@@ -177,36 +170,36 @@ $row=mysqli_fetch_array($result);?>
 																					$unit_Size = $row_post ['unit_Size'];
 																					}
 																			?>
-																		<td style="width:25%; background-color: #fff !important; color:#000 !important;">	Purchasing of</td>
-                                    <td>:</td>
-																		<td style="width: 75%; background-color: #fff !important; color: #000 !important; border-bottom: 1px dashed #999;"> &nbsp;&nbsp;	Unit <?php echo $unit_Name; ?> (<?php echo $unit_Size; ?> SQ.FT.),
-																		<?php echo $project_name; ?></td>
+																		<td style="width:25%; background-color: #fff !important; color:#000 !important;">Purchasing of</td>
+                                    <tb>:</tb>
+																		<td style="width: 75%; background-color: #fff !important; color: #000 !important; border-bottom: 1px dotted #000;">: &nbsp;&nbsp;	Unit <?php echo $unit_Name; ?> (<?php echo $unit_Size; ?> SQ.FT.),
+																		<?php echo $project_name; ?>
+																		</td>
 																		</tr>
 
 																		<tr style ="padding: 0px 0px 10px 0px !important;">
 																		<td style="width:25%; background-color: #fff !important; color:#000 !important;">Pay Mathod</td>
-                                    <td>:</td>
-																		<td style="width: 75%; background-color: #fff !important; color: #000 !important; border-bottom: 1px dashed #999;"> &nbsp;&nbsp;
-																		<?php echo $payment_methord; ?></td>
+                                    <tb>:</tb>
+																		<td style="width: 75%; background-color: #fff !important; color: #000 !important; border-bottom: 1px dotted #000;">: &nbsp;&nbsp;<?php echo $payment_methord; ?></td>
 																		</tr>
 
 																		<tr style ="padding: 0px 0px 10px 0px !important;">
-																		<td style="width:25%; background-color: #fff !important; color:#000 !important;">	Payment Discription</td>
-                                    <td>:</td>
-																		<td style="width: 75%; background-color: #fff !important; color: #000 !important; border-bottom: 1px dashed #999;"> &nbsp;&nbsp;
-																		<?php echo $payment_discription; ?>	</td>
+																		<td style="width:25%; background-color: #fff !important; color:#000 !important;">Payment Discription</td>
+                                    <tb>:</tb>
+																		<td style="width: 75%; background-color: #fff !important; color: #000 !important; border-bottom: 1px dotted #000;">: &nbsp;&nbsp;
+																		<?php echo $payment_discription; ?></td>
 																		</tr>
 
 																		<tr style ="padding: 0px 0px 10px 0px !important;">
-																		<td style="width:25%; background-color: #fff !important; color:#000 !important;">	Sheet No</td>
-                                    <td>:</td>
-																		<td style="width: 75%; background-color: #fff !important; color: #000 !important; border-bottom: 1px dashed #999;"> &nbsp;&nbsp;
-																		<?php echo $pay_sheetno; ?></td>
+																		<td style="width:25%; background-color: #fff !important; color:#000 !important;">Sheet No	</td>
+                                    <tb>:</tb>
+																		<td style="width: 75%; background-color: #fff !important; color: #000 !important; border-bottom: 1px dotted #000;">: &nbsp;&nbsp;
+																		<?php echo $pay_sheetno; ?>
+																		</td>
 																		</tr>
 
                                     <tr style ="padding: 0px 0px 10px 0px !important;">
                                       <?php
-
                                       // Check if the intl extension is enabled
                                       if (!extension_loaded('intl')) {
                                           echo "The intl extension is not enabled. Please enable it to use the NumberFormatter class.";
@@ -225,20 +218,20 @@ $row=mysqli_fetch_array($result);?>
                                       ?>
 
 
-                                    <td style="width:25%; background-color: #fff !important; color:#000 !important;">	Payid Amount in Words</td>
-                                    <td>:</td>
-                                    <td style="width: 75%; background-color: #fff !important; color: #000 !important; border-bottom: 1px dashed #999;"> &nbsp;&nbsp;
-                                    <?php echo $paidAmountInWords; ?> Only	</td>
-                                    </tr>
-                                 <!-- ///AMOUNT -->
-																		<tr style ="padding: 0px 0px 10px 0px !important;">
-                                      <td style="width:25%; background-color: #fff !important; color:#000 !important;">Payid Amount</td>
-                                      <td>:</td>
-                                      <td class="boxfield"><div class="currency">LKR. </div>
-                                      <div class="amount"><?php echo number_format($paid_amount, 2); ?>  /=</div></td>
+                                    <td style="width:25%; background-color: #fff !important; color:#000 !important;">Payid Amount in Words	</td>
+                                    <tb>:</tb>
+                                    <td style="width: 75%; background-color: #fff !important; color: #000 !important; border-bottom: 1px dotted #000;">: &nbsp;&nbsp;
+                                    <?php echo $paidAmountInWords; ?> Only
+                                    </td>
                                     </tr>
 
-                                    <!-- ///AMOUNT -->
+																		<tr style ="padding: 0px 0px 10px 0px !important;">
+																		<td style="width:25%; background-color: #fff !important; color:#000 !important;">	Payid Amount</td>
+                                    <tb>:</tb>
+																		<td style="width: 75%; background-color: #fff !important; color: #000 !important; border-bottom: 1px dotted #000;">: &nbsp;&nbsp;
+																		<b style=" background-color: #fff !important; color:#000 !important;"><?php echo number_format($paid_amount, 2); ?> LKR</b>
+																		</td>
+																		</tr>
 
 
 

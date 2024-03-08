@@ -190,6 +190,16 @@ border-radius: 0 !important;
 float: left;
 margin-bottom: 10px;
 }
+
+ .setting .subtext h2 {
+    font-weight: bold;
+    font-style: italic;
+    font-size: 24px;
+    color: #333;
+    text-align: left;
+    padding: 0px;
+    line-height: 1;
+}
 .setting .excelbtn button {
   font-family: 'Roboto Condensed', Helvetica, sans-serif;
   background: url(../../images/excel.png) no-repeat #798389 center;

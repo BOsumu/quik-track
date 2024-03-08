@@ -1,0 +1,71 @@
+table tr td.receipt-no{
+  font-family: "Roboto Condensed",sans-serif;
+  width: 100%;
+  background-color: #fff !important;
+  color:#000 !important;
+  border-top: 1px solid #222;
+}
+
+table tr td .receipt-no-span h2{
+  font-size: 18px;
+  color: #fff;
+  background: #000000;
+  font-family: 'Roboto Condensed', Helvetica, sans-serif;
+  font-weight: 300;
+  padding: 10px 20px;
+  width: 270px;
+  margin-top: 0px;
+  margin-bottom: -40px;
+}
+
+  .table td, .table th {
+      padding: 0.2rem;
+      vertical-align: top;
+       border-top: none;
+  }
+  .table td, .table th {
+      padding: 0.2rem;
+      vertical-align: top;
+      border-top: none;
+  }
+
+  table tr td.boxfield{ width: 500px; padding:7px; border-bottom:none; }
+ /* table tr td.boxfield div.currency { border:none !important; background-color:#666 !important; color:#FFF !important;
+float:left; padding:12px; font-weight:bold; font-size:12px; }
+table tr td.boxfield div.amount { border:1px solid #666; color:#555; float:left;
+font-family:Arial,Verdana,Helvetica,sans-serif; font-size:18px; font-weight:bold; height: 17px; padding:9px 10px 11px; width:170px; }*/
+
+ table tr td.boxfield div.currency {
+display: -ms-flexbox;
+display: flex;
+padding: 0.75rem 0.75rem;
+margin-bottom: 0;
+font-size: 12px;
+font-weight: 400;
+line-height: 1.5;
+color: #fff;
+text-align: center;
+white-space: nowrap;
+/* background-color: #e9ecef; */
+border: none;
+background: none repeat scroll 0 0 #525659;
+font-size: 12px;
+float:left;
+margin-right: 10px;
+}
+table tr td.boxfield div.amount {
+display: block;
+width: 100%;
+/* height: calc(1.5em + 0.75rem + 2px); */
+ padding: 0.63rem 0.75rem;
+font-size: 14px;
+font-weight: 600;
+line-height: 1.5;
+color: #555;
+background-color: #fff;
+background-clip: padding-box;
+border:1px solid #525659;
+transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+/* padding:9px 10px 11px; */
+width:183px;
+}

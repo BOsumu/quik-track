@@ -1,0 +1,45 @@
+div.clear{ clear:both; }
+p.notice{ padding:0; width:770px; text-align:justify; }
+table#receipt {
+  color:#444;
+  font-size:13px;
+  padding:25px;
+  /* border:1px solid #999; */
+  border:none;
+  margin-top:5px;
+  font-family: Arial, Helvetica, sans-serif; visibility: visible;
+}
+table#receipt tr td.subhead { padding:5px; font-family: "Roboto Condensed",sans-serif; color:#333; border:none; }
+table#receipt tr td.subhead h3 { padding:0 !important; margin:0 !important; font-size:32px; font-weight:bold; font-style:normal; height:37px; }
+table#receipt tr td.subhead h4 { padding:0 !important; margin:0 !important; font-size:18px; font-style:normal; }
+table#receipt tr td.subhead p { padding:5px 0 0 !important; margin:0 !important; font-size:14px; font-weight:normal; font-style:normal; }
+table#receipt tr td.title { font-family: "Roboto Condensed",sans-serif; border-top:1px solid #222;}
+table#receipt tr td.title h4 { padding:10px 5px !important; font-size:18px; font-style:normal; color:#FFF;
+background-color:#222; width:250px; text-align:center;;}
+table#receipt tr td.alt_title { font-family: "Roboto Condensed",sans-serif; border-top:1px solid #222;}
+table#receipt tr td.alt_title h4 { background-color: #FFF; color: #111; font-size: 18px; font-style: normal; padding: 18px 5px 0px !important;
+text-align: right; width: 500px; margin-left:430px;}
+table#receipt tr td.alt_title p {background-color: #FFF; color: #111; font-size: 14px; text-align:right; font-style: normal; line-height: 1.4;
+padding: 0px 5px 10px !important; width: 500px; margin:0 0 0 430px !important;}
+table#receipt tr td.title h4 span { padding:0 5px !important; font-size:18px; font-style:normal; color:#999; }
+table#receipt tr td.label{ width:130px; padding:10px 7px 7px; font-weight:bold; font-size:12px;}
+table#receipt tr td.xlabel{ width:150px; padding:10px 7px 7px; font-weight:bold; font-size:12px;}
+table#receipt tr td.sep{ width: 20px; padding:10px 7px 7px; }
+table#receipt tr td.field{ width: 500px; padding:10px 7px 7px; border-bottom:1px dashed #999; font-size:13px; }
+table#receipt tr td.boxfield{ width: 500px; padding:7px; border-bottom:none; }
+table#receipt tr td.boxfield div.currency { border:none !important; background-color:#666 !important; color:#FFF !important;
+float:left; padding:12px; font-weight:bold; font-size:12px; }
+table#receipt tr td.boxfield div.amount { border:1px solid #666; color:#555; float:left;
+font-family:Arial,Verdana,Helvetica,sans-serif; font-size:18px; font-weight:bold; height: 38px; padding:9px 10px 11px; width:170px; }
+table#receipt tr td.signature{ width:170px; padding:50px 10px 10px; }
+table#receipt tr td.signature p{ width:170px; border-top:1px dashed #666; padding:5px 0 0 !important; margin:0 !important; text-align:center; }
+
+table#receipt table.inner_receipt { color:#444; font-size:12px; padding:10px; background-color:#F6F6F6; margin-top:5px; width:100%; }
+table#receipt table.inner_receipt tr td { padding:5px; border:1px solid #CCC; }
+table#receipt table.inner_receipt thead tr td { padding:5px; border:1px solid #333; background:#333; font-weight:bold; color:#FFF; }
+table#receipt table.inner_receipt tr td.amount { text-align:right; }
+
+div#note{ padding:10px !important; margin:0px !important; width:770px; }
+div#note p{ padding:0px !important; margin:0px !important; color:#333;
+font-size:14px; text-align:right; font-style:italic; font-family: "Roboto Condensed",sans-serif; }
+</style>
