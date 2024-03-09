@@ -36,12 +36,13 @@ table tr td.boxfield div.amount { border:1px solid #666; color:#555; float:left;
 font-family:Arial,Verdana,Helvetica,sans-serif; font-size:18px; font-weight:bold; height: 17px; padding:9px 10px 11px; width:170px; }*/
 
  table tr td.boxfield div.currency {
+
 display: -ms-flexbox;
 display: flex;
-padding: 0.75rem 0.75rem;
+padding: 0.68rem 0.75rem;
 margin-bottom: 0;
 font-size: 12px;
-font-weight: 400;
+font-weight: 600;
 line-height: 1.5;
 color: #fff;
 text-align: center;
@@ -51,14 +52,14 @@ border: none;
 background: none repeat scroll 0 0 #525659;
 font-size: 12px;
 float:left;
-margin-right: 10px;
+margin-right: 0px;
 }
 table tr td.boxfield div.amount {
-display: block;
+display: flex;
 width: 100%;
 /* height: calc(1.5em + 0.75rem + 2px); */
- padding: 0.63rem 0.75rem;
-font-size: 14px;
+padding: 0.42rem 0.75rem;
+font-size: 16px;
 font-weight: 600;
 line-height: 1.5;
 color: #555;
@@ -67,5 +68,14 @@ background-clip: padding-box;
 border:1px solid #525659;
 transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 /* padding:9px 10px 11px; */
-width:183px;
+width:150px;
+}
+
+table table .inner_receipt {
+    color: #444;
+    font-size: 12px;
+    padding: 10px;
+    background-color: #F6F6F6;
+    margin-top: 5px;
+    width: 100%;
 }
