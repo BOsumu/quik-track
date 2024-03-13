@@ -5,6 +5,24 @@
 $result=mysqli_query($conn, "select U_id from user  where U_id='$session_id'")or die('Error In Session');
 $row=mysqli_fetch_array($result);
 ?>
+<!-- Datatables -->
+
+<!-- Datatables -->
+
+<link href="assets/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+<link href="assets/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+<link href="assets/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+<link href="assets/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+<link href="assets/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+
+<!-- Developer css -->
+<link href="assets/developer/css/developer.css" rel="stylesheet">
+
+
+
+
+<!-- Developer css -->
+
 <?php include 'include/header.php';?>
 <?php include 'include/nav_bar.php';?>
 
@@ -89,8 +107,8 @@ $row=mysqli_fetch_array($result);
                  <tbody>
                  <tr>
 
-                 <td style="width: 50%; padding:0px !important; background-color: #fff !important;" align="right">
-                   <h1 style="color:#000000; font-size: 1.75rem; padding:5px;">Kelsey Homes Limited</h1>
+                 <td style="width: 50%; padding:0px !important; background-color: #fff !important;" align="left">
+                   <h1 class="printh1" style="color:#000000; font-size: 1.75rem; padding:5px;">Kelsey Homes Limited</h1>
                    <div>No. 9A, De Fonseka Place, Colombo 04, Sri Lanka</div>
                    <div>+94 770 774 774</div>
                    <div>info@kelsey.lk</div>
@@ -345,8 +363,8 @@ $row=mysqli_fetch_array($result);
                <tbody>
                <tr>
 
-               <td style="width: 50%; padding:0px !important; background-color: #fff !important;" align="right">
-                 <h1 style="color:#000000; font-size: 1.75rem; padding:5px;">Kelsey Homes Limited</h1>
+               <td style="width: 50%; padding:0px !important; background-color: #fff !important;" align="left">
+                 <h1 class="printh1" style="color:#000000; font-size: 1.75rem; padding:5px;">Kelsey Homes Limited</h1>
                  <div>No. 9A, De Fonseka Place, Colombo 04, Sri Lanka</div>
                  <div>+94 770 774 774</div>
                  <div>info@kelsey.lk</div>
@@ -509,7 +527,7 @@ $row=mysqli_fetch_array($result);
              <!-- col-9 -->
              <!-- <table>-->
              <div class="col-md-9" style="padding: 10px;background-color: #F6F6F6;">
-              <table style="width:100%; border-collapse: inherit;}">
+              <table style="width:100%; border-collapse: inherit;">
 
                 <thead>
               <tr>
@@ -615,8 +633,8 @@ $row=mysqli_fetch_array($result);
     <tbody>
     <tr>
 
-    <td style="width: 50%; padding:0px !important; background-color: #fff !important;" align="right">
-      <h1 style="color:#000000; font-size: 1.75rem; padding:5px;">Kelsey Homes Limited</h1>
+    <td style="width: 50%; padding:0px !important; background-color: #fff !important;" align="left">
+      <h1 class="printh1" style="color:#000000; font-size: 1.75rem; padding:5px;">Kelsey Homes Limited</h1>
       <div>No. 9A, De Fonseka Place, Colombo 04, Sri Lanka</div>
       <div>+94 770 774 774</div>
       <div>info@kelsey.lk</div>
@@ -775,17 +793,17 @@ $row=mysqli_fetch_array($result);
           </tr>
           <!-- ///AMOUNT -->
 
-          <tr style ="padding: 0px 0px 10px 0px !important;">
+          <!-- <tr style ="padding: 0px 0px 10px 0px !important;">
           <td style="width:25%; background-color: #fff !important; color:#000 !important;">Total Paid</td>
           <td>:</td>
-          <td style="width: 75%; background-color: #fff !important; color: #000 !important; border-bottom: 1px dashed #999;"> &nbsp;&nbsp;<?php echo number_format ($numberFromDB, 2); ?>LKR</td>
+          <td style="width: 75%; background-color: #fff !important; color: #000 !important; border-bottom: 1px dashed #999;"> &nbsp;&nbsp;<?php echo number_format ($numberFromDB, 2); ?> LKR</td>
           </tr>
 
           <tr style ="padding: 0px 0px 10px 0px !important;">
           <td style="width:25%; background-color: #fff !important; color:#000 !important;">Balance</td>
           <td>:</td>
           <td style="width: 75%; background-color: #fff !important; color: #000 !important; border-bottom: 1px dashed #999;"> &nbsp;&nbsp;<?php echo number_format($balance, 2); ?> LKR</td>
-          </tr>
+          </tr> -->
      </tbody>
     </table>
   </div>
@@ -830,6 +848,10 @@ $row=mysqli_fetch_array($result);
                     <td colspan="3" class="label2" align="right">TOTAL CREATED INSTALLMENT</td>
                     <td class="label2" align="right"><b></b><?php echo number_format ($numberFromDB, 2); ?></td>
                   </tr>
+                  <tr style="border-top: 2px solid #fff;">
+                    <td colspan="3" class="label2" align="right">TOTAL BALANCE TO PAY</td>
+                    <td class="label2" align="right"><b></b><?php echo number_format($balance, 2); ?></td>
+                  </tr>
 
            </tbody>
      </table>
@@ -872,8 +894,100 @@ $row=mysqli_fetch_array($result);
              <!-- PAYMENTS -->
              <!-- SLIPS -->
              <div class="tab-pane fade" id="paymentslips" role="tabpanel" aria-labelledby="paymentslips-tab">
-               dffffsfsfxxFood truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo
-                   booth letterpress, commodo enim craft beer mlkshk
+
+                 <!-- table -->
+
+  <div class="x_panel">
+    <div class="x_content">
+        <div class="row">
+            <div class="col-sm-12">
+              <div class="card-box table-responsive">
+
+
+                                              <table id="datatable-buttons" class="table table-striped table-bordered" style="width:100%">
+                                                <thead class="paymentslips1">
+                                                  <tr>
+                                                    <th>Payment Date</th>
+                                                    <th>Description</th>
+                                                    <th>Amount(LKR)</th>
+                                                    <th>View</th>
+                                                  </tr>
+                                                </thead>
+
+
+                                                <tbody>
+                                                  <?php
+                                                    $sql = "SELECT * FROM payments WHERE sale_id = '$sale_id' ";
+                                                    $result = mysqli_query($conn, $sql);
+                                                    $i = 1;
+                                                    while ($row = mysqli_fetch_array($result)) {
+                                                      ?>
+                                                      <tr>
+                                                          <td><?php echo $row['pay_date']; ?></td>
+                                                          <td><?php echo $row['pay_discription']; ?></td>
+                                                          <td><?php echo  number_format($row['paid_amount'], 2); ?></td>
+
+                                                          <td><a href="receipt.php?receipt_id=<?php echo $row['payment_id']; ?>"><button type="button" class="btn btn-sm btn-view">View Payment Slip</button></a></td>
+                                                      </tr>
+                                                      <?php
+                                                      $i++;
+                                                  }
+                                                  ?>
+
+                                                </tbody>
+                                                <tfoot class="paymentslips2">
+                      <tr>
+                        <tr>
+                          <th>Payment Date</th>
+                          <th>Description</th>
+                          <th>Amount(LKR)</th>
+                          <th>View</th>
+                        </tr>
+                      </tr>
+                  </tfoot>
+                                              </table>
+
+      <!-- <table id="datatable-buttons" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+          <tr>
+            <th>Payment Date</th>
+            <th>Description</th>
+            <th>Amount(LKR)</th>
+            <th>View</th>
+          </tr>
+        </thead>
+
+
+        <tbody>
+          <?php
+            $sql = "SELECT * FROM payments WHERE sale_id = '$sale_id' ";
+            $result = mysqli_query($conn, $sql);
+            $i = 1;
+            while ($row = mysqli_fetch_array($result)) {
+              ?>
+              <tr>
+                  <td><?php echo $row['pay_date']; ?></td>
+                  <td><?php echo $row['pay_discription']; ?></td>
+                  <td><?php echo  number_format($row['paid_amount'], 2); ?></td>
+
+                  <td><a href="receipt.php?receipt_id=<?php echo $row['payment_id']; ?>"><button type="button" class="btn btn-sm btn-view">View Payment Slip</button></a></td>
+              </tr>
+              <?php
+              $i++;
+          }
+          ?>
+
+        </tbody>
+      </table> -->
+    </div>
+  </div>
+</div>
+</div>
+  </div>
+
+  <!-- table -->
+
+
              </div>
              <!-- SLIPS -->
            </div>
@@ -923,6 +1037,25 @@ $row=mysqli_fetch_array($result);
     <script src="assets/build/js/custom.min.js"></script>
     <script src="assets/vendors/validation/jquery.validate.min.js"></script>
 <script src="assets/vendors/validation/validation-script.js"></script>
+<!-- Datatables -->
+<script src="assets/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="assets/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="assets/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+<script src="assets/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+<script src="assets/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+<script src="assets/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+<script src="assets/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+<script src="assets/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+<script src="assets/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+<script src="assets/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script src="assets/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+<script src="assets/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+<script src="assets/vendors/jszip/dist/jszip.min.js"></script>
+<script src="assets/vendors/pdfmake/build/pdfmake.min.js"></script>
+<script src="assets/vendors/pdfmake/build/vfs_fonts.js"></script>
+
+
+
 
 
   	<script>

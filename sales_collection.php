@@ -32,7 +32,20 @@ $row=mysqli_fetch_array($result);?>
                                   <h2><span>Report: Collections</span></h2>
 
                                 <div class="back" style="float:left; margin-right:5px;"><a href="#">Go To All Result</a></div>
-                                <div class="print" style="float:left; margin-right:5px;"><a onclick="printContent('print_receipt','rptword')" href="#">Print Report</a></div>
+                                <!-- <div class="print" style="float:left; margin-right:5px;"><a onclick="printContent('print_receipt','rptword')" href="#">Print Report</a></div> -->
+                                  <div class="print" style="float:left; margin-right:5px;"><a id="pdf-button" onclick="printDiv3('print_receipt','rptword')" href="#">Print Report</a></div>
+                                  <script>
+                                 function printDiv3() {
+                                 var divContents = document.getElementById("reportcol&ins").outerHTML; // Include the outerHTML to get the div with its style
+                                 var a = window.open('', '', 'height=1500, width=1500');
+                                 a.document.write('<html>');
+                                 a.document.write('<body>');
+                                 a.document.write(divContents);
+                                 a.document.write('</body></html>');
+                                 a.document.close();
+                                 a.print();
+                                 }
+                                 </script>
                                 <div class="excel"><button id="exportexcel">( or Export to Excel )</button></div>
                               </div>
 
@@ -152,20 +165,28 @@ $row=mysqli_fetch_array($result);?>
                                              }
                                            </script>
 
-
+                                                 	<div class="invoice overflow-auto" id='reportcol&ins'>
+                                                    <link href="assets/build/css/receipt-css1.css" rel="stylesheet" type="text/css">
+                                                    <div class="rptword">
+                                                        <h1>Customer List Report</h1>
+                                                        <?php
+                                                         $currentDateTime = new DateTime('now');
+                                                         $currentDate = $currentDateTime->format('d-m-Y');?>
+                                                            <span>Blue Ocean Group of Companies - Printed Date : <?php echo $currentDate; ?></span>
+                                                    </div>
                                                                <div class="table-responsive">
-                                                                 <table class="table table-striped jambo_table bulk_action">
+                                                                 <table class="table table-striped jambo_table bulk_action" style="width:100%; border-collapse: inherit;">
                                                                    <thead>
                                                                      <tr class="headings">
-                                                                       <th class="column-title">Sale Date </th>
-                                                                       <th class="column-title">Project </th>
-                                                                       <th class="column-title">Unit</th>
-                                                                       <th class="column-title">Customer</th>
-                                                                       <th class="column-title">Selling Price(LKR) </th>
-                                                                       <th class="column-title">Total Collection(LKR) Till Last Month</th>
-                                                                       <th class="column-title">To be collect </th>
-                                                                       <th class="column-title">This Month Collection </th>
-                                                                       <th class="column-title">This month Due Date </th>
+                                                                       <th class="column-title rhead">Sale Date </th>
+                                                                       <th class="column-title rhead">Project </th>
+                                                                       <th class="column-title rhead">Unit</th>
+                                                                       <th class="column-title rhead">Customer</th>
+                                                                       <th class="column-title rhead">Selling Price(LKR) </th>
+                                                                       <th class="column-title rhead">Total Collection(LKR) Till Last Month</th>
+                                                                       <th class="column-title rhead">To be collect </th>
+                                                                       <th class="column-title rhead">This Month Collection </th>
+                                                                       <th class="column-title rhead">This month Due Date </th>
                                                                      </tr>
                                                                    </thead>
 
@@ -242,15 +263,15 @@ $row=mysqli_fetch_array($result);?>
                                                                              ?>
                                                                      <tr class="even pointer">
 
-                                                                       <td class=" "><?php echo $sale_date; ?></td>
-                                                                       <td class=" "><?php echo $project_name; ?> </td>
-                                                                       <td class=" "><?php echo $unit_Name; ?></td>
-                                                                       <td class=" "><?php echo $C_namewinitials; ?></td>
-                                                                       <td class=" " align="right"><?php echo $selling_price; ?></td>
-                                                                       <td class=" " align="right"><?php echo $totalPaid; ?> </td>
-                                                                       <td class=" " align="right"><?php echo $balance; ?></td>
-                                                                       <td class=" " align="right"><?php echo $thismonthtotalPaid;?></td>
-                                                                       <td class=" " align="right">	<?php
+                                                                       <td class="reportborder"><?php echo $sale_date; ?></td>
+                                                                       <td class="reportborder"><?php echo $project_name; ?> </td>
+                                                                       <td class="reportborder"><?php echo $unit_Name; ?></td>
+                                                                       <td class="reportborder"><?php echo $C_namewinitials; ?></td>
+                                                                       <td class="reportborder" align="right"><?php echo $selling_price; ?></td>
+                                                                       <td class="reportborder" align="right"><?php echo $totalPaid; ?> </td>
+                                                                       <td class="reportborder" align="right"><?php echo $balance; ?></td>
+                                                                       <td class="reportborder" align="right"><?php echo $thismonthtotalPaid;?></td>
+                                                                       <td class="reportborder" align="right">	<?php
                              																						if (!empty($due_dates)) {
                              																								foreach ($due_dates as $due_date) {
                              																										echo $due_date . "<br>";
@@ -297,7 +318,7 @@ $row=mysqli_fetch_array($result);?>
                                                                    </tfoot>
                                                                  </table>
                                                                </div>
-
+</div>
 
 
 

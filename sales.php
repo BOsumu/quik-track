@@ -181,9 +181,7 @@ $row=mysqli_fetch_array($result);?>
               <?php } else { ?>
                   <a href="payment_plan.php?sale_id=<?php echo $sale_id; ?>"><button type="button" class="btn btn-tbedit btn-sm">Edit</button></a>
               <?php } ?>
-                                        <!-- <form action="add.php">
-                                           <button type="text" class="btn btn-view btn-sm">View</button>
-                                        </form> -->
+                            
                                       </p>
 
                                     </td>

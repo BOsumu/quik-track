@@ -3,6 +3,14 @@
     color-adjust: exact !important;                 /* Firefox 48 – 96 */
     print-color-adjust: exact !important;           /* Firefox 97+, Safari 15.4+ */
 }
+table{
+  font-size: 13px;
+}
+.paymentslips1,.paymentslips2{
+margin: 5px;
+line-height: 2;
+background-color: #e5e5e5;
+}
 
 table tr td.receipt-no{
   font-family: "Roboto Condensed",sans-serif;
@@ -86,7 +94,7 @@ table table .inner_receipt {
     width: 100%;
 }
 table tr td.label1{width:20%; border:1px solid !important; background-color: #CCCCCC !important; color:#000 !important; border-color: #ccc !important;padding:5px;}
-table tr td.label2{width: 85%; border:1px solid !important; background-color: #f7f4f4 !important; color:#000 !important; border-color: #ccc !important;padding:5px;}
+table tr td.label2{width: 85%; border:1px solid !important; background-color: #f7f4f4 !important; color:#000 !important; border-color: #ccc !important;padding:5px;font-weight: bold!important;}
 
 /* .pp-tr{
 border-bottom:1px solid #536069!important;
@@ -97,6 +105,13 @@ border-bottom:1px solid #536069!important;
   font-style: italic !important;
   color: #333!important;
   border-bottom: 1px solid #333 !important;
+}
+
+div.rptword{
+  display: none;
+padding: 0 !important;
+margin: 0 !important;
+font-size: 20px;
 }
 
 /* Print stylesheet */
@@ -116,6 +131,7 @@ table tr td.label1{
 }
 table tr td.label2{
   background-color: transparent !important;
+  font-weight: bold !important;
 }
 
 .pp-td{
@@ -124,6 +140,44 @@ table tr td.label2{
   font-style: italic !important;
   color: #333!important;
   border-bottom: 1px solid #333 !important;
+}
+
+h1.printh1 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+table.jambo_table {
+    /* border: 1px solid #ccc !important; */
+}
+
+
+  .table td.reportborder{
+      padding: 0.2rem;
+      vertical-align: top;
+      border-top: 1px solid #ccc;
+}
+
+div.rptword{
+display: block;
+padding: 0 !important;
+margin: 0 !important;
+font-size: 20px;
+text-align: center;
+}
+div.rptword h1{
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 0px;
+}
+div.rptword span{
+  font-size: 14px;
+}
+table tfoot {
+  display: none;
+}
+table.jambo_table thead .record-underline {
+    text-decoration: underline;
+    text-decoration-style: double;
 }
 
 }

@@ -73,9 +73,6 @@ $row=mysqli_fetch_array($result);?>
                                     <table style="width: 100%;">
                                     <tbody>
                                     <tr>
-                                    <td style="width: 50%; padding:0px !important; background-color: #fff !important; color:#000 !important;" align="left">
-                                    <img src="assets/images/companylogo.png"/>
-
                                     </td>
                                     <td style="width: 50%; padding:0px !important; background-color: #fff !important;" align="right">
                                       <h1 style="color:#000000; font-size: 1.75rem; padding:10px;">Kelsey Homes Limited</h1>
