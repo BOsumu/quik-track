@@ -4,8 +4,11 @@
 <?php
 $result=mysqli_query($conn, "select U_id from user  where U_id='$session_id'")or die('Error In Session');
 $row=mysqli_fetch_array($result);?>
+
 <?php include 'include/header.php';?>
 <?php include 'include/nav_bar.php';?>
+<!-- Print stylesheet -->
+
 
         <!-- page content -->
         <div class="right_col" role="main">
@@ -66,7 +69,7 @@ $row=mysqli_fetch_array($result);?>
                                         </div>
                                     </div> -->
 																	<div class="invoice overflow-auto" id='GFG' style="padding:20px; border:1px solid #000000;">
-                                    <link href="assets/build/css/receipt-css1.css" rel="stylesheet">
+                                    <link href="assets/build/css/receipt-css1.css" rel="stylesheet" type="text/css">
                                     <table style="width: 100%;">
                                     <tbody>
                                     <tr>
@@ -86,8 +89,8 @@ $row=mysqli_fetch_array($result);?>
                                 <table style="width: 100%;">
                                   <tbody>
                                     <td class="receipt-no">
-                                      <div class="receipt-no-span">
-                                        <h2>OFFICIAL RECEIPT <span style="color:#ccc;"> NO - #<?php echo $payment_id;?><span></h2></div>
+                                      <div class="receipt-no-span" style="margin-top: 1.5px !important;">
+                                        <h2>OFFICIAL RECEIPT <span style="color:#ffffff;"> NO - #<?php echo $payment_id;?><span></h2></div>
                                           <br>
                                     </td>
                                   </tbody>
@@ -247,6 +250,7 @@ $row=mysqli_fetch_array($result);?>
 
                                 <div class="col-md-9" style="padding: 10px;background-color: #F6F6F6;">
                                  <table style="width:100%; border-collapse: inherit;}">
+
                                    <thead>
                                  <tr>
                                  <td style="width:10%; border:1px solid #333333 !important; background-color: #333333 !important; color:#fff !important;padding:5px;">Date</td>
@@ -256,12 +260,13 @@ $row=mysqli_fetch_array($result);?>
                                  </tr>
                                </thead>
                                <tbody>
+
                                  <tr>
-                                 <td style="width:10%; border:1px solid !important; background-color: #CCCCCC !important; color:#000 !important; border-color: #ccc !important;padding:5px;"></td>
-                                 <td style="width: 30%; border:1px solid !important;background-color: #CCCCCC !important; color:#000 !important; border-color: #ccc !important;padding:5px;">Selling Price</td>
-                                 <td style="width: 30%; border:1px solid !important; background-color: #CCCCCC !important; color:#000 !important; border-color: #ccc !important;padding:5px;"  align="right">
+                                 <td class="label1"></td>
+                                 <td class="label1">Selling Price</td>
+                                 <td class="label1" align="right">
                                  </td>
-                                 <td style="width: 30%; border:1px solid !important; background-color: #CCCCCC !important; color:#000 !important; border-color: #ccc !important;padding:5px;" align="right"><?php echo number_format($selling_price, 2); ?></td>
+                                 <td class="label1" align="right"><?php echo number_format($selling_price, 2); ?></td>
                                  </tr>
 
                                  <tr>
@@ -279,45 +284,45 @@ $row=mysqli_fetch_array($result);?>
                                    ?>
 
 
-                                 <td style="width:10%; border:1px solid !important; background-color: #CCCCCC !important; color:#000 !important; border-color: #ccc !important;padding:5px;">
+                                 <td class="label1">
 
                                  </td>
-                                 <td style="width: 30%; border:1px solid !important;background-color: #CCCCCC !important; color:#000 !important; border-color: #ccc !important;padding:5px;">Total Previous Payments</td>
-                                 <td style="width: 30%; border:1px solid !important; background-color: #CCCCCC !important; color:#000 !important; border-color: #ccc !important;padding:5px;"  align="right">
+                                 <td class="label1">Total Previous Payments</td>
+                                 <td class="label1"  align="right">
                                    <?php echo number_format($numberFromDB, 2); ?>
 
                                  </td>
-                                 <td style="width: 30%; border:1px solid !important; background-color: #CCCCCC !important; color:#000 !important; border-color: #ccc !important;padding:5px;" align="right"></td>
+                                 <td class="label1" align="right"></td>
                                  </tr>
 
                                  <tr>
 
 
-                                 <td style="width:15%; border:1px solid !important; background-color: #CCCCCC !important; color:#000 !important; border-color: #ccc !important;padding:5px;">
+                                 <td class="label1">
                                    <?php
                                    $originalDate = $pay_dates;
                                    $formattedDate = date("d-m-Y", strtotime($originalDate));
                                    echo $formattedDate;
                                    ?>
                                  </td>
-                                 <td style="width: 30%; border:1px solid !important;background-color: #CCCCCC !important; color:#000 !important; border-color: #ccc !important;padding:5px;"><?php echo $pay_discription; ?></td>
-                                 <td style="width: 30%; border:1px solid !important; background-color: #CCCCCC !important; color:#000 !important; border-color: #ccc !important;padding:5px;"  align="right">
+                                 <td class="label1"><?php echo $pay_discription; ?></td>
+                                 <td class="label1"  align="right">
                                    <?php echo number_format($paid_amount, 2); ?>
 
                                  </td>
-                                 <td style="width: 30%; border:1px solid !important; background-color: #CCCCCC !important; color:#000 !important; border-color: #ccc !important;padding:5px;" align="right"></td>
+                                 <td class="label1" align="right"></td>
                                  </tr>
 
                                  <?php $tillnowpay = $numberFromDB + $paid_amount; ?>
                                  <tr style="border-top: 2px solid #fff;">
-                                   <td colspan="3" style="width: 85%; border:1px solid !important; background-color: #f7f4f4 !important; color:#000 !important; border-color: #ccc !important;padding:5px;" align="right">Total Paid Till Now</td>
-                                   <td style=" padding: 5px; width: 20%; border:1px solid !important; background-color: #f7f4f4 !important; color:#000 !important; border-color: #ccc !important; " align="right"><b>(<?php echo number_format ($tillnowpay, 2); ?>)</b></td>
+                                   <td colspan="3" class="label2" align="right">Total Paid Till Now</td>
+                                   <td class="label2" align="right"><b>(<?php echo number_format ($tillnowpay, 2); ?>)</b></td>
                                  </tr>
 
                                  <?php  $tillbalnce= $selling_price - $tillnowpay; ?>
                                  <tr>
-                                   <td colspan="3" style="width: 85%; border:1px solid !important; background-color: #f7f4f4 !important; color:#000 !important; border-color: #ccc !important;padding:5px;" align="right">Balance</td>
-                                   <td style="padding: 5px; width: 20%; border:1px solid !important; background-color: #f7f4f4 !important; color:#000 !important; border-color: #ccc !important; " align="right"><b><?php echo number_format($tillbalnce, 2); ?></b></td>
+                                   <td colspan="3" class="label2" align="right">Balance</td>
+                                   <td class="label2"align="right"><b><?php echo number_format($tillbalnce, 2); ?></b></td>
                                  </tr>
 
                                  </tbody>
