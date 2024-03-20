@@ -101,6 +101,18 @@
      background: url(assets/images/searchbox.jpg) left center no-repeat #FFF;
      color: #333;
  }
+ .button{
+   background: url(assets/images/search-icon.png) #13446f no-repeat center;
+border: medium none !important;
+color: #FFFFFF !important;
+cursor: pointer;
+font-weight: bold;
+padding: 19px 50px !important;
+border-radius: 0 !important;
+margin-left: 10px;
+width: 80px;
+}
+ }
 
   </style>
 <form action="view_sales.php" method="get" id="searchform">
@@ -143,9 +155,10 @@
           </div>
               <input type="hidden" name="sale_id" id="sale_id">
           <span class="col-md-3 input-group-btn">
-            <button class="btn btn-default" type="button" onclick="searchSales()" style="border-radius:0px;margin-left:10px;background-color: #13446f;color:#ffffff">
-           <i class="fa fa-search" aria-hidden="true"></i>&nbsp;Search
-       </button>
+            <!-- <button class="btn btn-default button" type="button" onclick="searchSales()" style="border-radius:0px;margin-left:10px;background-color: #13446f;color:#ffffff">
+               <i class="fa fa-search" aria-hidden="true"></i>&nbsp;Search
+            </button> -->
+            <button class="btn button" type="button" onclick="searchSales()"></button>
           </span>
       </div>
   </form>
