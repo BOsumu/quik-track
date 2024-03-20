@@ -18,10 +18,15 @@ if(isset($_POST['add_sales'])){
   $sale_crate_by = mysqli_real_escape_string($conn, $_POST['sale_crate_by']);
   $sale_by = mysqli_real_escape_string($conn, $_POST['sale_by']);
 
+  // if ($Customer_id == '') {
+  //      echo "<script>alert('Fill all fields')</script>";
+  //      echo "<script>window.open('new_sales.php','_self')</script>";
+  //      exit();
   if ($Customer_id == '') {
-       echo "<script>alert('Fill all fields')</script>";
-       echo "<script>window.open('new_sales.php','_self')</script>";
-       exit();
+      $_SESSION['alert_message'] = 'Fill all fields.';
+      $_SESSION['alert_type'] = 'danger';
+      header("Location: new_sales.php");
+      exit();
    } else {
        // Use prepared statement to insert data securely
        $insert_new_sales = "INSERT INTO sales (Customer_id, Customer_idS, project_id, unit_id, sale_date, sale_unit_price, sale_unit_discount_price, sale_unit_discount_price_presentage, selling_price, sale_crate_bate, sale_by, sale_crate_by)

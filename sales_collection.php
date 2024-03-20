@@ -16,6 +16,11 @@ $row=mysqli_fetch_array($result);?>
 
             <div class="clearfix"></div>
 
+                        <!-- /SIDE LIST -->
+            <?php include 'include/sidelist_cal.php';?>
+                        <!--/ SIDE  LIST -->
+                        
+
             <div class="row">
               <div class="col-md-12">
 
@@ -46,7 +51,9 @@ $row=mysqli_fetch_array($result);?>
                                  a.print();
                                  }
                                  </script>
-                                <div class="excel"><button id="exportexcel">( or Export to Excel )</button></div>
+                                 <div class="excel">
+                                <a id="exportexcel" onclick="exportTableToExcel('tblData', 'Report');" href="#">( or Export to Excel )</a>
+                                </div>
                               </div>
 
                             <div class="col-md-12">
@@ -74,8 +81,9 @@ $row=mysqli_fetch_array($result);?>
                                                                    <?php
                                                                        $selected_month = date('m'); //current month
                                                                        for ($i_month = 1; $i_month <12; $i_month++) {
-                                                                           $selected = $selected_month == $i_month ? ' selected' : '';
-                                                                           echo '<option value="'.$i_month.'"'.$selected.'>'. date('F', mktime(0,0,0,$i_month)).'</option>'."\n";
+                                                                           $selected = $selected_month == $i_month ? ' selected="selected"' : '';
+                                                                           // echo '<option value="'.$i_month.'"'.$selected.'>'. date('F', mktime(0,0,0,$i_month)).'</option>'."\n";
+                                                                           echo '<option value="'.$i_month.'">'. date('F', mktime(0,0,0,$i_month)).'</option>'."\n";
                                                                        }
                                                                    ?>
                                                                    </select>
@@ -99,7 +107,8 @@ $row=mysqli_fetch_array($result);?>
 
                                                                    for ($year = $starting_year; $year < $ending_year; $year++) {
                                                                      $selected = ($year == $default_year) ? ' selected="selected"' : '';
-                                                                         echo '<option value="' . $year . '"' . $selected . '>' . $year . '</option>'."\n";
+                                                                         // echo '<option value="' . $year . '"' . $selected . '>' . $year . '</option>'."\n";
+                                                                          echo '<option value="' . $year . '">' . $year . '</option>'."\n";
                                                                    }
                                                                ?>
                                                                </select>
@@ -175,7 +184,7 @@ $row=mysqli_fetch_array($result);?>
                                                             <span>Blue Ocean Group of Companies - Printed Date : <?php echo $currentDate; ?></span>
                                                     </div>
                                                                <div class="table-responsive">
-                                                                 <table class="table table-striped jambo_table bulk_action" style="width:100%; border-collapse: inherit;">
+                                                                 <table class="table table-striped jambo_table bulk_action" style="width:100%; border-collapse: inherit;" id="tblData">
                                                                    <thead>
                                                                      <tr class="headings">
                                                                        <th class="column-title rhead">Sale Date </th>
@@ -524,3 +533,53 @@ document.addEventListener("DOMContentLoaded", function () {
           document.getElementById("inputSellingPrice").value = sellingPrice;
       }
   </script>
+  <!-- <script>
+  $(document).ready(function () {
+    $("#exportexcel").click(function () {
+      var _filename = prompt("Please enter your filename ?", "Customer List");
+      $("#report-table").table2excel({
+        name: _filename,
+        filename: _filename,
+        fileext: ".xls",
+        exclude_img: true,
+        exclude_links: true,
+        exclude_inputs: true
+      });
+    });
+
+    $("#report-table").freezeHeader();
+  });
+</script> -->
+<script>
+function exportTableToExcel(tableID, filename = ''){
+var downloadLink;
+var dataType = 'application/vnd.ms-excel';
+var tableSelect = document.getElementById(tableID);
+var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+
+// Specify file name
+filename = filename?filename+'.xls':'excel_data.xls';
+
+// Create download link element
+downloadLink = document.createElement("a");
+
+document.body.appendChild(downloadLink);
+
+if(navigator.msSaveOrOpenBlob){
+var blob = new Blob(['\ufeff', tableHTML], {
+    type: dataType
+});
+navigator.msSaveOrOpenBlob( blob, filename);
+}else{
+// Create a link to the file
+downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+
+// Setting the file name
+downloadLink.download = filename;
+
+//triggering the function
+downloadLink.click();
+}
+}
+</script>
+  <script src="assets/vendors/jquery-table/jquery.table2excel"></script>

@@ -25,17 +25,12 @@ if (isset($_POST['add_unit'])) {
 
 
             // You can also display an error message if you do not want to update the existing unit.
-            echo '<div class="alert alert-danger border-0 bg-danger alert-dismissible fade show py-2">
-  									<div class="d-flex align-items-center">
-  										<div class="font-35 text-white"><i class="bx bxs-message-square-x"></i>
-  										</div>
-  										<div class="ms-3">
-  											<h6 class="mb-0 text-white">Unit Name</h6>
-  											<div class="text-white">Unit with name '. $unit_Name .' already exists in this project.</div>
-  										</div>
-  									</div>
-  									<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-  								</div>';
+            echo '<div class="alert alert-danger alert-dismissible " role="alert">
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+                      </button>
+                  <h6>Unit Name</h6>
+                  <div>Unit with name <strong>'. $unit_Name .'</strong> already exists in this project.</div>
+  						   	</div>';
 
         } else {
             // Insert the new unit
@@ -81,17 +76,12 @@ if (isset($_POST['add_unit_bulk'])) {
 
             // You can also display a message or log that the unit already exists.
 
-          echo '<div class="alert alert-danger border-0 bg-danger alert-dismissible fade show py-2">
-									<div class="d-flex align-items-center">
-										<div class="font-35 text-white"><i class="bx bxs-message-square-x"></i>
-										</div>
-										<div class="ms-3">
-											<h6 class="mb-0 text-white">Unit Name</h6>
-											<div class="text-white">Unit with name '. $unit_Name .' already exists in this project.</div>
-										</div>
-									</div>
-									<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-								</div><br>';
+          echo '<div class="alert alert-danger alert-dismissible " role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+                    </button>
+                <h6>Unit Name</h6>
+                <div>Unit with name <strong>'. $unit_Name .'</strong> already exists in this project.</div>
+                </div><br>';
         } else {
             // Insert the new unit
             $insert_new_units = "INSERT INTO project_units (unit_Name, unit_Description, unit_Size, unit_Price, company_id, project_id, unit_status, unit_createby, unit_createdate, Unit_delete)

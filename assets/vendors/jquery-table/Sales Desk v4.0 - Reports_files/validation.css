@@ -1,0 +1,116 @@
+#sysform{
+	padding: 0 15px 10px;
+	clear:both;
+}
+
+#extendform{
+	padding: 0 5px 10px;
+	clear:both;
+}
+
+#sysform label, #extendform label{
+	background: none repeat scroll 0 0 #ccc;
+    border: 1px solid #ccc;
+    color: #444444;
+    display: block;
+    float: left;
+    font-weight: 700;
+    margin: 0;
+	font-size: 12px;
+    padding: 10px;
+}
+
+#sysform .lbl{
+	background: none repeat scroll 0 0 #ccc;
+    border: 1px solid #ccc;
+    color: #444444;
+    display: block;
+    float: left;
+    font-weight: 700;
+    margin: 0;
+	font-size: 12px;
+    padding: 9px;
+}
+#sysform select, #extendform select{
+	border: 1px solid #CCC;
+    color: #666;
+    font-family: Arial,Verdana,Helvetica,sans-serif;
+    font-size: 12px;
+    padding: 8px 10px;
+}
+
+#sysform select.error, #extendform select.error{
+	background: #f8dbdb;
+	border-color: #e77776;
+}
+
+#sysform div.error a.select2-choice, #extendform div.error a.select2-choice{
+    background: none repeat scroll 0 0 #f8dbdb !important;
+    border-color: #e77776 !important;
+}
+
+#sysform select option, #extendform select option{ padding:5px 2px; } 
+#sysform select optgroup, #extendform select optgroup{ padding:5px 2px; border-bottom:1px dotted #999; margin-bottom:5px; } 
+#sysform select optgroup option, #extendform select optgroup option{ padding:5px 0px 5px 15px; background:url(images/select-bullet.png) left center no-repeat; } 
+#sysform select option:disabled, #extendform select option:disabled{ background:#900; color:#FFF; } 
+
+#sysform input, #extendform input{
+	border: 1px solid #CCC;
+    color: #666;
+    font-family: Arial,Verdana,Helvetica,sans-serif;
+    font-size: 12px;
+    padding: 10px;
+}
+
+#sysform input.error, #extendform input.error{
+	background: #f8dbdb;
+	border-color: #e77776;
+}
+
+#sysform textarea, #extendform textarea{
+	color: #666;
+	font-family: Arial,  Verdana, Helvetica, sans-serif;
+	font-style: italic;
+	font-size: 12px;
+	border: 1px solid #CCC;
+	padding: 10px;
+}
+
+#sysform textarea.error, #extendform textarea{
+	background: #f8dbdb;
+	border-color: #e77776;
+}
+
+#sysform div, #extendform div{
+}
+
+#sysform span, #extendform span{
+	margin-left: 10px;
+	color: #b1b1b1;
+	font-size: 11px;
+	font-style: italic;
+}
+#sysform span.error, #extendform span.error{
+	color: #e46c6e;
+	background: none;
+}
+#error{
+	margin-bottom: 20px;
+	border: 1px solid #efefef;
+}
+#error ul{
+	list-style: square;
+	padding: 5px;
+	font-size: 11px;
+}
+#error ul li{
+	list-style-position: inside;
+	line-height: 1.6em;
+}
+#error ul li strong{
+	color: #e46c6d;
+}
+#error.valid ul li strong{
+	color: #93d72e;
+}
+/******* /FORM *******/

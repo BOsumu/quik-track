@@ -34,7 +34,7 @@
                   <div class="mail_list" style="border:none;">
                     <div class="right">
                       <?php
-                           $totalthismonthCollection  = 0;
+                           $totalthismCollection  = 0;
                            $sql = 'SELECT * FROM companies c';
 
                            $result = mysqli_query($conn, $sql);

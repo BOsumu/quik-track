@@ -57,7 +57,7 @@ $row=mysqli_fetch_array($result);?>
                                        <div class="mail_heading row">
                                          <div class="col-md-12">
                                            <div class="heading">
-                                               <h1><span>Customer</span><img src="assets/images/arrow.png" class="logo-icon" alt="logo icon">Summary</h1>
+                                               <h1><span>Sales</span><img src="assets/images/arrow.png" class="logo-icon" alt="logo icon">Summary</h1>
                                                <h4>Record Book</h4>
                                            </div>
                                          </div>
@@ -181,7 +181,7 @@ $row=mysqli_fetch_array($result);?>
               <?php } else { ?>
                   <a href="payment_plan.php?sale_id=<?php echo $sale_id; ?>"><button type="button" class="btn btn-tbedit btn-sm">Edit</button></a>
               <?php } ?>
-                            
+
                                       </p>
 
                                     </td>

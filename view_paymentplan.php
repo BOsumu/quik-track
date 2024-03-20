@@ -108,169 +108,278 @@ $row = mysqli_fetch_array($result);
                             <button type="button" class="btn btn-print btn-sm" id="pdf-button" onclick="printDiv()" style="float:right;"><i class="fa fa-file-pdf-o"></i> Print</button>
                         </div> -->
                     </div>
+                    <?php
 
-                    <div class="invoice overflow-auto" id='GFG'>
-          <table class="table" style="width: 100%;">
-          <tbody>
-          <tr>
-          <td style="width: 50%; border-bottom: 1px solid !important; padding:0px !important; background-color: #fff !important; color:#000 !important;" align="left">
-          <img src="assets/images/companylogo.png"/>
+                                                                    $select_project = "SELECT * FROM project   WHERE project_id ='$project_id'";
+                                                                    $run_query = mysqli_query($conn,$select_project);
+                                                                    while ($row_post = mysqli_fetch_array($run_query)){
+                                                                      $company_id = $row_post ['company_id'];
 
-          </td>
-          <td style="width: 50%; border-bottom: 1px solid !important; padding:0px !important; background-color: #fff !important;" align="right">
-            <h1 style="color:#008cff; font-size: 1.75rem; padding:10px;">Kelsey Homes Limited</h1>
-            <div>No. 9A, De Fonseka Place, Colombo 04, Sri Lanka</div>
-            <div>+94 770 774 774</div>
-            <div>info@kelsey.lk</div>
 
-          </td>
-
-          </tr>
+                                                                    }
 
 
 
-
-          <tr>
-          <td style="width: 50%; background-color: #fff !important; color:#000 !important;" >
-            <?php
-            								$select_admin = "SELECT * FROM customer  WHERE Customer_id ='$Customer_id'";
-            								$run_query = mysqli_query($conn, $select_admin);
-            								while ($row_post = mysqli_fetch_array($run_query)) {
-            										$C_namewinitials = $row_post['C_namewinitials'];
-            										$C_Address = $row_post['C_Address'];
-            										$C_Country = $row_post['C_Country'];
-            										$C_NIC = $row_post['C_NIC'];
-            										$C_Passport = $row_post['C_Passport'];
-            										$C_Phone = $row_post['C_Phone'];
-            								}
-            								?>
-
-                            <?php
-              $select_scustomer = "SELECT * FROM customer  WHERE Customer_id ='$Customer_idS'";
-              $run_query = mysqli_query($conn, $select_scustomer);
-              while ($row_post = mysqli_fetch_array($run_query)) {
-                  $C_namewinitialss = $row_post['C_namewinitials'];
-                  $C_Addresss = $row_post['C_Address'];
-                  $C_Countrys = $row_post['C_Country'];
-                  $C_NICs = $row_post['C_NIC'];
-                  $C_Passports = $row_post['C_Passport'];
-                  $C_Phones = $row_post['C_Phone'];
-              }
-              ?>
+                                                                    $select_company = "SELECT * FROM companies    WHERE company_id ='$company_id'";
+                                                                    $run_query = mysqli_query($conn,$select_company);
+                                                                    while ($row_post = mysqli_fetch_array($run_query)){
+                                                                      $company_name = $row_post ['company_name'];
+                                                                      $company_Email = $row_post ['company_Email'];
+                                                                      $company_Phone = $row_post ['company_Phone'];
+                                                                      $company_address = $row_post ['company_address'];
 
 
-								<div><b><?php echo $C_namewinitials; ?></b> </div>
-								<?php
-								if ($Customer_idS > 0) {
-									echo '<div><b>'. $C_namewinitialss.'</b></div>';
-								}else {
-									// code...
-								}
+                                                                    }
 
-								?>
+                                                                    ?>
+<!-- PAYMENT_PLAN -->
+<div class="invoice overflow-auto" id='GFG' style="padding:20px; border:1px solid #000000;">
+<link href="assets/build/css/receipt-css1.css" rel="stylesheet">
+<table class="table" style="width: 100%;" >
+<tbody>
+<tr>
 
-								<div><?php echo $C_Address; ?>, <?php echo $C_Country; ?>.</div>
+  <td style="width: 50%; padding:0px !important; background-color: #fff !important;" align="left">
+    <h1 class="printh1" style="color:#000000; font-size: 1.75rem; padding:5px;"><?php echo $company_name;?></h1>
+    <div><?php echo $company_address;?></div>
+    <div><?php echo $company_Phone;?></div>
+   <div><?php echo $company_Email;?></div>
+  </td>
+</tr>
+</tbody>
+</table>
 
+<table style="width: 100%;">
+  <tbody>
+    <td class="receipt-no" style="border-top: 1px solid #222 !important; padding: 1px !important;">
+      <div class="receipt-no-span" style="margin-top: 1.5px !important;">
+        <h2>PAYMENT PLAN</h2></div>
+          <br>
+    </td>
+  </tbody>
+</table>
+</br></br>
 
+<div class="col-md-9">
+<table class="table" style="width: 100%; margin-bottom: 0rem;">
+ <tbody>
 
-								</td>
-								<td style="width: 50%; background-color: #fff !important; " align="right">
-								  <div style="font-size: 1.50rem; color:#008cff;"><b>PAYMENT PLAN</b></div>
-								  <div>Crate Date: <?php echo $sale_crate_bate; ?></div>
-									<?php
-									$select_admin = "SELECT * FROM user  WHERE U_id ='$sale_crate_by'";
-									$run_query = mysqli_query($conn,$select_admin);
-									while ($row_post = mysqli_fetch_array($run_query)){
-									  $U_FName = $row_post ['U_FName'];
-									}
-
-									?>
-									<div>Crate By: <?php echo $U_FName; ?></div>
-
-	<hr/>
-									<?php
-									$select_admin = "SELECT project_name FROM project  WHERE project_id ='$project_id'";
-									$run_query = mysqli_query($conn,$select_admin);
-									while ($row_post = mysqli_fetch_array($run_query)){
-									  $project_name = $row_post ['project_name'];
-										}
-									?>
-									<div><b>Project :</b> <?php echo $project_name; ?></div>
-									<?php
-									$select_admin = "SELECT * FROM project_units   WHERE unit_id ='$unit_id'";
-									$run_query = mysqli_query($conn,$select_admin);
-									while ($row_post = mysqli_fetch_array($run_query)){
-									  $unit_Name = $row_post ['unit_Name'];
-										$unit_Size = $row_post ['unit_Size'];
-										}
-									?>
-
-									<div><b>Unit :</b> <?php echo $unit_Name; ?></div>
-									<div><b>Unit Size :</b> <?php echo $unit_Size; ?>SQ.FT.</div>
-									<div><b>Unit Price :</b> <?php echo number_format ($sale_unit_price,2);?> LKR</div>
-									<div><b>Discount :</b> <?php echo number_format ($sale_unit_discount_price, 2);?> LKR</div>
-									<div><b>Selling Price :</b> <?php echo number_format ($selling_price, 2);?> LKR</div>
+   <tr>
+   <td colspan="3" class="pp-td"> &nbsp;&nbsp;Customer Details</td>
+   </tr>
 
 
-                  								</td>
+   <?php
+   $select_admin = "SELECT * FROM customer  WHERE Customer_id ='$Customer_id'";
+   $run_query = mysqli_query($conn, $select_admin);
+   while ($row_post = mysqli_fetch_array($run_query)) {
+       $C_namewinitials = $row_post['C_namewinitials'];
+       $C_Address = $row_post['C_Address'];
+       $C_Country = $row_post['C_Country'];
+       $C_NIC = $row_post['C_NIC'];
+       $C_Passport = $row_post['C_Passport'];
+       $C_Phone = $row_post['C_Phone'];
+   }
+   ?>
 
-                  								</tr>
-                  								</tbody>
-                  								</table>
-                  								<br/>
-                  								<table class="table" style="width:100%; margin-bottom: initial;">
 
-                  									<thead>
-                  								<tr>
-                  								<td style="width:10%; border:1px solid !important; background-color: #014C83 !important; color:#fff !important;">#</td>
-                  								<td style="width: 40%; border:1px solid !important;background-color: #014C83 !important; color:#fff !important;">Description</td>
-                  								<td style="width: 25%; border:1px solid !important; background-color: #014C83 !important; color:#fff !important;">Due Date</td>
-                  								<td style="width: 25%; border:1px solid !important; background-color: #014C83 !important; color:#fff !important;">Amount(LKR)</td>
-                  								</tr>
-                  							</thead>
-                  							<tbody>
-                  								<?php
-                  									$sql = "SELECT * FROM payment_plan WHERE sale_id = '$sale_id' ";
-                  									$result = mysqli_query($conn, $sql);
-                  									$i = 1;
-                  									while ($row = mysqli_fetch_array($result)) {
-                  										?>
-                  								<tr>
-                  								<td style="width:10%; border:1px solid !important; background-color: #f7f4f4 !important; color:#000 !important; border-color: #000 !important;"><?php echo str_pad($i, 2, '0', STR_PAD_LEFT); ?></td>
-                  								<td style="width: 50%; border:1px solid !important;background-color: #f7f4f4 !important; color:#000 !important; border-color: #000 !important;"><?php echo $row['installment']; ?></td>
-                  								<td style="width: 20%; border:1px solid !important; background-color: #f7f4f4 !important; color:#000 !important; border-color: #000 !important;">
-                  									<?php
-                  									$originalDate = $row['due_date'];
-                  									$formattedDate = date("d-m-Y", strtotime($originalDate));
-                  									echo $formattedDate;
-                  									?>
+   <tr style ="padding: 0px 0px 10px 0px !important;">
+   <td style="width:25%; background-color: #fff !important; color:#000 !important;">First Customer </td>
+   <td>:</td>
+   <td style="width: 75%; background-color: #fff !important; color: #000 !important; border-bottom: 1px dashed #999;"> &nbsp;&nbsp;<?php echo $C_namewinitials; ?>	</td>
+   </tr>
 
-                  								</td>
-                  								<td style="width: 20%; border:1px solid !important; background-color: #f7f4f4 !important; color:#000 !important; border-color: #000 !important;" align="right"><?php echo number_format($row['amount'], 2); ?></td>
-                  								</tr>
-                  								<?php
-                  								$i++;
-                  							}
-                  							?>
+   <?php
 
-                  								</tbody>
-                  								</table>
-                  								<table class="table" style="width: 100%;">
-                  								<tbody>
-                  								<tr>
-                  								<td style="width: 85%; border:1px solid !important; background-color: #f7f4f4 !important; color:#000 !important; border-color: #000 !important;" align="right">GRAND TOTAL</td>
-                  								<td style="width: 20%; border:1px solid !important; background-color: #014C83 !important; color:#fff !important; border-color: #000 !important; " align="right"><b><?php echo number_format($selling_price, 2); ?></b></td>
-                  								</tr>
-                  								</tbody>
-                  								</table>
-                  								<br/><br/><br/>
-                  								<footer>
-                  									<p>...................................</p>
-                  									<p>Authorized Signature</p>
+   $select_admin = "SELECT * FROM customer  WHERE Customer_id ='$Customer_idS'";
+   $run_query = mysqli_query($conn, $select_admin);
+   while ($row_post = mysqli_fetch_array($run_query)) {
+       $C_namewinitialss = $row_post['C_namewinitials'];
 
-                  								</footer>
+   }
+   ?>
 
-                  							</div>
+   <tr style ="padding: 0px 0px 10px 0px !important;">
+   <td style="width:25%; background-color: #fff !important; color:#000 !important;">Second Customer </td>
+   <td>:</td>
+   <?php   if ($Customer_idS > 0) {?>
+   <td style="width: 75%; background-color: #fff !important; color: #000 !important; border-bottom: 1px dashed #999;"> &nbsp;&nbsp;<?php echo $C_namewinitialss;?>	</td>
+  <?php
+ }else{
+
+ }
+ ?>
+   </tr>
+
+   <tr style ="padding: 0px 0px 10px 0px !important;">
+   <td style="width:25%; background-color: #fff !important; color:#000 !important;">Address</td>
+   <td>:</td>
+   <td style="width: 75%; background-color: #fff !important; color: #000 !important; border-bottom: 1px dashed #999;"> &nbsp;&nbsp;<?php echo $C_Address; ?>, <?php echo $C_Country; ?></td>
+   </tr>
+
+   <tr>
+   <td colspan="3" class="pp-td"> &nbsp;&nbsp;Payment Plan</td>
+   </tr>
+
+
+
+
+   <tr style ="padding: 0px 0px 10px 0px !important;">
+   <td style="width:25%; background-color: #fff !important; color:#000 !important;">Create Date</td>
+   <td>:</td>
+   <td style="width: 75%; background-color: #fff !important; color: #000 !important; border-bottom: 1px dashed #999;"> &nbsp;&nbsp;<?php echo $sale_crate_bate; ?></td>
+   </tr>
+
+   <?php
+   $select_admin = "SELECT * FROM user  WHERE U_id ='$sale_crate_by'";
+   $run_query = mysqli_query($conn,$select_admin);
+   while ($row_post = mysqli_fetch_array($run_query)){
+     $U_FName = $row_post ['U_FName'];
+   }
+   ?>
+
+   <tr style ="padding: 0px 0px 10px 0px !important;">
+   <td style="width:25%; background-color: #fff !important; color:#000 !important;">Create By</td>
+   <td>:</td>
+   <td style="width: 75%; background-color: #fff !important; color: #000 !important; border-bottom: 1px dashed #999;"> &nbsp;&nbsp;<?php echo $U_FName; ?></td>
+   </tr>
+   <?php
+   $select_admin = "SELECT project_name FROM project  WHERE project_id ='$project_id'";
+   $run_query = mysqli_query($conn,$select_admin);
+   while ($row_post = mysqli_fetch_array($run_query)){
+     $project_name = $row_post ['project_name'];
+     }
+   ?>
+
+   <tr style ="padding: 0px 0px 10px 0px !important;">
+   <td style="width:25%; background-color: #fff !important; color:#000 !important;">Project</td>
+   <td>:</td>
+   <td style="width: 75%; background-color: #fff !important; color: #000 !important; border-bottom: 1px dashed #999;"> &nbsp;&nbsp;<?php echo $project_name; ?></td>
+   </tr>
+
+   <?php
+   $select_admin = "SELECT * FROM project_units   WHERE unit_id ='$unit_id'";
+   $run_query = mysqli_query($conn,$select_admin);
+   while ($row_post = mysqli_fetch_array($run_query)){
+     $unit_Name = $row_post ['unit_Name'];
+     $unit_Size = $row_post ['unit_Size'];
+     }
+?>
+   <tr style ="padding: 0px 0px 10px 0px !important;">
+   <td style="width:25%; background-color: #fff !important; color:#000 !important;">Unit</td>
+   <td>:</td>
+   <td style="width: 75%; background-color: #fff !important; color: #000 !important; border-bottom: 1px dashed #999;"> &nbsp;&nbsp;<?php echo $unit_Name; ?></td>
+   </tr>
+
+   <tr style ="padding: 0px 0px 10px 0px !important;">
+   <td style="width:25%; background-color: #fff !important; color:#000 !important;">Unit Size</td>
+   <td>:</td>
+   <td style="width: 75%; background-color: #fff !important; color: #000 !important; border-bottom: 1px dashed #999;"> &nbsp;&nbsp;<?php echo $unit_Size; ?>SQ.FT.</td>
+   </tr>
+
+   <tr style ="padding: 0px 0px 10px 0px !important;">
+   <td style="width:25%; background-color: #fff !important; color:#000 !important;">Unit Price</td>
+   <td>:</td>
+   <td style="width: 75%; background-color: #fff !important; color: #000 !important; border-bottom: 1px dashed #999;"> &nbsp;&nbsp;<?php echo number_format ($sale_unit_price,2);?> LKR</td>
+   </tr>
+
+   <tr style ="padding: 0px 0px 10px 0px !important;">
+   <td style="width:25%; background-color: #fff !important; color:#000 !important;">Discount</td>
+   <td>:</td>
+   <td style="width: 75%; background-color: #fff !important; color: #000 !important; border-bottom: 1px dashed #999;"> &nbsp;&nbsp;<?php echo number_format ($sale_unit_discount_price, 2);?> LKR</td>
+   </tr>
+
+   <!-- ///AMOUNT -->
+      <tr style ="padding: 0px 0px 10px 0px !important;">
+        <td style="width:25%; background-color: #fff !important; color:#000 !important;">Selling Price</td>
+        <td>:</td>
+        <td class="boxfield"><div class="currency">LKR. </div>
+        <div class="amount"><?php echo number_format ($selling_price, 2);?>   /=</div></td>
+      </tr>
+      <!-- ///AMOUNT -->
+ </tbody>
+</table>
+</div>
+<!-- col-9 -->
+<!-- <table>-->
+<div class="col-md-9" style="padding: 10px;background-color: #F6F6F6;">
+<table style="width:100%; border-collapse: inherit;">
+
+ <thead>
+<tr>
+<td style="width:10%; border:1px solid #333333 !important; background-color: #333333 !important; color:#fff !important;padding:5px;">#</td>
+<td style="width: 30%; border:1px solid #333333 !important;background-color: #333333 !important; color:#fff !important;padding:5px;">Description</td>
+<td style="width: 30%; border:1px solid #333333 !important; background-color: #333333 !important; color:#fff !important;padding:5px;" align="right">Due Date</td>
+<td style="width: 30%; border:1px solid #333333 !important; background-color: #333333 !important; color:#fff !important;padding:5px;" align="right">Amount (LKR)</td>
+</tr>
+</thead>
+
+<tbody>
+<?php
+  $sql = "SELECT * FROM payment_plan WHERE sale_id = '$sale_id' ";
+  $result = mysqli_query($conn, $sql);
+  $i = 1;
+  while ($row = mysqli_fetch_array($result)) {
+    ?>
+<tr>
+<td class="label1"><?php echo str_pad($i, 2, '0', STR_PAD_LEFT); ?></td>
+<td class="label1"><?php echo $row['installment']; ?></td>
+<td class="label1" align="right">
+ <?php
+ $originalDate = $row['due_date'];
+ $formattedDate = date("d-m-Y", strtotime($originalDate));
+ echo $formattedDate;
+ ?>
+</td>
+<td class="label1" align="right"><?php echo number_format($row['amount'], 2); ?></td>
+</tr>
+<?php
+$i++;
+}
+?>
+
+<tr style="border-top: 2px solid #fff;">
+ <td colspan="3" class="label2" align="right">GRAND TOTAL</td>
+ <td class="label2" align="right"><b></b><?php echo number_format($selling_price, 2); ?></td>
+</tr>
+
+</tbody>
+</table>
+ </div>
+<!--</table> -->
+
+<!-- total -->
+<!-- <div class="col-md-9">
+<table>
+<tbody>
+ <tr style ="padding: 0px 0px 10px 0px !important;">
+   <td style="width:25%; background-color: #fff !important; color:#000 !important;">Grand Total</td>
+   <td>:</td>
+   <td class="boxfield"><div class="currency">LKR. </div>
+   <div class="amount"><?php echo number_format ($selling_price, 2);?>   /=</div></td>
+ </tr>
+</tbody>
+</table>
+</div> -->
+
+<!-- FOOTERT -->
+<br/><br/><br/>
+<div class="col-md-9">
+<foot>
+ <tbody style="width: 100%;">
+   <tr>
+     <td>
+       <p>...................................</p>
+       <p>Authorized Signature</p>
+     </td>
+   </tr>
+ </tbody>
+</foot>
+</div>
+<!-- FOOTERT -->
+</div>
+
+<!-- PAYMENT_PLAN -->
 
                             </form>
 

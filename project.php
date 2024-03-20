@@ -55,7 +55,7 @@ $row=mysqli_fetch_array($result);?>
                                        <div class="mail_heading row">
                                          <div class="col-md-12">
                                            <div class="heading">
-                                               <h1><span>Customer</span><img src="assets/images/arrow.png" class="logo-icon" alt="logo icon">Summary</h1>
+                                               <h1><span>Projects</span><img src="assets/images/arrow.png" class="logo-icon" alt="logo icon">Summary</h1>
                                                <h4>Record Book</h4>
                                            </div>
                                          </div>
@@ -159,7 +159,7 @@ $row=mysqli_fetch_array($result);?>
                                                           <div class="field item form-group">
                                                               <label class="col-form-label col-md-3 col-sm-3  label-align">Comapany<span class="required">*</span></label>
                                                               <div class="col-md-6 col-sm-6">
-                                                                <select id="bsValidation9" class="form-control" required name="company_id">
+                                                                <select id="bsValidation9" class="form-control" required="required" name="company_id">
 											<option selected disabled value>...</option>
 											<?php
 												$result = mysqli_query($conn, "SELECT * FROM companies WHERE company_status = '0'" );
@@ -178,7 +178,7 @@ $row=mysqli_fetch_array($result);?>
                                                               <div class="col-md-6 col-sm-6">
                                                                   <input type="text" class="form-control" id="bsValidation4" placeholder="Project Name" name="project_name" required='required' data-validate-length-range="8,20" /></div>
 
-                  <div class="invalid-feedback">Please provide a Project Name.</div>
+                                                           <div class="invalid-feedback">Please provide a Project Name.</div>
                                                           </div>
                                                           <div class="field item form-group">
                                                               <label class="col-form-label col-md-3 col-sm-3  label-align">Location<span class="required">*</span></label>
@@ -192,8 +192,8 @@ $row=mysqli_fetch_array($result);?>
                                                               <div class="col-md-6 col-sm-6">
                                                                   <textarea required="required" name='message' rows="4" cols="50" id="bsValidation13" placeholder="Description ..." name="project_description"></textarea>
                                                                   <div class="invalid-feedback">
-                    Please enter Description.
-                  </div>
+                                                                Please enter Description.
+                                                                </div>
                                                                 </div>
                                                           </div>
 
@@ -202,11 +202,11 @@ $row=mysqli_fetch_array($result);?>
                                                       </div>
                                                       <div class="modal-footer">
                                                         <input type="hidden" value="<?php echo $session_id;?>" name="project_createby">
-                <?php
-                date_default_timezone_set('Asia/Colombo');
-                $C_date = date("Y/m/d"); ?>
+                                                        <?php
+                                                        date_default_timezone_set('Asia/Colombo');
+                                                        $C_date = date("Y/m/d"); ?>
 
-                <input type="hidden" value="<?php echo $C_date;?>" name="project_createdate">
+                                                        <input type="hidden" value="<?php echo $C_date;?>" name="project_createdate">
 
                                                         <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
                                                         <button type="submit" class="btn btn-add btn-sm" name="add_Project">Add Project</button>
@@ -278,6 +278,28 @@ $row=mysqli_fetch_array($result);?>
 
     <!-- Custom Theme Scripts -->
     <script src="assets/build/js/custom.min.js"></script>
+    <script>
+  // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+      'use strict'
+
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = document.querySelectorAll('.needs-validation')
+
+      // Loop over them and prevent submission
+      Array.prototype.slice.call(forms)
+      .forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+        }, false)
+      })
+    })()
+</script>
 
   </body>
   </html>

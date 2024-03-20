@@ -4,9 +4,6 @@
  <?php include 'include/header.php';?>
  <?php include 'include/nav_bar.php';?>
 
- <link rel="stylesheet" href="assets/developer/css/style2.css" type="text/css"/>
-   <script src="assets/developer/js/jquery.min2.js"></script>
-
 
         <!-- page content -->
           <div class="right_col" role="main">
@@ -68,7 +65,7 @@
                    </p>
                  </div>
                </div>
-<!--
+
                <div class="row">
                  <div class="input-group" style="border: 1px solid #ced4da;padding:5px 10px;background: linear-gradient(to right, #d2d3d3, #ffffff);">
                    <input type="text" class="form-control" placeholder="Search for..." style="border-radius: 0px;">
@@ -76,90 +73,7 @@
                      <button class="btn btn-default" type="button" style="border-radius:0px;margin-left:10px;background-color: #13446f;color:#ffffff"><i class="fa fa-search" aria-hidden="true"></i>&nbsp;Search</button>
                    </span>
                  </div>
-               </div> -->
-
-               <!-- ===========================SEARCH SALES TEST ================================================================================================================= -->
-               <!-- SEARCH SALES TEST  -->
-               <style>
-      .select2-container .select2-selection--single {
-          height: 34px !important;
-      }
-      .select2-container--default .select2-selection--single {
-          border: 1px solid #ccc !important;
-          border-radius: 0px !important;
-      }
-      input, textarea {
-   width: 100%;
-   padding: 8px;
-   margin-bottom: 5px;
-   box-sizing: border-box;
- }
- .searchbox {
-     padding: 5px 17px 2px 72px;
-     margin-bottom: 13px;
-     border: 1px solid #CCC;
-     background: url(assets/images/searchbox.jpg) left center no-repeat #FFF;
-     color: #333;
- }
-
-  </style>
-<form action="view_sales.php" method="get" id="searchform">
-      <div class="form-group row searchbox">
-          <link href="assets/developer/css/select2.min.css" rel="stylesheet" />
-          <script src="assets/developer/js/select2.min.js"></script>
-          	<?php include 'PHP/Read/view-sales-script-search.php';?>
-          <div class="col-md-9 input-group" style="margin-bottom: 0px;">
-              <select class="form-control select2" name="selected_option" required>
-                  <option value="0">Search for Customer Sales</option>
-                  <?php
-                  $sql = 'SELECT sales.*, project.project_name, project_units.unit_Name, customer.C_namewinitials, companies.company_name
-                     FROM sales
-                     JOIN project ON project.project_id = sales.project_id
-                     JOIN project_units ON project_units.unit_id = sales.unit_id
-                     JOIN customer ON customer.Customer_id = sales.Customer_id
-                     JOIN companies ON companies.company_id = project.company_id';
-
-                  $result = mysqli_query($conn, $sql);
-
-                  while ($row = mysqli_fetch_array($result)) {
-                      $sale_id = $row['sale_id'];
-                      $sale_date = $row['sale_date'];
-                      $project_name = $row['project_name'];
-                      $unit_Name = $row['unit_Name'];
-                      $C_namewinitials = $row['C_namewinitials'];
-                      $company_name = $row['company_name'];
-                      ?>
-                      <option value="<?php echo $sale_id; ?>">
-                          <?php echo $C_namewinitials  .' - '. $sale_id . ' - ' . $project_name . ' - ' . $unit_Name . ' - ' . $company_name; ?>
-                      </option>
-                  <?php
-                  }
-                  ?>
-              </select>
-
-              <script>
-                  $('.select2').select2();
-              </script>
-          </div>
-              <input type="hidden" name="sale_id" id="sale_id">
-          <span class="col-md-3 input-group-btn">
-            <button class="btn btn-default" type="button" onclick="searchSales()" style="border-radius:0px;margin-left:10px;background-color: #13446f;color:#ffffff">
-           <i class="fa fa-search" aria-hidden="true"></i>&nbsp;Search
-       </button>
-          </span>
-      </div>
-  </form>
-  <script>
-    // Function to set the selected sale ID and submit the form
-    function searchSales() {
-        var selectedSaleId = $('select[name="selected_option"]').val();
-        $('#sale_id').val(selectedSaleId);
-        $('#searchform').submit();
-    }
-</script>
-           <!-- SEARCH SALES TEST  -->
-
-           <!-- ===========================SEARCH SALES TEST ================================================================================================================= -->
+               </div>
 
             </div>
 
@@ -383,60 +297,8 @@
             </div>
               </div>
         <!-- /page content -->
-        <!-- /footer content -->
-        <footer style="margin-left: 0px;">
-          <div class="pull-right" style="margin-left: 0px;">
-             © 2023 - <script> document.write(new Date().getFullYear())</script> All right reserved. Quik Track for Blue Ocean Group Of Companies &amp; Kelsey Developments PLC, made with ❤️ by <a href="javascript:;" class="fw-medium">Blue Ocean IT</a>
-          </div>
-          <div class="clearfix"></div>
-        </footer>
-        <!-- /footer content -->
 
-        <!-- jQuery -->
-        <script src="assets/vendors/jquery/dist/jquery.min.js"></script>
-        <!-- Bootstrap -->
-        <script src="assets/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- FastClick -->
-        <script src="assets/vendors/fastclick/lib/fastclick.js"></script>
-        <!-- NProgress -->
-        <script src="assets/vendors/nprogress/nprogress.js"></script>
-        <!-- Chart.js -->
-        <script src="assets/vendors/Chart.js/dist/Chart.min.js"></script>
-        <!-- gauge.js -->
-        <script src="assets/vendors/gauge.js/dist/gauge.min.js"></script>
-        <!-- bootstrap-progressbar -->
-        <script src="assets/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-        <!-- iCheck -->
-        <script src="assets/vendors/iCheck/icheck.min.js"></script>
-        <!-- Skycons -->
-        <script src="assets/vendors/skycons/skycons.js"></script>
-        <!-- Flot -->
-        <script src="assets/vendors/Flot/jquery.flot.js"></script>
-        <script src="assets/vendors/Flot/jquery.flot.pie.js"></script>
-        <script src="assets/vendors/Flot/jquery.flot.time.js"></script>
-        <script src="assets/vendors/Flot/jquery.flot.stack.js"></script>
-        <script src="assets/vendors/Flot/jquery.flot.resize.js"></script>
-        <!-- Flot plugins -->
-        <script src="assets/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
-        <script src="assets/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
-        <script src="assets/vendors/flot.curvedlines/curvedLines.js"></script>
-        <!-- DateJS -->
-        <script src="assets/vendors/DateJS/build/date.js"></script>
-        <!-- JQVMap -->
-        <script src="assets/vendors/jqvmap/dist/jquery.vmap.js"></script>
-        <script src="assets/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-        <script src="assets/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
-        <!-- bootstrap-daterangepicker -->
-        <script src="assets/vendors/moment/min/moment.min.js"></script>
-        <script src="assets/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
 
-        <!-- Custom Theme Scripts -->
-        <script src="assets/build/js/custom.min.js"></script>
-        <!-- ECharts -->
-        <script src="assets/vendors/echarts/dist/echarts.min.js"></script>
-        <script src="assets/vendors/echarts/map/js/world.js"></script>
-
-        <!-- jQuery Smart Wizard -->
-        <script src="assets/vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js"></script>
-        <!-- Custom Theme Scripts -->
-        <script src="assets/build/js/custom.min.js"></script>
+<?php
+include("include/footer.php");
+ ?>

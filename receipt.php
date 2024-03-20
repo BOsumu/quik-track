@@ -63,6 +63,30 @@ $row=mysqli_fetch_array($result);?>
 														</script>
 
 													        <div>
+                                    <?php
+
+                                                                                    $select_project = "SELECT * FROM project   WHERE project_id ='$project_id'";
+                                                                                    $run_query = mysqli_query($conn,$select_project);
+                                                                                    while ($row_post = mysqli_fetch_array($run_query)){
+                                                                                      $company_id = $row_post ['company_id'];
+
+
+                                                                                    }
+
+
+
+                                                                                    $select_company = "SELECT * FROM companies    WHERE company_id ='$company_id'";
+                                                                                    $run_query = mysqli_query($conn,$select_company);
+                                                                                    while ($row_post = mysqli_fetch_array($run_query)){
+                                                                                      $company_name = $row_post ['company_name'];
+                                                                                      $company_Email = $row_post ['company_Email'];
+                                                                                      $company_Phone = $row_post ['company_Phone'];
+                                                                                      $company_address = $row_post ['company_address'];
+
+
+                                                                                    }
+
+                                                                                    ?>
                                     <!-- <div class="toolbar hidden-print">
                                         <div class="text-end"  style="padding-bottom: 36px;">
                                             <button type="button" class="btn btn-print btn-sm" id="pdf-button" onclick="printDiv()" style="float:right;"><i class="fa fa-file-pdf-o"></i> Print</button>
@@ -74,15 +98,16 @@ $row=mysqli_fetch_array($result);?>
                                     <tbody>
                                     <tr>
                                     </td>
-                                    <td style="width: 50%; padding:0px !important; background-color: #fff !important;" align="right">
-                                      <h1 style="color:#000000; font-size: 1.75rem; padding:10px;">Kelsey Homes Limited</h1>
-                                      <div>No. 9A, De Fonseka Place, Colombo 04, Sri Lanka</div>
-                                      <div>+94 770 774 774</div>
-                                      <div>info@kelsey.lk</div>
+                                    <td style="width: 50%; padding:0px !important; background-color: #fff !important;" align="left">
+                                      <h1 class="printh1" style="color:#000000; font-size: 1.75rem; padding:5px;"><?php echo $company_name;?></h1>
+                                      <div><?php echo $company_address;?></div>
+                                      <div><?php echo $company_Phone;?></div>
+                                     <div><?php echo $company_Email;?></div>
                                     </td>
                                   </tr>
                                   </tbody>
                                 </table>
+                                <br>
                                 <table style="width: 100%;">
                                   <tbody>
                                     <td class="receipt-no">

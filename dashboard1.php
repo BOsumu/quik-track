@@ -103,7 +103,7 @@
  }
 
   </style>
-<form action="view_sales.php" method="get" id="searchform">
+  <form action="view_sales.php" method="get" id="searchform">
       <div class="form-group row searchbox">
           <link href="assets/developer/css/select2.min.css" rel="stylesheet" />
           <script src="assets/developer/js/select2.min.js"></script>
@@ -141,22 +141,12 @@
                   $('.select2').select2();
               </script>
           </div>
-              <input type="hidden" name="sale_id" id="sale_id">
           <span class="col-md-3 input-group-btn">
-            <button class="btn btn-default" type="button" onclick="searchSales()" style="border-radius:0px;margin-left:10px;background-color: #13446f;color:#ffffff">
-           <i class="fa fa-search" aria-hidden="true"></i>&nbsp;Search
-       </button>
+              <a href="view_sales.php?sale_id=<?php echo $sale_id; ?>"><button class="btn btn-default" type="submit" style="border-radius:0px;margin-left:10px;background-color: #13446f;color:#ffffff"><i class="fa fa-search" aria-hidden="true"></i>&nbsp;Search</button></a>
+              <!-- <button class="btn btn-default" type="submit" style="border-radius:0px;margin-left:10px;background-color: #13446f;color:#ffffff"><i class="fa fa-search" aria-hidden="true"></i>&nbsp;Search</button> -->
           </span>
       </div>
   </form>
-  <script>
-    // Function to set the selected sale ID and submit the form
-    function searchSales() {
-        var selectedSaleId = $('select[name="selected_option"]').val();
-        $('#sale_id').val(selectedSaleId);
-        $('#searchform').submit();
-    }
-</script>
            <!-- SEARCH SALES TEST  -->
 
            <!-- ===========================SEARCH SALES TEST ================================================================================================================= -->

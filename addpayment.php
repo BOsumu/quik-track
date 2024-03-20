@@ -21,7 +21,7 @@ $row=mysqli_fetch_array($result);?>
                                        <div class="mail_heading row">
                                          <div class="col-md-12">
                                            <div class="heading">
-                                               <h1><span>Customer</span><img src="assets/images/arrow.png" class="logo-icon" alt="logo icon">Summary</h1>
+                                               <h1><span>Payment</span><img src="assets/images/arrow.png" class="logo-icon" alt="logo icon">Summary</h1>
                                                <h4>Record Book</h4>
                                            </div>
                                          </div>
@@ -29,7 +29,7 @@ $row=mysqli_fetch_array($result);?>
 
                                        <div class="setting">
                                           <div class="backbtn"><a href="dashboard.php"> </a></div>
-                                           <div class="subtext"><h2>Add NewPayment</h2></div>
+                                           <div class="subtext"><h2>Add New Payment</h2></div>
                                           <div class="clear"></div>
                                       </div>
 

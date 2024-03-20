@@ -1,0 +1,804 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0056)https://esalesdesk.co/kelsey/report/customer_list/filter -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-animate){display:none !important;}ng\:form{display:block;}</style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sales Desk v4.0 - Reports</title>
+    <link rel="icon" type="image/png" href="https://esalesdesk.co/kelsey/css/images/favicon1.ico">
+    <link rel="stylesheet" href="./Sales Desk v4.0 - Reports_files/style.css" type="text/css">
+    <link rel="stylesheet" href="./Sales Desk v4.0 - Reports_files/forms.css" type="text/css"> 
+    <link rel="stylesheet" href="./Sales Desk v4.0 - Reports_files/validation.css" type="text/css"> 
+    <link rel="stylesheet" href="./Sales Desk v4.0 - Reports_files/table.css" type="text/css"> 
+    <link rel="stylesheet" href="./Sales Desk v4.0 - Reports_files/jquery.dataTables.css" type="text/css">
+    <link rel="stylesheet" href="./Sales Desk v4.0 - Reports_files/notif.message.css" type="text/css">
+    <link rel="stylesheet" href="./Sales Desk v4.0 - Reports_files/jquery-ui.css" type="text/css">
+   
+    <script src="./Sales Desk v4.0 - Reports_files/jquery.min.js.download"></script>
+    <script src="./Sales Desk v4.0 - Reports_files/jquery-1.9.1.js.download"></script>
+
+    <script src="./Sales Desk v4.0 - Reports_files/print_rpt.js.download"></script>
+    <script src="./Sales Desk v4.0 - Reports_files/jquery-ui.js.download"></script>
+    <script src="./Sales Desk v4.0 - Reports_files/jquery.freezeheader.js.download"></script>
+    <script src="./Sales Desk v4.0 - Reports_files/angular.js.download"></script>
+    <script src="./Sales Desk v4.0 - Reports_files/fcsaNumber.js.download"></script>
+    <script src="./Sales Desk v4.0 - Reports_files/jquery.table2excel.js.download"></script>
+</head>
+
+<body onload="message()" cz-shortcut-listen="true">
+	<div class="canvas">
+		
+
+        
+        <div id="header" class="fullwidth">
+            <div class="logo">
+                <img src="./Sales Desk v4.0 - Reports_files/logo.png" class="web">
+                <img src="./Sales Desk v4.0 - Reports_files/sd-logo.png" class="mobile">
+            </div>
+            <div class="navigation">
+                
+<ul class="main">
+	<li class="dashboard"><a href="https://esalesdesk.co/kelsey/dashboard">Dashboard</a></li>
+    
+	        <li class="sales"><a href="https://esalesdesk.co/kelsey/report/customer_list/filter#">Sales</a>
+            <ul class="sales">
+                <li class="file"><a href="https://esalesdesk.co/kelsey/sales">Sales Ledger</a></li>
+                <li class="file"><a href="https://esalesdesk.co/kelsey/salespayment">Sales Payment Ledger</a></li>
+                <li class="file"><a href="https://esalesdesk.co/kelsey/salesinstallment">Sales Installment Ledger</a></li>
+                <li class="event"><a href="https://esalesdesk.co/kelsey/salesevent">Sales Events</a></li>
+                
+                                	<li class="file"><a href="https://esalesdesk.co/kelsey/saleshandover">Sales Handing Over Ledger</a></li>
+                    <li class="commission"><a href="https://esalesdesk.co/kelsey/salescommission">Sales Commission Ledger</a></li>
+                    <li class="trash"><a href="https://esalesdesk.co/kelsey/salestrash">Sales Trash Box</a></li>
+                            </ul>
+        </li>
+         
+            <li class="customer"><a href="https://esalesdesk.co/kelsey/customer">Customers</a></li>
+        
+            <li class="setting"><a href="https://esalesdesk.co/kelsey/report/customer_list/filter#">Settings</a>
+            <ul class="settings">
+                <li class="setfile"><a href="https://esalesdesk.co/kelsey/project">Project Ledger</a></li>
+                <li class="setfile"><a href="https://esalesdesk.co/kelsey/unit">Project Units Ledger</a></li>
+                
+                                    <li class="setfile"><a href="https://esalesdesk.co/kelsey/member">Member Ledger</a></li>
+                    <li class="grpfile"><a href="https://esalesdesk.co/kelsey/common">Common Ledgers</a></li>
+                                
+                <li class="msgfile"><a href="https://esalesdesk.co/kelsey/messenger">Messenger / Newsletter</a></li>
+                    
+                                    <li class="backup"><a href="https://esalesdesk.co/kelsey/backup">System Backup</a></li>
+                            </ul>
+        </li>
+        
+    <li class="report"><a href="https://esalesdesk.co/kelsey/report/customer_list/filter#">Reports</a>
+        <ul class="reports">
+            <li class="rptfile"><a href="https://esalesdesk.co/kelsey/report/price_list">Price &amp; Availablity List</a></li>
+            <li class="rptfile"><a href="https://esalesdesk.co/kelsey/report/pay_value">Pay Value Analysis Report</a></li>
+            <li class="rptfile"><a href="https://esalesdesk.co/kelsey/report/customer_list">Customer List</a></li>
+            <li class="rptfile"><a href="https://esalesdesk.co/kelsey/report/sales_summary">Overall Sales Summary Report</a></li>
+            
+                            <li class="rptfile"><a href="https://esalesdesk.co/kelsey/report/monthly_sales_summary">Monthly Sales Summary Report</a></li>
+            	<li class="rptfile"><a href="https://esalesdesk.co/kelsey/report/payment_collection_summary">Payment &amp; Collection Summary Report</a></li>
+                        
+            <li class="rptfile"><a href="https://esalesdesk.co/kelsey/report/sales_payment">Sales Payment Report</a></li>
+            <li class="rptfile"><a href="https://esalesdesk.co/kelsey/report/sales_payment_summary_by_date">Sales Payment Report by Sales Date</a></li>
+            <li class="rptfile"><a href="https://esalesdesk.co/kelsey/report/sales_collection">Sales Collection Report</a></li>
+            
+                            <li class="rptfile"><a href="https://esalesdesk.co/kelsey/report/sales_multiple_month_collection">Sales Multiple Month Collection Report</a></li>
+                <li class="rptfile"><a href="https://esalesdesk.co/kelsey/report/sales_installment_gap_analysis">Sales Installment Gap Analysis</a></li>
+                        
+            <li class="rptfile"><a href="https://esalesdesk.co/kelsey/report/due_payments">Due Collection Report</a></li>
+            <li class="rptfile"><a href="https://esalesdesk.co/kelsey/report/default_payments">Default Collection Report</a></li>
+			<li class="rptfile"><a href="https://esalesdesk.co/kelsey/report/raw_sales_notify">Unprocessed Sales Report</a></li>
+            
+                        	<li class="rptfile"><a href="https://esalesdesk.co/kelsey/report/audit_trail">Audit Trail Report</a></li>
+                    </ul>    
+    </li>
+</ul>
+<ul class="user">
+	<li><a href="https://esalesdesk.co/kelsey/report/customer_list/filter#"><div class="user-profile">
+    <h2>Hi !<span> 
+    Dushmantha </span></h2>
+    <h3>Department of 
+    <span>
+        	         	Top Administration                </span></h3>
+</div></a>
+    	<ul class="users">
+            <li class="file"><a href="https://esalesdesk.co/kelsey/login/change_password">Change Password</a></li>
+            <li class="logout"><a href="https://esalesdesk.co/kelsey/login/close">Log Out</a></li>
+        </ul>
+    </li>
+</ul>
+<div class="clear"></div><!--clear-->
+
+
+<div id="navigation-slider" class="navigation-slider">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+  <div class="slider-user"><div class="user-profile">
+    <h2>Hi !<span> 
+    Dushmantha </span></h2>
+    <h3>Department of 
+    <span>
+        	         	Top Administration                </span></h3>
+</div></div>
+  <ul class="slider-menu">
+      <li class="dashboard"><a href="https://esalesdesk.co/kelsey/dashboard">Dashboard</a></li>
+      <li class="sales"><a href="https://esalesdesk.co/kelsey/sales">Sales</a></li>
+      <li class="customer"><a href="https://esalesdesk.co/kelsey/customer">Customers</a></li>
+      <li class="report"><a href="https://esalesdesk.co/kelsey/report">Reports</a></li>
+      <li class="logouts"><a href="https://esalesdesk.co/kelsey/login/close">Log Out</a></li>
+  </ul>
+</div>
+<span class="navigation-button" onclick="openNav()">☰</span>
+
+<script>
+	function openNav() {
+		document.getElementById("navigation-slider").style.width = "100%";
+	}
+	
+	function closeNav() {
+		document.getElementById("navigation-slider").style.width = "0";
+	}
+</script>            </div><!--navigation-->
+        </div><!--header-->
+            
+        <div id="wrapper">
+            <div class="container bodywidth">
+                <section></section>
+                <div class="reportbar invisible">
+    <h2>Report: Customer List</h2>
+    <div class="back" style="float:left; margin-right:5px;"><a href="https://esalesdesk.co/kelsey/report/customer_summary">Go To All Result</a></div>
+    <div class="print" style="float:left; margin-right:5px;"><a onclick="printContent(&#39;print_receipt&#39;,&#39;rptword&#39;)" href="https://esalesdesk.co/kelsey/report/customer_list/filter#">Print Report</a></div>
+    <div class="excel"><button id="exportexcel">( or Export to Excel )</button></div>
+</div>
+
+<div class="content rpt">
+	<div class="heading visible">
+        <h2>Reports<span></span>Customers</h2>
+        <h3>Sales Customers List</h3>
+    </div>
+    
+    <div class="report_settings ">
+    							<form action="https://esalesdesk.co/kelsey/report/customer_list/filter" id="sysform" method="post" accept-charset="utf-8">
+        <span class="search-title invisible">Search by </span>
+        
+                	<select class="sizableII" id="project" name="project">
+    <option selected="selected" value="-1">ALL PROJECTS</option>
+            <option value="37">Central Park - Landed House</option>
+        <option value="38">Central Park - Town House</option>
+        <option value="39">Central Park - Cluster Apartment</option>
+        <option value="40">Central Park - G+7 Apartment (Phase 1)</option>
+        <option value="41">Central Park - G+7 Apartment (Phase 2) 	</option>
+        <option value="42">Central Park - G+7 Apartment (Phase 3)</option>
+     
+    </select>                	    <select class="sizableII" id="member" name="member">
+        <option selected="selected" value="-1">ALL SALES MEMBER</option>
+                     
+            </select>
+                
+                
+        <input class="button2" type="submit" id="filter" name="filter" value="Filter">
+	</form>            </div>
+    <div class="fieldset">
+        <div id="print_receipt">
+            <style type="text/css">
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,700italic,400italic);
+
+div.clear{ clear:both; }
+div#rptword{ display:none; padding:0 !important; margin:0 !important; font-size:20px; }
+div#rptword span{ font-size:12px; }
+div#rpttitle{ color:#333; padding:15px 10px; font-size:18px; font-weight:bold; text-align:center; background-color:#FFF;
+font-family: Arial, Helvetica, sans-serif; margin-bottom:25px !important;  }
+div#rpttitle span{ color:#333; font-size:12px; font-weight:normal; text-align:center; }
+table#report-table { border-collapse:collapse; border:none; width:100%; }
+table#report-table th, 
+table#report-table td { border-bottom: 1px solid #DDD; }
+table#report-table th { font-weight:normal; -webkit-font-smoothing:antialiased; padding:0.8em; 
+color:#333; text-shadow:0 0 1px rgba(0,0,0,0.1); font-size:14px; background-color:#DDD; font-weight:bold; text-align:left;}
+table#report-table tr { -webkit-transition: background 0.3s, box-shadow 0.3s; 
+-moz-transition: background 0.3s, box-shadow 0.3s; transition: background 0.3s, box-shadow 0.3s; }
+table#report-table td { color: #333; padding: 0.8em 0.8em 0.8em 1.15em; 
+text-shadow: 0 0 1px rgba(255,255,255,0.1); font-size: 12px; }
+div.filter{ text-align:right; font-size:12px; color:#666; font-style:italic; padding:0px 5px 10px; }
+
+.gridview { border-collapse:collapse;border: none;width:100%; }
+.gridview th { font-weight:normal; -webkit-font-smoothing:antialiased; padding:0.8em; 
+color:#333; text-shadow:0 0 1px rgba(0,0,0,0.1); font-size:14px; background-color:#DDD; font-weight:bold; text-align:left; border-bottom: 1px solid #DDD; }
+
+table#report-table tr.sold { background: url(images/sold.png) left top no-repeat #f6cdcd; }
+table#report-table .ltiny{ width:5%; }
+table#report-table .tiny{ width:9%; }
+table#report-table .small{ width:13%; }
+table#report-table .xsmall{ width:20%; }
+table#report-table .medium{ width:25%; }
+table#report-table .xmedium{ width:30%; }
+table#report-table .large{ width:35%; }
+table#report-table .xlarge{ width:40%; }
+
+@media all and (min-width: 1366px) and (max-width: 1635px) {
+	table#report-table th { padding: 0.8em 1em; font-size:14px; }
+	table#report-table td { padding: 0.8em 1em; font-size:12px; }
+}
+
+@media all and (min-width: 1152px) and (max-width: 1297px) {
+	table#report-table th { padding: 0.8em 1em 0.8em 0.7em; font-size:12px; }
+	table#report-table td { padding: 0.8em 1em; font-size:11px; }
+}
+
+@media all and (min-width: 1024px) and (max-width: 1152px) {
+	table#report-table  .medium{ width:20%; }
+	table#report-table th { padding: 0.8em 1em 0.8em 0.5em; font-size: 13px; }
+	table#report-table td { padding: 0.8em; font-size: 11px; }
+}
+
+@media all and (min-width: 800px) and (max-width: 1024px) {
+	table#report-table .tiny{ width:02%; }
+	table#report-table .medium{ width:20%; }
+	table#report-table th { padding: 0.8em 1em 0.8em 0.5em; font-size: 12px; }
+	table#report-table td { padding: 0.8em; font-size: 11px; }
+}
+@media(max-width:480px) {
+	table#report-table td{ font-size:11px !important; }
+}
+</style>            <div id="rptword">
+                Customer List Report <br>
+                <span>Blue Ocean Group of Companies - Printed Date 2024-03-14</span>
+            </div>
+						<div class="filter">
+				                        Sort By ( customers who purchased in <strong>All Projects</strong>)
+                            </div>
+            <div class="coverflow">
+                <table id="report-table" class="gridview">
+                    <thead>
+                        <tr><th class="small">Customer Name</th>
+                        <th class="tiny">Occupation</th>
+                                                <th class="tiny">NIC / Passport No</th>
+                        
+                        <th class="small">Contact Details</th>
+                                                <th class="tiny">Country</th>
+                        <th class="tiny">Representative</th>
+                        <th class="small">Purchased Apartment</th>
+                        <th class="tiny" style="text-align:right">
+                        Selling/Sold Price (LKR.)</th>
+                    </tr></thead>
+                    <tbody>
+                                                                        <tr>
+                            <td class="small">
+                                W.G.R.Rajadurai</td>
+                            <td class="tiny">
+                                <span style="font-style:italic; color:#BBB;">(Not Available)</span></td> 
+                                                              <td class="tiny">
+                                000000000</td>
+                              
+                            <td class="small">
+                                A : No.67/4,Digana Road,Kundasale<br>
+                                M : <span style="font-style:italic; color:#BBB;">(Not Available)</span><br>
+                                E : developer@link.lk</td>
+                                                            <td class="tiny">
+                                Sri lanaka</td>
+                            <td class="tiny">
+                                </td>
+                            <td class="small" style="line-height:1.4;">
+                                <strong>Lot 143</strong><br>@ Central Park - Landed House</td>
+                            <td class="tiny" style="text-align:right">
+                                29,205,024.00</td>
+                        </tr>
+                                                                                                <tr>
+                            <td class="small">
+                                T.K.G.U.Kumara</td>
+                            <td class="tiny">
+                                <span style="font-style:italic; color:#BBB;">(Not Available)</span></td> 
+                                                              <td class="tiny">
+                                000000000</td>
+                              
+                            <td class="small">
+                                A : No.23/7A,Harasgama Road,Matale<br>
+                                M : <span style="font-style:italic; color:#BBB;">(Not Available)</span><br>
+                                E : <span style="font-style:italic; color:#BBB;">(Not Available)</span></td>
+                                                            <td class="tiny">
+                                Sri lanaka</td>
+                            <td class="tiny">
+                                </td>
+                            <td class="small" style="line-height:1.4;">
+                                <strong>Lot 144</strong><br>@ Central Park - Landed House</td>
+                            <td class="tiny" style="text-align:right">
+                                22,700,000.00</td>
+                        </tr>
+                                                                                                <tr>
+                            <td class="small">
+                                L.M.P.Dharmaratne</td>
+                            <td class="tiny">
+                                <span style="font-style:italic; color:#BBB;">(Not Available)</span></td> 
+                                                              <td class="tiny">
+                                000000000</td>
+                              
+                            <td class="small">
+                                A : No.70 , The Nest Nivasipura , Kotugoda<br>
+                                M : <span style="font-style:italic; color:#BBB;">(Not Available)</span><br>
+                                E : <span style="font-style:italic; color:#BBB;">(Not Available)</span></td>
+                                                            <td class="tiny">
+                                Sri lanaka</td>
+                            <td class="tiny">
+                                </td>
+                            <td class="small" style="line-height:1.4;">
+                                <strong>Lot 145</strong><br>@ Central Park - Landed House</td>
+                            <td class="tiny" style="text-align:right">
+                                26,400,000.00</td>
+                        </tr>
+                                                                                                <tr>
+                            <td class="small">
+                                S.I.Abeysiriwardena</td>
+                            <td class="tiny">
+                                <span style="font-style:italic; color:#BBB;">(Not Available)</span></td> 
+                                                              <td class="tiny">
+                                000000000</td>
+                              
+                            <td class="small">
+                                A : No.19, 2nd Lane,Koswatta Road,Nawala<br>
+                                M : <span style="font-style:italic; color:#BBB;">(Not Available)</span><br>
+                                E : <span style="font-style:italic; color:#BBB;">(Not Available)</span></td>
+                                                            <td class="tiny">
+                                Sri lanaka</td>
+                            <td class="tiny">
+                                </td>
+                            <td class="small" style="line-height:1.4;">
+                                <strong>Lot 146</strong><br>@ Central Park - Landed House</td>
+                            <td class="tiny" style="text-align:right">
+                                22,700,000.00</td>
+                        </tr>
+                                                                                                <tr>
+                            <td class="small">
+                                S.S.Sivashankar</td>
+                            <td class="tiny">
+                                <span style="font-style:italic; color:#BBB;">(Not Available)</span></td> 
+                                                              <td class="tiny">
+                                000000000</td>
+                              
+                            <td class="small">
+                                A : No.846/11,Kandy Road,Wedamulla,Kelaniya<br>
+                                M : <span style="font-style:italic; color:#BBB;">(Not Available)</span><br>
+                                E : <span style="font-style:italic; color:#BBB;">(Not Available)</span></td>
+                                                            <td class="tiny">
+                                Sri lanaka</td>
+                            <td class="tiny">
+                                </td>
+                            <td class="small" style="line-height:1.4;">
+                                <strong>Lot 147 </strong><br>@ Central Park - Landed House</td>
+                            <td class="tiny" style="text-align:right">
+                                23,000,000.00</td>
+                        </tr>
+                                                                                                <tr>
+                            <td class="small">
+                                M.N.Assudomal</td>
+                            <td class="tiny">
+                                <span style="font-style:italic; color:#BBB;">(Not Available)</span></td> 
+                                                              <td class="tiny">
+                                000000000</td>
+                              
+                            <td class="small">
+                                A : No.258,Galle Road, Colombo 04<br>
+                                M : <span style="font-style:italic; color:#BBB;">(Not Available)</span><br>
+                                E : <span style="font-style:italic; color:#BBB;">(Not Available)</span></td>
+                                                            <td class="tiny">
+                                Sri lanaka</td>
+                            <td class="tiny">
+                                </td>
+                            <td class="small" style="line-height:1.4;">
+                                <strong>Lot 148</strong><br>@ Central Park - Landed House</td>
+                            <td class="tiny" style="text-align:right">
+                                18,910,000.00</td>
+                        </tr>
+                                                                                                <tr>
+                            <td class="small">
+                                S.V.Munasinghe</td>
+                            <td class="tiny">
+                                <span style="font-style:italic; color:#BBB;">(Not Available)</span></td> 
+                                                              <td class="tiny">
+                                000000000</td>
+                              
+                            <td class="small">
+                                A : No.43,Uluporanuwa Road,Kandana<br>
+                                M : <span style="font-style:italic; color:#BBB;">(Not Available)</span><br>
+                                E : <span style="font-style:italic; color:#BBB;">(Not Available)</span></td>
+                                                            <td class="tiny">
+                                Sri lanaka</td>
+                            <td class="tiny">
+                                </td>
+                            <td class="small" style="line-height:1.4;">
+                                <strong>Lot 149</strong><br>@ Central Park - Landed House</td>
+                            <td class="tiny" style="text-align:right">
+                                27,800,000.00</td>
+                        </tr>
+                                                                                                <tr>
+                            <td class="small">
+                                Y.Suthagaran</td>
+                            <td class="tiny">
+                                <span style="font-style:italic; color:#BBB;">(Not Available)</span></td> 
+                                                              <td class="tiny">
+                                000000000</td>
+                              
+                            <td class="small">
+                                A : No.120/13B,M.C.Road,Matale<br>
+                                M : <span style="font-style:italic; color:#BBB;">(Not Available)</span><br>
+                                E : <span style="font-style:italic; color:#BBB;">(Not Available)</span></td>
+                                                            <td class="tiny">
+                                Sri lanaka</td>
+                            <td class="tiny">
+                                </td>
+                            <td class="small" style="line-height:1.4;">
+                                <strong>Lot 150</strong><br>@ Central Park - Landed House</td>
+                            <td class="tiny" style="text-align:right">
+                                26,650,000.00</td>
+                        </tr>
+                                                                                                <tr>
+                            <td class="small">
+                                M.W.De Silva</td>
+                            <td class="tiny">
+                                <span style="font-style:italic; color:#BBB;">(Not Available)</span></td> 
+                                                              <td class="tiny">
+                                000000000</td>
+                              
+                            <td class="small">
+                                A : No.162,Mahahunupitiya,Negombo<br>
+                                M : <span style="font-style:italic; color:#BBB;">(Not Available)</span><br>
+                                E : <span style="font-style:italic; color:#BBB;">(Not Available)</span></td>
+                                                            <td class="tiny">
+                                Sri lanaka</td>
+                            <td class="tiny">
+                                </td>
+                            <td class="small" style="line-height:1.4;">
+                                <strong>Lot 151</strong><br>@ Central Park - Landed House</td>
+                            <td class="tiny" style="text-align:right">
+                                23,450,000.00</td>
+                        </tr>
+                                                                                                <tr>
+                            <td class="small">
+                                G.Srikumaar</td>
+                            <td class="tiny">
+                                <span style="font-style:italic; color:#BBB;">(Not Available)</span></td> 
+                                                              <td class="tiny">
+                                000000000</td>
+                              
+                            <td class="small">
+                                A : No.64/10A,Keels Garden,Canal Road,Hekitha,Wattala<br>
+                                M : <span style="font-style:italic; color:#BBB;">(Not Available)</span><br>
+                                E : <span style="font-style:italic; color:#BBB;">(Not Available)</span></td>
+                                                            <td class="tiny">
+                                Sri lanaka</td>
+                            <td class="tiny">
+                                </td>
+                            <td class="small" style="line-height:1.4;">
+                                <strong>Lot 153</strong><br>@ Central Park - Landed House</td>
+                            <td class="tiny" style="text-align:right">
+                                19,100,000.00</td>
+                        </tr>
+                                                                                                <tr>
+                            <td class="small">
+                                A.J.Fousdeen</td>
+                            <td class="tiny">
+                                <span style="font-style:italic; color:#BBB;">(Not Available)</span></td> 
+                                                              <td class="tiny">
+                                000000000</td>
+                              
+                            <td class="small">
+                                A : No.97,Averiwatta Road,Wattala<br>
+                                M : <span style="font-style:italic; color:#BBB;">(Not Available)</span><br>
+                                E : <span style="font-style:italic; color:#BBB;">(Not Available)</span></td>
+                                                            <td class="tiny">
+                                Sri lanaka</td>
+                            <td class="tiny">
+                                </td>
+                            <td class="small" style="line-height:1.4;">
+                                <strong>Lot 154</strong><br>@ Central Park - Landed House</td>
+                            <td class="tiny" style="text-align:right">
+                                29,900,000.00</td>
+                        </tr>
+                                                                                                <tr>
+                            <td class="small">
+                                B.P.Galhena &amp; P.S.Rajapakse</td>
+                            <td class="tiny">
+                                <span style="font-style:italic; color:#BBB;">(Not Available)</span></td> 
+                                                              <td class="tiny">
+                                000000000</td>
+                              
+                            <td class="small">
+                                A : No.48 - 1/5,Blue Ocean Residencies,Templers Road,Mount Lavinia<br>
+                                M : <span style="font-style:italic; color:#BBB;">(Not Available)</span><br>
+                                E : <span style="font-style:italic; color:#BBB;">(Not Available)</span></td>
+                                                            <td class="tiny">
+                                Sri lanaka</td>
+                            <td class="tiny">
+                                </td>
+                            <td class="small" style="line-height:1.4;">
+                                <strong>Lot 155</strong><br>@ Central Park - Landed House</td>
+                            <td class="tiny" style="text-align:right">
+                                22,200,000.00</td>
+                        </tr>
+                                                                                                <tr>
+                            <td class="small">
+                                A.C.Warnakulasuriya</td>
+                            <td class="tiny">
+                                <span style="font-style:italic; color:#BBB;">(Not Available)</span></td> 
+                                                              <td class="tiny">
+                                000000000</td>
+                              
+                            <td class="small">
+                                A : No.41A , Jayasooriya Mawatha , Hapugoda , Kandana<br>
+                                M : <span style="font-style:italic; color:#BBB;">(Not Available)</span><br>
+                                E : <span style="font-style:italic; color:#BBB;">(Not Available)</span></td>
+                                                            <td class="tiny">
+                                Sri lanaka</td>
+                            <td class="tiny">
+                                </td>
+                            <td class="small" style="line-height:1.4;">
+                                <strong>Lot 156</strong><br>@ Central Park - Landed House</td>
+                            <td class="tiny" style="text-align:right">
+                                22,700,000.00</td>
+                        </tr>
+                                                                                                <tr>
+                            <td class="small">
+                                V.W.Tarmendira</td>
+                            <td class="tiny">
+                                <span style="font-style:italic; color:#BBB;">(Not Available)</span></td> 
+                                                              <td class="tiny">
+                                000000000</td>
+                              
+                            <td class="small">
+                                A : No.08, Frazer Avenue,Dehiwela<br>
+                                M : <span style="font-style:italic; color:#BBB;">(Not Available)</span><br>
+                                E : <span style="font-style:italic; color:#BBB;">(Not Available)</span></td>
+                                                            <td class="tiny">
+                                Sri lanaka</td>
+                            <td class="tiny">
+                                </td>
+                            <td class="small" style="line-height:1.4;">
+                                <strong>Lot 27</strong><br>@ Central Park - Landed House</td>
+                            <td class="tiny" style="text-align:right">
+                                21,500,000.00</td>
+                        </tr>
+                                                                                                <tr>
+                            <td class="small">
+                                S.Sarveswaran</td>
+                            <td class="tiny">
+                                <span style="font-style:italic; color:#BBB;">(Not Available)</span></td> 
+                                                              <td class="tiny">
+                                000000000</td>
+                              
+                            <td class="small">
+                                A : No.29,3/2,Coral Castle,No.36th Lane, Colombo 06<br>
+                                M : <span style="font-style:italic; color:#BBB;">(Not Available)</span><br>
+                                E : <span style="font-style:italic; color:#BBB;">(Not Available)</span></td>
+                                                            <td class="tiny">
+                                Sri lanaka</td>
+                            <td class="tiny">
+                                </td>
+                            <td class="small" style="line-height:1.4;">
+                                <strong>Lot 26</strong><br>@ Central Park - Landed House</td>
+                            <td class="tiny" style="text-align:right">
+                                19,200,000.00</td>
+                        </tr>
+                                                                                                <tr>
+                            <td class="small">
+                                A.A.Wijebandara</td>
+                            <td class="tiny">
+                                <span style="font-style:italic; color:#BBB;">(Not Available)</span></td> 
+                                                              <td class="tiny">
+                                000000000</td>
+                              
+                            <td class="small">
+                                A : No.72/70, Sunny  Gunawardane Mawatha, Canal Road , Hendala, Wattala<br>
+                                M : <span style="font-style:italic; color:#BBB;">(Not Available)</span><br>
+                                E : <span style="font-style:italic; color:#BBB;">(Not Available)</span></td>
+                                                            <td class="tiny">
+                                Sri lanaka</td>
+                            <td class="tiny">
+                                </td>
+                            <td class="small" style="line-height:1.4;">
+                                <strong>Lot 25</strong><br>@ Central Park - Landed House</td>
+                            <td class="tiny" style="text-align:right">
+                                21,500,000.00</td>
+                        </tr>
+                                                                                                <tr>
+                            <td class="small">
+                                A.C.Warnakulasuriya</td>
+                            <td class="tiny">
+                                <span style="font-style:italic; color:#BBB;">(Not Available)</span></td> 
+                                                              <td class="tiny">
+                                000000000</td>
+                              
+                            <td class="small">
+                                A : No.41A , Jayasooriya Mawatha , Hapugoda , Kandana<br>
+                                M : <span style="font-style:italic; color:#BBB;">(Not Available)</span><br>
+                                E : <span style="font-style:italic; color:#BBB;">(Not Available)</span></td>
+                                                            <td class="tiny">
+                                Sri lanaka</td>
+                            <td class="tiny">
+                                </td>
+                            <td class="small" style="line-height:1.4;">
+                                <strong>Lot 24</strong><br>@ Central Park - Landed House</td>
+                            <td class="tiny" style="text-align:right">
+                                28,000,000.00</td>
+                        </tr>
+                                                                                                <tr>
+                            <td class="small">
+                                M.R.M.Zaid</td>
+                            <td class="tiny">
+                                <span style="font-style:italic; color:#BBB;">(Not Available)</span></td> 
+                                                              <td class="tiny">
+                                000000000</td>
+                              
+                            <td class="small">
+                                A : No.129/4 , Sri Saddarma Mawatha,Maligawatta,Colombo 10<br>
+                                M : <span style="font-style:italic; color:#BBB;">(Not Available)</span><br>
+                                E : <span style="font-style:italic; color:#BBB;">(Not Available)</span></td>
+                                                            <td class="tiny">
+                                Sri lanaka</td>
+                            <td class="tiny">
+                                </td>
+                            <td class="small" style="line-height:1.4;">
+                                <strong>Lot 23</strong><br>@ Central Park - Landed House</td>
+                            <td class="tiny" style="text-align:right">
+                                21,500,000.00</td>
+                        </tr>
+                                                                                                <tr>
+                            <td class="small">
+                                M.R.M.Zaid</td>
+                            <td class="tiny">
+                                <span style="font-style:italic; color:#BBB;">(Not Available)</span></td> 
+                                                              <td class="tiny">
+                                000000000</td>
+                              
+                            <td class="small">
+                                A : No.129/4 , Sri Saddarma Mawatha,Maligawatta,Colombo 10<br>
+                                M : <span style="font-style:italic; color:#BBB;">(Not Available)</span><br>
+                                E : <span style="font-style:italic; color:#BBB;">(Not Available)</span></td>
+                                                            <td class="tiny">
+                                Sri lanaka</td>
+                            <td class="tiny">
+                                </td>
+                            <td class="small" style="line-height:1.4;">
+                                <strong>Lot 22</strong><br>@ Central Park - Landed House</td>
+                            <td class="tiny" style="text-align:right">
+                                21,500,000.00</td>
+                        </tr>
+                                                                                                <tr>
+                            <td class="small">
+                                Lekhraj &amp; Sons (Pvt) Ltd</td>
+                            <td class="tiny">
+                                <span style="font-style:italic; color:#BBB;">(Not Available)</span></td> 
+                                                              <td class="tiny">
+                                PV2120</td>
+                              
+                            <td class="small">
+                                A : No.258,Galle Road, Colombo 04<br>
+                                M :  0777322233, 0777388377<br>
+                                E : lekhrajvehicles@gmail.com</td>
+                                                            <td class="tiny">
+                                Sri Lanka </td>
+                            <td class="tiny">
+                                </td>
+                            <td class="small" style="line-height:1.4;">
+                                <strong>Lot 21</strong><br>@ Central Park - Landed House</td>
+                            <td class="tiny" style="text-align:right">
+                                21,500,000.00</td>
+                        </tr>
+                                                                                                <tr>
+                            <td class="small">
+                                U.S.B.Godigamuwa</td>
+                            <td class="tiny">
+                                <span style="font-style:italic; color:#BBB;">(Not Available)</span></td> 
+                                                              <td class="tiny">
+                                000000000</td>
+                              
+                            <td class="small">
+                                A : No.N49,Nivasiepura Nest, Kotugoda<br>
+                                M : <span style="font-style:italic; color:#BBB;">(Not Available)</span><br>
+                                E : <span style="font-style:italic; color:#BBB;">(Not Available)</span></td>
+                                                            <td class="tiny">
+                                Sri lanaka</td>
+                            <td class="tiny">
+                                </td>
+                            <td class="small" style="line-height:1.4;">
+                                <strong>Lot 20 </strong><br>@ Central Park - Landed House</td>
+                            <td class="tiny" style="text-align:right">
+                                21,500,000.00</td>
+                        </tr>
+                                                                                                <tr>
+                            <td class="small">
+                                J.A.N.Jayasinghe</td>
+                            <td class="tiny">
+                                <span style="font-style:italic; color:#BBB;">(Not Available)</span></td> 
+                                                              <td class="tiny">
+                                000000000</td>
+                              
+                            <td class="small">
+                                A : No.290/41 , Araliya Green City,Nilpanagoda Minuwangoda<br>
+                                M : <span style="font-style:italic; color:#BBB;">(Not Available)</span><br>
+                                E : <span style="font-style:italic; color:#BBB;">(Not Available)</span></td>
+                                                            <td class="tiny">
+                                Sri lanaka</td>
+                            <td class="tiny">
+                                </td>
+                            <td class="small" style="line-height:1.4;">
+                                <strong>Lot 18</strong><br>@ Central Park - Landed House</td>
+                            <td class="tiny" style="text-align:right">
+                                29,600,000.00</td>
+                        </tr>
+                                                                                                <tr>
+                            <td class="small">
+                                S.Jenitha</td>
+                            <td class="tiny">
+                                <span style="font-style:italic; color:#BBB;">(Not Available)</span></td> 
+                                                              <td class="tiny">
+                                000000000</td>
+                              
+                            <td class="small">
+                                A : Baseler Str,31 A,4102, Binnighen CH,Switzerland<br>
+                                M : <span style="font-style:italic; color:#BBB;">(Not Available)</span><br>
+                                E : <span style="font-style:italic; color:#BBB;">(Not Available)</span></td>
+                                                            <td class="tiny">
+                                Sri lanaka</td>
+                            <td class="tiny">
+                                </td>
+                            <td class="small" style="line-height:1.4;">
+                                <strong>Lot 117</strong><br>@ Central Park - Landed House</td>
+                            <td class="tiny" style="text-align:right">
+                                35,000,000.00</td>
+                        </tr>
+                                                                                                <tr>
+                            <td class="small">
+                                Mr.Weerakoon Godfrey Roshan Rajadurai</td>
+                            <td class="tiny">
+                                <span style="font-style:italic; color:#BBB;">(Not Available)</span></td> 
+                                                              <td class="tiny">
+                                630013780V</td>
+                              
+                            <td class="small">
+                                A : No.67/4,Digana Road,Kundasale<br>
+                                M : 0777743457<br>
+                                E : developer@link.lk</td>
+                                                            <td class="tiny">
+                                Sri Lanka </td>
+                            <td class="tiny">
+                                </td>
+                            <td class="small" style="line-height:1.4;">
+                                <strong>Lot 06</strong><br>@ Central Park - Landed House</td>
+                            <td class="tiny" style="text-align:right">
+                                12,200,000.00</td>
+                        </tr>
+                                                                    </tbody>
+                </table>
+            </div>
+                    </div><!-- print_receipt -->
+		<script>
+			$(document).ready(function () {
+				$("#exportexcel").click(function () {
+					var _filename = prompt("Please enter your filename ?", "Customer List");
+					$("#report-table").table2excel({
+						name: _filename,
+						filename: _filename,
+						fileext: ".xls",
+						exclude_img: true,
+						exclude_links: true,
+						exclude_inputs: true
+					});
+				});
+				
+				$("#report-table").freezeHeader();
+			});
+		</script>
+    </div>
+</div>
+                <div class="clear"></div>
+            </div>
+        </div><!--wrapper-->
+        
+        <div id="footer" class="fullwidth">
+            <p class="invisible">License for <span>Sales Desk v4.0</span>, Since 2014. All Rights Reserved. System Powered by <span>Kulendra Nimeshanan</span></p>
+            <p class="visible">License for <span>Sales Desk v4.0</span>, Since 2014. <br> All Rights Reserved. 
+            <br>System Powered by <span>Kulendra Nimeshanan</span></p> 
+        </div><!--footer-->
+    </div>
+    <div class="non-canvas">
+    	
+    </div>
+
+
+</body></html>

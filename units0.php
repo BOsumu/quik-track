@@ -36,6 +36,7 @@ $row=mysqli_fetch_array($result);?>
     <link href="assets/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
     <link href="assets/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
 
+
     <!-- Custom Theme Style -->
     <link href="assets/build/css/custom.min.css" rel="stylesheet">
 
@@ -66,7 +67,6 @@ $row=mysqli_fetch_array($result);?>
 
                                        <div class="setting">
                                          <div class="backbtn"><a href="dashboard.php"> </a></div>
-                                         	<?php include_once 'PHP/Read/view-project-script.php'; ?>
                                            <div class="subtext2"><h2>Manage Units<br><span>of <strong><?php echo $project_name;?></strong></span></h2></div>
                                          <div class="clear"></div>
                                       </div>
@@ -83,7 +83,6 @@ $row=mysqli_fetch_array($result);?>
       <div>
 
 	<?php include_once 'PHP/Read/view-project-script.php'; ?>
-        <!-- <h2 class="StepTitle"><?php echo $project_name;?> - Units Manage</h2> -->
         <div class="row">
 
           <div class="col-md-12 col-sm-12">
@@ -107,7 +106,7 @@ $row=mysqli_fetch_array($result);?>
                                   <div class="tab-content" id="myTabContent">
                                     <div class="tab-pane fade show active" id="individual" role="tabpanel" aria-labelledby="individual-tab">
 
-                                      <form class="form-label-left input_mask"  method="POST" enctype="multipart/form-data">
+                                      <form class="form-label-left input_mask"  method="post" enctype="multipart/form-data">
 
                                         <div class="col-md-6 col-sm-6  form-group has-feedback">
                                           <label for="fullname">Unit Name :</label>
@@ -175,16 +174,22 @@ $row=mysqli_fetch_array($result);?>
                                           <br/>
                                         </div> -->
 
-                                        <!-- <div class="col-md-12 col-sm-12 custom-file">
-                                          <input type="file" class="custom-file-input" name="filename">
-                                          <label class="custom-file-label-upload">Choose file</label>
+                                        <!-- <div class="col-md-12 col-sm-12 custom-file form-group">
+                                          <input type="file" class="custom-file-input file-upload-default" name="filename[]" required="required" id="bsValidation3" accept=".csv">
+                                          <input type="file" class="custom-file-input" name="filename" required="required" id="bsValidation3" accept=".csv">
+                                          <label class="custom-file-label-upload">Click here to choose the file</label>
+                                          <div class="invalid-feedback">Please Add CSV File.</div>
                                         </div> -->
 
-                                        <div class="col-md-12 col-sm-12 custom-file1 form-group">
-                                             <label>Upload the CSV file </label>
-                                        <input type="file" name="filename" class="file-upload-default form-control1" required="required">
-                                        <div class="invalid-feedback">Please Add CSV File.</div>
-                                        </div>
+                                        <div class="form-group">
+                                          <input type="file" name="filename" class="file-upload-default" id="bsValidation3" accept=".csv" required="required">
+                                       </div>
+
+                                       <div class="mb-3">
+											                	<label for="formFile" class="form-label">Upload CSV flile</label>
+												                <input class="form-control" type="file" id="bsValidation3" accept=".csv" required="" name="filename">
+												                <div class="invalid-feedback">Please Add CSV File.</div>
+                                      </div>
 
                                         <input type="hidden" value="<?php echo $project_id;?>" name="project_id"/>
                                         <input type="hidden" value="<?php echo $company_id;?>" name="company_id"/>
@@ -209,6 +214,7 @@ $row=mysqli_fetch_array($result);?>
           </div>
         </div>
 
+
         <div class="col-md-12 col-sm-12">
           <div class="x_panel">
             <div class="x_title">
@@ -222,7 +228,7 @@ $row=mysqli_fetch_array($result);?>
                   <div class="col-sm-12">
                     <div class="card-box table-responsive">
 
-                      <table id="datatable-buttons" class="table table-striped table-bordered" style="width:100%">
+                      <!-- <table id="datatable-buttons" class="table table-striped table-bordered" style="width:100%">
                         <thead>
                           <tr>
                             <th>Unit Name</th>
@@ -275,6 +281,62 @@ $row=mysqli_fetch_array($result);?>
                           </tr>
                         </tfoot>
 
+                      </table> -->
+
+                      <table id="datatable-buttons" class="table table-striped table-bordered" style="width:100%">
+                        <thead>
+
+                          <tr>
+                            <th>Project</th>
+                            <th>Company</th>
+                            <th>Location</th>
+                            <th>Units</th>
+                            <th>Status</th>
+                            <th>Action</th>
+
+                          </tr>
+                        </thead>
+
+
+                        <tbody>
+                          <?php
+                         $sql = 'SELECT * FROM  project JOIN companies ON companies.company_id = project.company_id';
+                         $result = mysqli_query($conn,$sql);
+                         $i = 1;
+                         while($row = mysqli_fetch_array($result))
+                           {
+                        ?>
+                          <tr>
+                            <td><?php echo $row['project_name'];?></td>
+                                <td><?php echo $row['company_name']; ?></td>
+                                <td><?php echo $row['project_location']; ?></td>
+                                <td><a href="units.php?view_project=<?php echo $row['project_id']; ?>"><button type="button" class="btn btn-sm btn-login">Manage</button></a></td>
+                                <?php
+                                if ($row['project_status']=='0') {
+                                    echo '<td><span class="badge bg-success">Active</span></td>';
+                                }else {
+                                  echo '<td><span class="badge bg-danger">Inactive</span></td>';
+                                }
+                                ?>
+                              <td>
+                                  <p class="text-muted">
+                                <a href="view-project.php?view_project=<?php echo $row['project_id']; ?>"><button type="button" class="btn btn-sm btn-view">View & Edit</button></a></td>
+                                 </p>
+
+                          </tr>
+                           <?php $i++; } ?>
+
+                        </tbody>
+                        <tfoot>
+        <tr>
+          <th>Project</th>
+          <th>Company</th>
+          <th>Location</th>
+          <th>Units</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </tfoot>
                       </table>
 
           </div>
@@ -345,30 +407,7 @@ $row=mysqli_fetch_array($result);?>
     <script src="assets/vendors/jszip/dist/jszip.min.js"></script>
     <script src="assets/vendors/pdfmake/build/pdfmake.min.js"></script>
     <script src="assets/vendors/pdfmake/build/vfs_fonts.js"></script>
-
-    <!-- Custom Theme Scripts -->
-    <script src="assets/build/js/custom.min.js"></script>
     <script>
-  		$(document).ready(function() {
-  		  var table = $('#example2').DataTable( {
-  			buttons: ['excel', 'pdf', 'print'],
-  			lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]]
-  		  });
-
-  		  table.buttons().container()
-  			.appendTo('#example2_wrapper .col-md-6:eq(0)')
-  			.addClass('btn-container'); // Add a class to the buttons container
-  		});
-  	  </script>
-
-  	  <style>
-  		/* Add custom styling for the space between buttons and length menu */
-  		.btn-container {
-  		  margin-top: 10px; /* Adjust this value as needed for the desired spacing */
-  		}
-  	  </style>
-
-  		<script>
   		// Example starter JavaScript for disabling form submissions if there are invalid fields
   			(function () {
   			  'use strict'
@@ -492,11 +531,21 @@ $row=mysqli_fetch_array($result);?>
   					priceWordsElement.textContent = priceWords;
   			}
   	</script>
-
-
-
-
-
+    <script src="assets/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="assets/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="assets/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="assets/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="assets/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="assets/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="assets/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="assets/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="assets/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="assets/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="assets/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="assets/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+    <script src="assets/vendors/jszip/dist/jszip.min.js"></script>
+    <script src="assets/vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="assets/vendors/pdfmake/build/vfs_fonts.js"></script>
 
 
   </body>
