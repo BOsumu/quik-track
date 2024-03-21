@@ -182,28 +182,39 @@ $row=mysqli_fetch_array($result);?>
                                       <div class="form-group">
                                           <div class='input-group date' id='myDatepicker2'>
                                             <select class="form-control" id="project-select" data-placeholder="Choose one thing" required name="pay_discription">
-            <option selected disabled value>SELECT</option>
-            <?php
-            // Retrieve installments and their due amounts for the specific sale_id
-            $installmentQuery = "SELECT installment, amount, SUM(paid_amount) AS total_paid_amount
-                                FROM payment_plan pp
-                                LEFT JOIN payments p ON pp.sale_id = p.sale_id AND pp.installment = p.pay_discription
-                                WHERE pp.sale_id = $sale_id
-                                GROUP BY installment";
+                                              <option selected disabled value>SELECT</option>
+                                  						<?php
+                                      // Retrieve installments and their due amounts for the specific sale_id
+                                      $installmentQuery = "SELECT installment, amount, SUM(paid_amount) AS total_paid_amount
+                                                           FROM payment_plan pp
+                                                           LEFT JOIN payments p ON pp.sale_id = p.sale_id AND pp.installment = p.pay_discription
+                                                           WHERE pp.sale_id = $sale_id
+                                                           GROUP BY installment";
 
-            $result = mysqli_query($conn, $installmentQuery);
+                                      $result = mysqli_query($conn, $installmentQuery);
 
-            while ($row = mysqli_fetch_assoc($result)) {
-                $installmentName = $row["installment"];
-                $installmentDueAmount = $row["amount"] - ($row["total_paid_amount"] ?? 0);
+                                      while ($row = mysqli_fetch_assoc($result)) {
+                                          $installmentName = $row["installment"];
+                                          $installmentAmount = $row["amount"];
+                                          $totalPaidAmount = $row["total_paid_amount"] ?? 0;
 
-                // Only add options for installments with due amounts greater than 0
-                if ($installmentDueAmount > 0) {
-                    ?>
-                    <option value="<?php echo $installmentName; ?>"><?php echo $installmentName . ' - Due amount: ' . number_format($installmentDueAmount, 2); ?></option>
-                <?php }
-            } ?>
-        </select>
+                                          // Calculate the due amount based on whether the installment amount is positive or negative
+                                          if ($installmentAmount >= 0) {
+                                              $installmentDueAmount = max(0, $installmentAmount - $totalPaidAmount);
+                                          } else {
+                                              $installmentDueAmount = min(0, $installmentAmount - $totalPaidAmount);
+                                          }
+
+                                          // Only add options for installments with due amounts not equal to 0
+                                          if ($installmentDueAmount != 0) {
+                                  ?>
+                                              <option value="<?php echo $installmentName; ?>"><?php echo $installmentName . ' - Due amount: ' . number_format($installmentDueAmount, 2); ?></option>
+                                  <?php
+                                          }
+                                      }
+                                  ?>
+
+                                          </select>
                                           </div>
                                       </div>
                                   </div>
