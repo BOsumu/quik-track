@@ -74,7 +74,8 @@ while ($row_post = mysqli_fetch_array($run_query)){
                       </a>
                       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                           <a class="dropdown-item" href="sales_collection.php">Collections & Installment Sheet</a>
-                            <a class="dropdown-item" href="stock_report.php">Stock Repot</a>
+                          <a class="dropdown-item" href="stock_report.php">Stock Repot</a>
+                          <a class="dropdown-item" href="sales_summery_report.php">Sales summery Repot</a>
                         </div>
             </li>
           </ul>
